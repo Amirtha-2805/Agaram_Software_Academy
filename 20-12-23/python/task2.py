@@ -1,4 +1,5 @@
-Details=[
+
+details=[
     {
         "Name":"Aradhya",
         "Age":5,
@@ -17,6 +18,7 @@ Details=[
         "Address": "Coil Street,Neelanthottam,Kollam",
         "Contact Number": 8768754786
     },
+
     {
 
          "Name":"Rosy",
@@ -35,5 +37,11 @@ Details=[
   
     }
 ]
-print(Details[3]["Address"])
+print(details[3]["Address"],details[3]["Name"])
+
+
+
+
+
+
 

@@ -18,7 +18,10 @@ h=int(input("Enter input for substraction operation:"))
 l=g-h
 print("Substraction of",g,"and",h,"is",l)
 
-
+a=int(input("Enter 1 input":))
+b=int(input("Enter 2 input":))
+c=a+b
+print(c)
 
 
 
