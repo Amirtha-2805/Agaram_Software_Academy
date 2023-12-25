@@ -208,7 +208,7 @@ application_form= {
                             "marks_obtained":185,
                             "maximum_marks":200,
                         }],
-                        "percentage_of_pcm":96
+                        "percentage_of_pcm":94
     },
                         
 
