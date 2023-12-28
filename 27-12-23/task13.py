@@ -1,8 +1,8 @@
 a=int(input("Enter amount:"))
-b=int(input("Enter a note between 2000 to 1:"))
-c=a/b
+b=int(input("Enter any note from(2000,500,200,100,50,20,10,5,1:"))
+c=int(a/b)
 if b==2000 :
-    print("No.of 2000 note is:",c)
+      print("No.of 2000 note is:",c)
 elif b==500:
     print("No.of 500 note is:",c)
 elif b==200:

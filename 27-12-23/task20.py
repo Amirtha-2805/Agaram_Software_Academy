@@ -1,6 +1,6 @@
 basic_salary=int(input("Enter your basic salary:"))
-hra_percentage=float(input("Enter:"))
-da_percentage=float(input("Enter:"))
+hra_percentage=float(input("Enter HRA percentage:"))
+da_percentage=float(input("Enter DA percentage:"))
 hra=(basic_salary*hra_percentage)/100
 da=(basic_salary*da_percentage)/100
 gross_salary=basic_salary+hra+da 
