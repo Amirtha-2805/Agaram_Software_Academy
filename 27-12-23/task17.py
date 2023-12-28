@@ -11,4 +11,3 @@ elif d>0:
     print("The roots are real and distinct:",x,"and",y)    
 elif d<0:
     print("The roots are imaginary:",x,"and",y)   
-
