@@ -1,5 +1,5 @@
-a=int(input("Enter a number:"))
-b=int(input("Enter a number:"))
+a=int(input("Enter a number1:"))
+b=int(input("Enter a number2:"))
 c=a+b
 if c<0:
     print("c is negative")

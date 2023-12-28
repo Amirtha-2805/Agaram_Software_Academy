@@ -1,4 +1,4 @@
-a=int(input("Enter:"))
+a=int(input("Enter input:"))
 i=a*0.50+0.2
 j=a*0.75+0.2
 k=a*1.20+0.2
