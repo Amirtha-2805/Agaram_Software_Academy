@@ -1,28 +1,10 @@
 a=int(input("Enter month number:"))
-if a==1:
+if (a==1) or (a==3) or (a==5) or (a==7) or (a==8) or (a==10) or (a==12):
     print("No.of days is 31")
-elif a==2:
-    print("No.of days is 28") 
-elif a==3:
-    print("No.of days is 31")
-elif a==4:
-    print("No.of days is 28") 
-elif a==5:
-    print("No.of days is 31")
-elif a==6:
-    print("No.of days is 28") 
-elif a==7:
-    print("No.of days is 31") 
-elif a==8:
-    print("No.of days is 28") 
-elif a==9:
-    print("No.of days is 31") 
-elif a==10:
-    print("No.of days is 28")
-elif a==11:
-    print("No.of days is 30")
-elif a==12:
-    print("No.of days is 28") 
+elif(a==2):
+    print("No. of days is either 29 or 28")    
+elif( a==4) or (a==4) or (a==6) or (a==9) or (a==11):
+    print("No.of days is 30") 
 
 
 
