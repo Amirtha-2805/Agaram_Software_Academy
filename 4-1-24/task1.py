@@ -31,7 +31,7 @@ application_form= {
                                 {
                                     "name":"Aiswarya.N",
                                     "relation":"Sister",
-                                    "occupation":""
+                                    "occupation":"House wife"
 
                                 }
                                 ],
@@ -106,33 +106,33 @@ application_form= {
                                                   "month_year":"April 2018",
                                                   "subjects":[{
                                                       "subject":"Tamil",
-                                                      "marks_obtained":190,
-                                                      "max_marks":200
+                                                      "marks_obtained":90,
+                                                      "max_marks":100
                                                   },
                                                   {
                                                       "subject":"English",
-                                                      "marks_obtained":180,
-                                                      "max_marks":200
+                                                      "marks_obtained":80,
+                                                      "max_marks":100
                                                   },
                                                   {
                                                       "subject":"Maths",
-                                                      "marks_obtained":185,
-                                                      "max_marks":200
+                                                      "marks_obtained":85,
+                                                      "max_marks":100
                                                   },
                                                   {
                                                       "subject":"Physics",
-                                                      "marks_obtained":140,
-                                                      "max_marks":200
+                                                      "marks_obtained":90,
+                                                      "max_marks":100
                                                   },
                                                   {
                                                       "subject":"Chemistry",
-                                                      "marks_obtained":170,
-                                                      "max_marks":200
+                                                      "marks_obtained":70,
+                                                      "max_marks":100
                                                   },
                                                   {
-                                                      "subject":"Tamil",
-                                                      "marks_obtained":139,
-                                                      "max_marks":200
+                                                      "subject":"Biology",
+                                                      "marks_obtained":98,
+                                                      "max_marks":100
                                                   },
                                                   ],                                                                                                                       
                                               },
@@ -140,10 +140,43 @@ application_form= {
                                             {
                                                 "level":"Diploma",
                                                   "name_of-the_examination":"",
-                                                  "reg.no":"",
-                                                  "name_of_institution":"",
-                                                  "month_year":"",
-                                                  "subjects":""                                                                                    
+                                                  "reg.no":"20183030300",
+                                                  "name_of_institution":"Konam college",
+                                                  "month_year":"March 2019",
+                                                  "subjects":[
+                                                       {
+                                                      "subject":"Tamil",
+                                                      "marks_obtained":98,
+                                                      "max_marks":100
+                                                  },
+                                                     {
+                                                      "subject":"English",
+                                                      "marks_obtained":80,
+                                                      "max_marks":100
+                                                  }, 
+                                                  {
+                                                      "subject":"Maths",
+                                                      "marks_obtained":86,
+                                                      "max_marks":100
+                                                  },
+
+                                                  {
+                                                      "subject":"Science",
+                                                      "marks_obtained":67,
+                                                      "max_marks":100
+                                                  },
+                                                  {
+                                                      "subject":"Social",
+                                                      "marks_obtained":79,
+                                                      "max_marks":100
+                                                  },
+                                                  {
+                                                      "subject":"Calculas",
+                                                      "marks_obtained":77,
+                                                      "max_marks":100
+                                                  }
+                               
+                                                  ]                                                                                   
                                                                                 
                                             },
                                             {
@@ -629,58 +662,120 @@ application_form= {
        "note":"Triplicate attested copies of above mentioned original certificates should be submitted along with Application"
 
         }
-print( "Religion:",application_form["category"]["religion"])
-print("Income:",application_form ["family"][1]["total_annual_income"])
-print("State of Birth:",application_form["place_of_birth"]["state"])
-print("Total marks in HSC:",application_form["details_of_examination_passed"][0]["subjects"][0]["marks_obtained"]+
-      application_form["details_of_examination_passed"][0]["subjects"][1]["marks_obtained"]+
-      application_form["details_of_examination_passed"][0]["subjects"][2]["marks_obtained"]+
-      application_form["details_of_examination_passed"][0]["subjects"][3]["marks_obtained"]+
-      application_form["details_of_examination_passed"][0]["subjects"][4]["marks_obtained"]+
-      application_form["details_of_examination_passed"][0]["subjects"][5]["marks_obtained"])
-
-print( "Average marks in HSC:",(application_form["details_of_examination_passed"][0]["subjects"][0]["marks_obtained"]+
-      application_form["details_of_examination_passed"][0]["subjects"][1]["marks_obtained"]+
-      application_form["details_of_examination_passed"][0]["subjects"][2]["marks_obtained"]+
-      application_form["details_of_examination_passed"][0]["subjects"][3]["marks_obtained"]+
-      application_form["details_of_examination_passed"][0]["subjects"][4]["marks_obtained"]+
-      application_form["details_of_examination_passed"][0]["subjects"][5]["marks_obtained"])/6)
-print("Percentage in HSC:",(application_form["details_of_examination_passed"][0]["subjects"][0]["marks_obtained"]+
-      application_form["details_of_examination_passed"][0]["subjects"][1]["marks_obtained"]+
-      application_form["details_of_examination_passed"][0]["subjects"][2]["marks_obtained"]+
-      application_form["details_of_examination_passed"][0]["subjects"][3]["marks_obtained"]+
-      application_form["details_of_examination_passed"][0]["subjects"][4]["marks_obtained"]+
-      application_form["details_of_examination_passed"][0]["subjects"][5]["marks_obtained"])/1200*100)
-
-print("Percentage of Physics,Chemistry,Maths:",(application_form["hs_academic_stream"]["marks"][0]["marks_obtained"]
-      +application_form["hs_academic_stream"]["marks"][1]["marks_obtained"]+
-      application_form["hs_academic_stream"]["marks"][2]["marks_obtained"]
-      )/600*100)
-
-print("Total percentage in B.Sc:",(application_form["academic_marks"][0]["subjects"][0]["marks_obtained"]+
-      application_form["academic_marks"][0]["subjects"][1]["marks_obtained"]+
-      application_form["academic_marks"][0]["subjects"][2]["marks_obtained"]+
-      application_form["academic_marks"][1]["subjects"][0]["marks_obtained"]+
-      application_form["academic_marks"][1]["subjects"][1]["marks_obtained"]+
-      application_form["academic_marks"][1]["subjects"][2]["marks_obtained"]+
-      application_form["academic_marks"][2]["subjects"][0]["marks_obtained"]+
-      application_form["academic_marks"][2]["subjects"][1]["marks_obtained"]+
-      application_form["academic_marks"][2]["subjects"][2]["marks_obtained"]+
-      application_form["academic_marks"][3]["subjects"][0]["marks_obtained"]+
-      application_form["academic_marks"][3]["subjects"][1]["marks_obtained"]+
-      application_form["academic_marks"][3]["subjects"][2]["marks_obtained"]+
-      application_form["academic_marks"][4]["subjects"][0]["marks_obtained"]+
-      application_form["academic_marks"][4]["subjects"][1]["marks_obtained"]+
-      application_form["academic_marks"][4]["subjects"][2]["marks_obtained"]+
-      application_form["academic_marks"][5]["subjects"][0]["marks_obtained"]+
-      application_form["academic_marks"][5]["subjects"][1]["marks_obtained"]+
-      application_form["academic_marks"][5]["subjects"][2]["marks_obtained"])/1800*100)
+# income=application_form["family"]["total_annual_income"]
+# print("Total annual income is",income)
+# for data in application_form["family"]["members"]:
+#     #      print(data)
+    
 
 
 
-                                                
+# for marks in application_form["details_of_examination_passed"]:
+#     total=0
+#     maximum_marks=0
+#     for a in marks["subjects"]:
+#         total=total+a["marks_obtained"]
+#         maximum_marks=maximum_marks+a["max_marks"]
+#         percentage=(total/maximum_marks)*100
+#     print( marks["level"],total,"out of",maximum_marks,"and percentage is",percentage) 
+   
+
+community=input("Enter your community:")
+income=int(input("Enter your annual income:"))
+application_form["category"]["community"]=community
+application_form["family"]["total_annual_income"]=income
+print(application_form["category"])
+print("Total annual income is",application_form["family"]["total_annual_income"])
+
+for marks in application_form["details_of_examination_passed"]:
+    total=0
+    maximum_marks=0
+    language=application_form["mother_tongue"]
+
+    for a in marks["subjects"]:
+     total=total+a["marks_obtained"]
+     maximum_marks=maximum_marks+a["max_marks"]
+    percentage=(total/maximum_marks)*100
+
+
+    if (percentage>=60) and (language=="Tamil") and ((community=="BC") and (income<50000)):
+          print("You are eligible for the scholarship")
+    elif (percentage>=70) and (language=="Tamil") and( (community=="OC") and (income<70000)):
+     print("You are eligible for the scholarship")   
+    else:
+     print("Not eligible")
+
+
+# application_form["category"]["community"]="OBC"
+# for caste in application_form["category"]:
+#     print(caste["community"])
 
 
 
-               
 
+
+
+
+
+# for highest_mark in application_form["details_of_examination_passed"]:
+
+#     highest_mark_in_BSC=0
+#     for a in highest_mark["subjects"]:
+   
+#      if (highest_mark["level"]=="B.SC") and (a["marks_obtained"]>highest_mark_in_BSC):
+#             highest_mark_in_BSC=a["marks_obtained"]
+# print("Mark in",a["subject"],"is the highest which is",highest_mark_in_BSC)  
+
+
+
+
+# for highest_mark in application_form["academic_marks"]:
+#     largest_no=0
+#     for a in highest_mark["subjects"]:
+#         if a["marks_obtained"]>largest_no:
+#             largest_no=a["marks_obtained"]
+# print( "Mark in",a["subject"],"is the highest among all sems which is",largest_no)
+
+
+
+# for data in application_form["academic_marks"]:
+#     total_of_sem1=0
+#     total_of_sem2=0
+#     total_of_sem3=0
+#     total_of_sem4=0
+#     total_of_sem5=0
+#     total_of_sem6=0
+#     sem=data["period_of_degree"]
+
+#     for total_marks in data["subjects"]:
+        
+#         if sem=="sem1":
+#          total_of_sem1=total_of_sem1+total_marks["marks_obtained"]
+#         if sem=="sem2":
+#             total_of_sem2=total_of_sem2+total_marks["marks_obtained"]+total_of_sem1   
+#         if sem=="sem3":
+#             total_of_sem3=total_of_sem3+total_marks["marks_obtained"]+total_of_sem2 
+#         if sem=="sem4":
+#             total_of_sem4=total_of_sem4+total_marks["marks_obtained"] +total_of_sem3  
+#         if sem=="sem5":
+#             total_of_sem5=total_of_sem5+total_marks["marks_obtained"]+total_of_sem4
+#         if sem=="sem6":
+#             total_of_sem6=total_of_sem6+total_marks["marks_obtained"] +total_of_sem5   
+#     total=total_of_sem1+total_of_sem2+total_of_sem3+total_of_sem4+total_of_sem5+total_of_sem6
+#     print(sem,total)    
+      
+       
+
+
+
+# for data in application_form["academic_marks"]:
+#     total=0
+
+#     for total_marks in data["subjects"]:
+#         total=total+total_marks["marks_obtained"]
+#     print(data["period_of_degree"],total)                 
+
+
+            
+    
+          

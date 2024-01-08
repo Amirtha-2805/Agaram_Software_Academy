@@ -104,20 +104,20 @@ my_resume={
 
 # print(my_resume["certificates"][1]["course_name"])
 
-def education():
- if len(my_resume["education_qualification"])<2:
-  a=my_resume["education_qualification"]
-  a.append({
-    "course":"Diploma",
-    "major":"",
-    "percentage":89,
-    "institute_name":"Government colege"  
+# def education(course):
+#  if len(my_resume["education_qualification"])<2:
+#   a=my_resume["education_qualification"]
+#   a.append({
+#     "course":"Diploma",
+#     "major":"",
+#     "percentage":89,
+#     "institute_name":"Government colege"  
        
-})
-  print(a)
+# })
+#   print(course)
 
- print(my_resume["education_qualification"])
-education()
+#  print(my_resume["education_qualification"])
+# education()
 
 
 
@@ -175,3 +175,23 @@ education()
 #         each["course"]="12th"
 
 #     print(each)
+
+def add_education(list):
+ 
+    user_entry=input("Do you want to add course?:")
+    if user_entry=="Yes" or user_entry=="yes":
+        course=input("Enter your course:")
+        major=input("Enter your major:")
+        percentage=input("Enter your percentage:")
+        institute_name=input("Enter your institute name:")
+        list.append({
+        "course":course,
+        "major":major,
+        "percentage":percentage,
+        "institute_name":institute_name
+        })
+    return list
+ 
+
+updated_list=add_education(my_resume["education_qualification"])
+print(updated_list)

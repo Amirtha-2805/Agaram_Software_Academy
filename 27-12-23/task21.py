@@ -1,5 +1,4 @@
 a=int(input("Enter input:"))
-
 if a<=50:
     i=(a*0.50)+(a*0.50)*20/100    
     print("Total Electricity bill is:",i)
