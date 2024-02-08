@@ -1,22 +1,21 @@
 resume={}
-# get_name=input("Enter your name:")
-# resume["name"]=get_name
+get_name=input("Enter your name:")
+resume["name"]=get_name
 
-# email=input("Enter your email id:")
-# resume["email_id"]=email
+email=input("Enter your email id:")
+resume["email_id"]=email
 
-# mobile=input("Enter your mobile number:")
-# resume["mobile_no"]=mobile
+mobile=input("Enter your mobile number:")
+resume["mobile_no"]=mobile
 
-# date=input("Enter date:")
-# resume["date"]=date
-# print(resume)
+date=input("Enter date:")
+resume["date"]=date
 
-# objectives=input("Enter your objectives:")
-# resume["objectives"]=objectives
+objectives=input("Enter your objectives:")
+resume["objectives"]=objectives
 
-# declaration=input("Enter your declaration:")
-# resume["declaration"]=declaration
+declaration=input("Enter your declaration:")
+resume["declaration"]=declaration
 
 
 # no_of_education_qualification=int(input("How many education qualification do you want to add?"))
@@ -32,7 +31,7 @@ resume={}
 #                                                 })
 
     
-#
+
 user_entry_1=int(input("How many educational qualification do you want to add"))  
 resume["educational_qualification"]=[]
 
@@ -52,7 +51,7 @@ resume["skills"]=[]
 
 
 
-def user_details(no_of_education,location_1,no_of_experience,location_2,no_of_projects,location_3,no_of_certificates,location_4,location_5,no_of_hobbies,no_of_skills,location_6):
+def user_details(no_of_education,location_1,no_of_experience,location_2,no_of_projects,location_3,no_of_certificates,location_4,location_5,no_of_skills,location_6):
 
     for qualifications in range(no_of_education):
         course=input("Enter your course:")
@@ -90,35 +89,43 @@ def user_details(no_of_education,location_1,no_of_experience,location_2,no_of_pr
             "year":year
         })
 
-father_name=input("Enter your father's name:"),
-mother_name=input("Enter your mother's name:"),
-date_of_birth=input("Enter your date of birth:"),
-address=input("Enter your address:"),
-pin_code=input("Enter your pincode:")    
-resume["personal_info"]["father_name"]=father_name
-resume["personal_info"]["mother_name"]=mother_name
-resume["personal_info"]["date_od_birth"]=date_of_birth
-resume["personal_info"]["address"]=address
-resume["personal_info"]["pin_code"]=pin_code
-hobbies=[]
-user_entry_5=int(input("How many hobbies do you want to add?"))
-for i in range(user_entry_5):
-        list_of_hobbies=input("Enter your hobbies:")
-        hobbies.append(list_of_hobbies)
-resume["personal_info"]["hobbies"]=hobbies
-for j in range(user_entry_6):
-        list_of_skills=input("Enter your skills:")
-        resume["skills"].append(list_of_skills)
+    father_name=input("Enter your father's name:"),
+    mother_name=input("Enter your mother's name:"),
+    date_of_birth=input("Enter your date of birth:"),
+    address=input("Enter your address:"),
+    pin_code=input("Enter your pincode:")    
+    resume["personal_info"]["father_name"]=father_name
+    resume["personal_info"]["mother_name"]=mother_name
+    resume["personal_info"]["date_od_birth"]=date_of_birth
+    resume["personal_info"]["address"]=address
+    resume["personal_info"]["pin_code"]=pin_code
+    hobbies=[]
+    user_entry_5=int(input("How many hobbies do you want to add?"))
+    for i in range(user_entry_5):
+            list_of_hobbies=input("Enter your hobbies:")
+            hobbies.append(list_of_hobbies)
+    resume["personal_info"]["hobbies"]=hobbies
+    for j in range(user_entry_6):
+            list_of_skills=input("Enter your skills:")
+            resume["skills"].append(list_of_skills)
 
-
-
+    languages_known=[]
+    user_entry_7=int(input("How many languages did you know?"))
+    for k in range(user_entry_7):
+         list_of_languages=input("Enter known languages:")
+         languages_known.append(list_of_languages)
+    resume["personal_info"]["languages_known"]=languages_known
     
    
 
-user_details(user_entry_1,resume["educational_qualification"],user_entry_2,resume["experience"],user_entry_3,resume["projects"],user_entry_4,resume["certifications"],resume["personal_info"],user_entry_5,user_entry_6,resume["skills"])
+user_details(user_entry_1,resume["educational_qualification"],user_entry_2,resume["experience"],user_entry_3,resume["projects"],user_entry_4,resume["certifications"],resume["personal_info"],user_entry_6,resume["skills"])
 
 
 print(resume)
+
+
+
+
 
 
 
