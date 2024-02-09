@@ -1,0 +1,33 @@
+
+*{
+    margin:0;
+ }
+
+.para1{
+    color:white;
+    background-color:rgb(65, 58, 58);
+    width:500px;
+    border:6px dotted magenta;
+    margin:50px 0 0 400px;
+    /* margin:0; */
+    padding:50px;
+} 
+.para2{
+    color:rgb(12, 12, 39);
+    background-color:rgb(212, 112, 12);
+    width:400px;
+    border: 8px double black;
+    margin:100px 0 0 470px;
+    padding:50px 30px 60px 40px;
+}
+.para3{
+    color:white;
+    background-color: purple;
+    width:500px;
+    border: 9px ridge yellow;
+    margin:100px 0 100px 420px;
+    padding:50px 50px;
+}
+
+
+ 
