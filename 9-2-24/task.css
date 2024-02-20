@@ -1,0 +1,39 @@
+/* body{
+    background-color:rgb(252, 252, 89);
+    border-width: 100px;
+    border-style: solid;
+    border-color: black;
+} */
+.main{
+    background-color:rgb(208, 252, 120);
+    border:3px solid rgb(145, 13, 13);
+    width:34%;
+    height:70%;
+    
+}
+.header{
+    color:black;
+    margin:30px 0 0 10px;
+}
+.picture{
+    border-width: 5px;
+    border-style: ridge;
+    border-color:rgb(241, 111, 5);
+    width:350px;
+    height:100px;
+    margin:17px 0 0 10px;
+    
+}
+.bold{
+    text-decoration: underline;
+}
+p{   
+    border:6px dashed rgb(240, 88, 33);
+    height:40%;
+    width:338px;
+    overflow-y:scroll;
+    background-color:#80fa0d;
+    margin:35px 0 0 10px;
+    padding:15px 5px 0 5px;
+
+}

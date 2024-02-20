@@ -1,0 +1,35 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+.one{
+    height:200px;
+    width:200px;
+    background-color: tomato;
+    border: 2px solid black;
+    flex-basis: 500px;
+    /* flex-grow: 1; */
+}
+.one:hover{
+    background-color:black;
+}
+.two{
+    height:200px;
+    width:200px;
+    background-color:palevioletred;
+    border: 2px solid black;
+    /* flex-grow: 2; */
+}
+.three{
+    height:200px;
+    width:200px;
+    background-color: skyblue;
+    border: 2px solid black;
+    /* flex-grow: 1; */
+}
+/* .main :nth-of-type(2)
+    {
+        background-color: aqua;
+    } */

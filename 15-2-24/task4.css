@@ -1,0 +1,47 @@
+.main{
+    background-color:rgb(199, 8, 81);
+    width:99.9%;
+    height:600px;
+    border-radius: 40px;
+    margin-top: 23px;
+    position: relative;
+    font-family:cursive;    
+}
+.one{
+    height:480px;
+    width:17.4%;
+    background-color: orange;
+    border:6px dashed white;
+    border-radius: 40px;
+    position: absolute;
+    left:100px;
+}
+p{
+    color:white;
+    font-size: 50px;
+    position: absolute;
+    top:-50px;
+}
+.three{
+    height:450px;
+    width:17.4%;
+    background-color:rgb(38, 250, 38);
+    border:6px solid yellow;
+    border-radius: 40px;
+    position: absolute;
+    left:1080px;
+    top:-20px;
+    right:10px;
+    opacity: 0.8;
+}
+.two{
+    height:240px;
+    width:74%;
+    background-color: black;
+    border:6px solid yellow;
+    border-radius: 40px;
+    position: absolute;
+    left:250px;
+    bottom: 50px;
+    
+}

@@ -6,11 +6,13 @@
 .para1{
     color:white;
     background-color:rgb(65, 58, 58);
-    width:500px;
+    width:100px;
+    height:100px;
     border:6px dotted magenta;
     margin:50px 0 0 400px;
-    /* margin:0; */
     padding:50px;
+    text-align:justify;
+    overflow-x:scroll;
 } 
 .para2{
     color:rgb(12, 12, 39);
@@ -19,6 +21,7 @@
     border: 8px double black;
     margin:100px 0 0 470px;
     padding:50px 30px 60px 40px;
+    text-align: justify;
 }
 .para3{
     color:white;
@@ -27,7 +30,9 @@
     border: 9px ridge yellow;
     margin:100px 0 100px 420px;
     padding:50px 50px;
+    text-align: justify;
 }
+
 
 
  

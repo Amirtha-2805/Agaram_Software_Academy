@@ -1,0 +1,16 @@
+.one{
+ width:25%;
+ height:370px;
+ border:3px solid black;
+position:relative;
+}
+.two{
+    width:50%;
+    border: 3px solid #ff0000;
+    position:absolute; 
+    left:0;
+    top:0;   
+}
+/* body{
+    position:relative;    
+} */

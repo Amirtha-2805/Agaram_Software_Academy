@@ -1,0 +1,16 @@
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+div{
+    width:20%;
+    height:290px;
+    color: white;
+    background-color:rgb(33, 81, 100);
+    border: 2px solid skyblue;
+    border-radius: 10px
+}
+/* .one{
+    flex-grow: 1;
+} */

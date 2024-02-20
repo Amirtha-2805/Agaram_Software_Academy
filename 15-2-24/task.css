@@ -1,0 +1,45 @@
+body{
+
+    border: 2px solid black;
+}
+.box1{
+
+    border: 3px solid tomato;
+    height: 70%;
+    width:70%;
+    margin-left: 200px;
+    margin-top: 45px;
+    margin-bottom: 45px;
+}
+.menu{
+    width:70%;
+    height: 20%;
+    border: 3px solid olive;
+    background-color: aqua;
+    display: inline-block;
+    position:sticky;
+    top:10px;
+    margin-left: 130px;
+    margin-top: 15px;
+}
+
+/* .menu{
+    width:50%;
+    height: 10%;
+    border: 3px solid olive;
+    background-color: aqua;
+    display: inline-block;
+    position:fixed;
+    top:10px;
+    margin-left: 130px;
+    margin-top: 15px;
+} */
+
+  li{
+    display: inline;
+    border: 3px solid skyblue;
+    background-color: black;
+    color: beige;
+    /* height: 200px; */
+    
+}
