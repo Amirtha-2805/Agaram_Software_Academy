@@ -1,0 +1,92 @@
+body{
+    display: flex;
+}
+
+.image{
+    width:40%;
+    background-color: #FFD07B;
+    height: 554px;
+
+    
+}
+.right{
+    width:45%;
+    background-color:#e76f51;
+    height: 554px;
+}
+.r-top{
+    background-color: #d4a373;
+    width:65%;
+    height:400px;
+    margin-top: -21px;
+    position: relative;
+}
+.r-mid{
+    width:24%;
+    height:90px;
+    background-color: rgba(12, 62, 82, 0.911);
+    border: 1px solid white;
+    border-radius: 50px;
+    margin-left: 25px;
+    position: absolute;
+    top:365px;
+    /* background-color: rgba(37, 112, 14, 0.829); */
+
+
+}
+.r-mid:hover{
+    background-color: grey;
+}
+/* .r{
+    background-color: rgba(74, 233, 26, 0.938);
+     
+     height:158px;
+     width:55%;
+     margin-top: -69px;
+    
+} */
+i{
+    color: red;
+}
+.r-mid h2{
+    color:white
+}
+.r-btm{
+    width:55%;
+    height:90px;
+    background-color: rgb(2, 151, 2);
+    border: 1px solid white;
+    border-radius: 50px;
+    margin-left: 25px;
+    margin-top: 62px;
+}
+.r-btm:hover{
+    background-color: grey;
+}
+img{
+    height:500px;
+    width:500px;
+    animation-name:example;
+    animation-duration: 2s;
+    animation-direction: reverse;
+    animation-play-state: running;
+    animation-iteration-count: infinite;
+
+}
+@keyframes example{
+    /* from{margin-left: 500px;}
+    to{margin-right: 150px;}  */
+     /* from{transform: rotate(360deg);}  */
+    to{transform: rotate(360deg);}
+}
+
+
+/* @keyframes example{
+
+0% {background-color: aqua;width:500px;height: 500px;}
+25% {background-color: aquamarine;}
+50% {background-color: pink;}
+100% {background-color:grey;}
+
+
+} */

@@ -1,0 +1,97 @@
+
+
+*{
+    font-family: "Poppins", sans-serif;
+
+}
+.header{
+    width:100%;
+    height:90px;
+    background-image:url(abstract.jpg);
+    color: white;
+    text-align: center;
+    opacity: 0.8;
+    line-height: 80px;
+}
+.sidebar{
+    display: flex;
+    width:25%;
+    height:600px;
+    flex-direction: column;
+    /* border: 2px solid black; */
+}
+.one{
+    height: 200px;
+    /* border: 1px solid black; */
+    margin-left: -40px;
+    margin-top: -19px;
+    font-size: 20px;
+    font-weight: bold;
+    /* display: flex; */
+}
+.ul-one li{
+    background-color:rgba(155, 196, 73, 0.801);
+    margin-top: 1px;
+    height: 30px;
+    /* text-align: center; */
+    line-height: 30px;
+    
+    color:rgb(35, 77, 35);
+
+    /* text-align: center; */
+}
+.ul-one li:hover{
+    color: rgb(212, 3, 55);
+    background-color: rgb(238, 182, 200);
+}
+.two{
+    height:450px;
+    background-color:rgba(155, 196, 73, 0.801);
+    font-size: 20px;
+    margin-top: -21px;
+}
+.two h2{
+    color: rgb(35, 77, 35);
+    margin-left: 20px;
+}
+.two ul{
+color: rgb(212, 3, 55);
+line-height: 32px;
+text-decoration: underline;
+font-weight: bold;
+list-style: none;
+}
+.right{
+    background-color: rgb(203, 231, 146);
+    width:75%;
+    margin-left: 332px;
+    margin-top: -621px;
+    height: 600px;
+    color:rgb(72, 88, 38)
+}
+.head{
+    margin-left: 90px;
+    
+}
+img{
+    height:200px;
+    width:200px;
+    border: 6px solid white;
+    margin-left: 100px;
+    margin-top: 30PX;
+}
+.right-top{
+    display: flex;
+}
+.para-top{
+    width:55%;
+    margin-left: 50px;
+}
+i{
+    margin-bottom: 10px;
+}
+.para-btm{
+
+    margin-left:50px;
+    margin-top: 20px;
+}

@@ -1,0 +1,59 @@
+body{
+    display: flex;
+    text-align: center;
+    font-family: "Protest Riot", sans-serif;
+
+
+
+}
+
+.one{
+    width:20%;
+    height:595px;
+    background-color:#07beb8;
+    border:3px solid grey
+}
+
+.one ul{
+    list-style: none;
+    line-height: 50px;
+    font-weight: bolder;
+    color: white;
+    margin-top: 150px;
+    margin-right: 40px;
+}
+.one li{
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    width:100%;
+}
+.one li:hover{
+    color: black;
+    background-color: white;
+    
+
+}
+.two{
+    background-image: url(BGphotO.avif);
+    width:90%;
+    height:600px;
+    opacity: 0.9;
+}
+.two h2{
+    color: aqua;
+    margin-left: 900px;
+}
+.two h2:hover{
+    color:palevioletred;
+}
+.two h1{
+    color: aqua;
+    margin-top: 200px;
+    margin-left: 45px;
+}
+.two p{
+    color:white;
+    width:50%;
+    margin-left: 300px;
+    margin-top: 20px;
+}

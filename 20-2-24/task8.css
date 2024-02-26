@@ -1,0 +1,55 @@
+.one img{
+    height:200px;
+    width:460px;
+}
+.two img{
+    height:200px;
+    width:460px;
+    margin-left: -15px;
+}
+.three img{
+    height:200px;
+    width:460px;
+    margin-left: -15px;
+}
+.header1{
+    height:60px;
+    width: 100%;
+    background-color: rgba(26, 8, 8, 0.884);
+    color:white;
+    display: flex;
+    justify-content: space-between;
+}
+.header1 ul{
+    display: flex;
+    gap:20px;
+    list-style: none;
+    margin-right: 30px;
+    
+}
+.header1 h4{
+    margin-left: 50px;
+}
+.header2{
+    display: flex;
+}
+.header2 div{
+    width:25%;
+    height:80px;
+    background-color: yellowgreen;
+    line-height: 80px;
+    text-align: center;
+}
+.header2 div:hover{
+    background-color: rgb(89, 121, 27);
+    color: white;
+    height: 80px;
+    width:25%;
+}
+.body{
+    text-align: center;
+}
+.images{
+    display: flex;
+    justify-content: center;
+}
