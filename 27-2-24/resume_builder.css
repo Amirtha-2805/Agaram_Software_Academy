@@ -1,13 +1,13 @@
-.main{
+#main{
     display:flex;
     /* margin:100px; */
 }
-.preview{
+#preview{
     margin-left: 300px;
     background-color: pink;
     width:55%;
 }
-.register{
+#register{
     background: aquamarine;
-    width:70%;
+    width:110%;
 }

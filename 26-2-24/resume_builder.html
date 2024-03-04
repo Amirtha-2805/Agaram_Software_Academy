@@ -6,23 +6,25 @@
 </head>
 <body>
     <div class="main">
-
+    <form id="form_submission">
         <div class="register">
+
         <div class="name">
+
             <label>Name</label>
-            <input type="text" placeholder="Enter your name" onkeyup="resume(this,'name')">
+            <input type="text" id="name" placeholder="Enter your name" onkeyup="resume(this,'name')"/>
         </div>
         <br>
 
         <div class="email">
             <label>Email</label>
-            <input type="email" placeholder="Enter email" onkeyup="resume(this,'email')">
+            <input type="email" id="mail" placeholder="Enter email" onkeyup="resume(this,'email')"/>
         </div>
         <br>
 
         <div class="Phone">
             <label>Phone</label>
-            <input type="number" placeholder="Enter contact number" onkeyup="resume(this,'phone')"/>
+            <input type="number" id=phone placeholder="Enter contact number" onkeyup="resume(this,'phone')"/>
         </div>
         <br>
 
@@ -50,9 +52,6 @@
             <button type="button" onclick="add_array('skills','skill')">Add</button>
         </div>         
         <br>
-
-        
-        
 
         <h2>Personal details</h2>
 
@@ -99,25 +98,22 @@
         <div>
             <input type="text" placeholder="Enter course name" onkeyup="resume(this,'education',false,0,'course')"/>
             <input type="text" placeholder="Enter institute name" onkeyup="resume(this,'education',false,0,'inst')"/>
-            <input type="text" placeholder="Enter percentage"onkeyup="resume(this,'education',false,0,'percentage')"/>
-            
-            
+            <input type="text" placeholder="Enter percentage"onkeyup="resume(this,'education',false,0,'percentage')"/>                        
         </div>
+        <br>
 
          <div>
              <input type="text" placeholder="Enter course name"onkeyup="resume(this,'education',false,1,'course')"/>
              <input type="text" placeholder="Enter institute name"  onkeyup="resume(this,'education',false,1,'inst')"/>
-             <input type="text"  placeholder="Enter percentage" onkeyup="resume(this,'education',false,1,'percentage')"/>
-                    
-                    
+             <input type="text"  placeholder="Enter percentage" onkeyup="resume(this,'education',false,1,'percentage')"/>                                        
          </div>
-
+         <br>
          <div>
             <input type="text"  placeholder="Enter course name"onkeyup="resume(this,'education',false,2,'course')"/>
             <input type="text" placeholder="Enter institute name"  onkeyup="resume(this,'education',false,2,'inst')"/>
             <input type="text"   placeholder="Enter percentage"onkeyup="resume(this,'education',false,2,'percentage')"/>
         </div>
-         
+         <br>
         <h2>Experience</h2>
 
         <div>            
@@ -139,7 +135,7 @@
             <input type="text"placeholder="Enter major" onkeyup="resume(this,'projects',false,0,'major')"/>
             <input type="text" placeholder="Enter subject"onkeyup="resume(this,'projects',false,0,'subject')"/>
         </div>
-
+<br>
 
 
 
@@ -154,6 +150,9 @@
 
 
         </div>
+        <input type="submit" value="submit" onclick="submission()"/>
+
+        </form>
 
         <div class="preview">
             <pre id="code"></pre>

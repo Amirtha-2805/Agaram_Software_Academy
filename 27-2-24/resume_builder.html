@@ -1,0 +1,164 @@
+
+<html>
+<head>
+    <script src="resume_builder.js" type="text/javaScript"></script>    
+    <link rel="stylesheet" href="resume_builder.css"/>
+</head>
+<body>
+    <div id="main">
+    <form>
+        <div id="register">
+
+        <div>
+
+            <label>Name</label>
+            <input type="text" class="one" placeholder="Enter your name" onkeyup="resume(this,'name')"/>
+        </div>
+        <br>
+
+        <div>
+            <label>Email</label>
+            <input type="email"  class="one" placeholder="Enter email" onkeyup="resume(this,'email')"/>
+        </div>
+        <br>
+
+        <div>
+            <label>Phone</label>
+            <input type="number"  class="one" placeholder="Enter contact number" onkeyup="resume(this,'phone')"/>
+        </div>
+        <br>
+
+        <div>
+            <label>Date</label>
+            <input type="date"  class="one" placeholder="Enter date" onkeyup="resume(this,'date')"/>
+        </div>
+        <br>
+
+        <div>
+            <label>Objectives</label>
+            <input type="text"  class="one" placeholder="Type objectives" onkeyup="resume(this,'objectives')"/>
+        </div>
+        <br>
+
+        <div>
+            <label>Declaration</label>
+            <input type="text"  class="one" placeholder="Enter declaration" onkeyup="resume(this,'declaration')">
+        </div>
+        <br>
+
+        <div>
+            <label>Skills</label>
+            <input type="text" class="one"  placeholder="Add your skills" id="skill"/>
+            <button type="button" onclick="add_array('skills','skill')">Add</button>
+        </div>         
+        <br>
+
+        <h2>Personal details</h2>
+
+        
+        <div>
+            <label>Father's name</label>
+            <input type="text"  class="one"  placeholder="Enter your father's name" onkeyup="resume(this,'fathername','personal_details')"/>
+
+        </div>
+
+        <div>
+            <label>Mother's name</label>
+            <input type="text"  class="one"  placeholder="Enter your mother's name" onkeyup="resume(this,'mothername','personal_details')">
+
+        </div>
+
+        <div>
+            <label>Address</label>
+            <input type="text"  class="one" placeholder="Enter your Address" onkeyup="resume(this,'address','personal_details')"/>
+
+        </div>
+
+
+        <div>
+            <label>Pincode</label>
+            <input type="number"  class="one" placeholder="Enter your pincode" onkeyup="resume(this,'pin_code','personal_details')"/>
+
+        </div>
+
+        <div>
+            <label>Hobbies</label>
+            <input type="text"  class="one" placeholder="Add your hobbies" id="hobby"/>
+            <button type="button" onclick="array('hobbies','hobby','personal_details')">Add</button>
+        </div>
+
+        <div>
+            <label>Languages_known</label>
+            <input type="text" class="one" placeholder="Add your languages" id="language"/>
+            <button type="button" onclick="array('languages_known','language','personal_details')">Add</button>
+        </div>
+
+        <h2>Education</h2>
+   
+        <div>
+            <input type="text"  class="one" placeholder="Enter course name" onkeyup="resume(this,'education',false,0,'course')"/>
+            <input type="text"  class="one" placeholder="Enter institute name" onkeyup="resume(this,'education',false,0,'inst')"/>
+            <input type="text"  class="one" placeholder="Enter percentage"onkeyup="resume(this,'education',false,0,'percentage')"/>                        
+        </div>
+        <br>
+
+         <div>
+             <input type="text"  class="one" placeholder="Enter course name"onkeyup="resume(this,'education',false,1,'course')"/>
+             <input type="text" class="one"  placeholder="Enter institute name"  onkeyup="resume(this,'education',false,1,'inst')"/>
+             <input type="text"  class="one" placeholder="Enter percentage" onkeyup="resume(this,'education',false,1,'percentage')"/>                                        
+         </div>
+         <br>
+         <div>
+            <input type="text"  class="one" placeholder="Enter course name"onkeyup="resume(this,'education',false,2,'course')"/>
+            <input type="text"  class="one" placeholder="Enter institute name"  onkeyup="resume(this,'education',false,2,'inst')"/>
+            <input type="text"  class="one" placeholder="Enter percentage"onkeyup="resume(this,'education',false,2,'percentage')"/>
+        </div>
+         <br>
+        <h2>Experience</h2>
+
+        <div>            
+            <input type="text"  class="one" placeholder="Enter your company name" onkeyup="resume(this,'experience',false,0,'company_name')"/>
+            <input type="text"  class="one" placeholder="Enter years_of_experience" onkeyup="resume(this,'experience',false,0,'years_of_experience')"/>
+        </div>
+
+
+        <div>            
+            <input type="text"  class="one"  placeholder="Enter your company name" onkeyup="resume(this,'experience',false,1,'company_name')"/>
+            <input type="text"  class="one" placeholder="Enter years_of_experience" onkeyup="resume(this,'experience',false,1,'years_of_experience')"/>
+        </div>
+
+        <h2>projects</h2>
+
+        <div>
+            
+            <input type="text"  class="one" placeholder="Enter title" onkeyup="resume(this,'projects',false,0,'title')"/>
+            <input type="text"  class="one"  placeholder="Enter major" onkeyup="resume(this,'projects',false,0,'major')"/>
+            <input type="text"  class="one" placeholder="Enter subject"onkeyup="resume(this,'projects',false,0,'subject')"/>
+        </div>
+<br>
+
+
+
+        <div>
+            
+            <input type="text"  class="one" placeholder="Enter title" onkeyup="resume(this,'projects',false,1,'title')"/>
+            <input type="text"  class="one" placeholder="Enter major" onkeyup="resume(this,'projects',false,1,'major')"/>
+            <input type="text" class="one"  placeholder="Enter subject"onkeyup="resume(this,'projects',false,1,'subject')"/>
+        </div>
+
+
+
+
+        </div>
+        <input type="submit" value="submit" onclick="submission()"/>
+
+        </form>
+
+        <div id="preview">
+            <pre id="code"></pre>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -121,8 +121,19 @@ function array(key,id,parent){
 
 preview()
 }
+function submission(){
+    // let submitted_value=document.getElementsByClass('submit').value
+    if(document.querySelector(".one").value===""){
+        alert("please enter required details");
+
+      }  
+            
+      else{
+        alert("succesfully submitted")
+        preview()
+      }
+}
 
 
-// function exp(){
-//     let experience=Number(document.getElementById("one").value)
-// }
+
+

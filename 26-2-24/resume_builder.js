@@ -121,6 +121,21 @@ function array(key,id,parent){
 
 preview()
 }
+function submission(){
+    // let a=document.getElementById("form_submission").value
+           
+       let name= document.getElementById("name").value
+      if(name ===''){
+        alert("please enter required details")
+
+      }  
+      else{
+            alert("Successfully submitted")
+
+      }
+    
+
+}
 
 
 // function exp(){

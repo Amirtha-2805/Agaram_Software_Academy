@@ -1,0 +1,58 @@
+
+<html>
+<head>
+        <title>ToDo</title>
+    <link rel="stylesheet" href="todo.css"/>
+    <script defer src="todo.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Style+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+<div class="body">
+    <div class="img_head">   
+         <img src="todo2.png" alt="">
+    <h2>TO-DO LIST</h2>
+</div>
+
+
+    <div class="input">
+        <input type="text"  id="inputbox"  placeholder="Add a new todo"/>
+        <button type="button"onclick="addtask()" class="btn" >Add</button>     
+    </div>
+    <div class="listbox">
+<ul id="u_list">
+
+    <!-- <li class="checked">Task <a href="">Edit</a></li> 
+ 
+         <li>Task <a class="edit" href="">Edit</a></li>
+        <li>Task <a href="">Edit</a></li>
+        <li>Task <a href="">Edit</a></li>
+        <li>Task<a href="">Edit</a></li>
+        <li>Task <a href="">Edit</a></li>  -->
+    <!-- <button type="button" id="edit">Edit</button> -->
+
+    </ul>
+</div>
+
+    <div>
+        <hr class="horizontal_ruler">
+        <div class="total_container">
+            <p><span id="totalcount">0</span> task(s) pending</p>
+            <button type="button" onclick="deletetask()" id="delete">Delete All</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="footer">
+    <p class="madeby">Made by</p>
+    <p class="author" style="color:#fb6f92; font-weight: bold;">Amirtha</p>
+</div>
+
+
+</body>
+
+</html>
