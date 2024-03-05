@@ -138,3 +138,11 @@ preview()
 // }
 
 
+let resumes=[]
+function saveToLocal(){
+
+    resumes.push(my_resume);
+    localStorage.setItem("resumes",JSON.stringify(resumes))
+
+}
+// saveToLocal()
