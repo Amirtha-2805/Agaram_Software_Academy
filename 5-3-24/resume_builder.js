@@ -1,3 +1,6 @@
+
+
+
 let my_resume={
     skills:[],
     personal_details:{
@@ -101,7 +104,7 @@ function preview(){
     document.getElementById("code").innerHTML=JSON.stringify(my_resume,null,4)    
 }
 
-function add_array(key,id,child){
+function add_array(key,id){
 
    
    let value=document.getElementById(id).value 
@@ -137,12 +140,65 @@ preview()
 //       }
 // }
 
-
 let resumes=[]
 function saveToLocal(){
 
-    resumes.push(my_resume);
-    localStorage.setItem("resumes",JSON.stringify(resumes))
+    // resumes.push(my_resume);
+    // localStorage.setItem("resumes",JSON.stringify(resumes));
+
+
+
+    // console.log(store_data)
+}
+
+
+function navigateData(){        
+        window.location="display.html"
+}
+
+function display(){
+    
+    // document.getElementById("resume").innerHTML=localStorage.getItem("resumes");
+
+    let local_data=localStorage.getItem("resumes")
+    let parsed_data=JSON.parse(local_data);
+    // document.write(parsed_data);
+    console.log(parsed_data)
+    // console.log(parsed_data["email"])
+    if(parsed_data){
+        let datas=document.createElement("h5");
+        datas.innerHTML=parsed_data[my_resume]
+    }
+    else{  
+    window.location="resume_builder.html"
+    }
+}
+// display()
+function saveResume(){
+    if(!localStorage.getItem("resumes")){
+        localStorage.setItem("resumes",JSON.stringify([]))
+    }
+        let resume_data=localStorage.getItem("resumes");
+        let resume_parsed=JSON.parse(resume_data);
+        let store_data=[...resume_parsed,my_resume]
+        localStorage.setItem("resumes",JSON.stringify(store_data))
+        
+        window.location="list.html"
 
 }
-// saveToLocal()
+
+
+function listed_resumes(){
+
+    let resume_data=localStorage.getItem("resumes");
+    let resume_parsed=JSON.parse(resume_data);
+    let renderHTML=''
+
+    for(let each in resume_parsed){
+      renderHTML=renderHTML+ `<li><a href="view.html?index=${each}"> ${resume_parsed[each].title}</a></li>`
+    //   document.getElementById("list").innerHTML=renderHTML  
+    //   console.log(renderHTML)
+        list.innerHTML=renderHTML
+    }
+
+}

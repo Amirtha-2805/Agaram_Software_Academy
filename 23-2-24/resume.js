@@ -108,7 +108,7 @@ function resume(){
 
 
     for (let count=0;count<my_resume.education_qualification.length;count=count+1){
-        console.log(my_resume.education_qualification[count]["percentage"])
+        console.log(my_resume.education_qualification[count]["course"] + "_" + my_resume.education_qualification[count]["percentage"])
     }
    
     for(let i=0; i<my_resume.skills.length;i=i+1){

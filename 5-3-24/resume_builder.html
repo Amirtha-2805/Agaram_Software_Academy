@@ -1,13 +1,28 @@
 
 <html>
 <head>
-    <script src="resume_builder.js" type="text/javaScript"></script>    
+        
     <link rel="stylesheet" href="resume_builder.css"/>
+    <script  src="resume_builder.js" type="text/javaScript"></script>
+
+
+
 </head>
 <body>
+    <h1 style="text-align: center;">Resume Builder</h1>
+
     <div id="main">
     <form>
+
         <div id="register">
+            <div>
+
+                <label>Title</label>
+                <input type="text" class="one" placeholder="Enter your Resume title" 
+                 onkeyup="resume(this,'title')"/>
+            </div>
+            <br>
+    
 
         <div>
 
@@ -150,8 +165,10 @@
 
 
         </div>
-        <input type="submit" value="submit" onclick="saveToLocal()"/>
+        <button type="button" value="submit" onclick="saveResume()">Submit</button>
+         <!-- <button type="button" onclick="navigateData()">display</button> -->
 
+         <!-- <button type="button" onclick="saveResume()">save</button> -->
         </form>
 
         <div id="preview">
@@ -159,6 +176,6 @@
         </div>
 
     </div>
-
+    
 </body>
 </html>

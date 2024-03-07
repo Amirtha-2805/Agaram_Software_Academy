@@ -1,0 +1,20 @@
+
+<html>
+<head>
+    <script src="resume_builder.js" type="text/javaScript"></script>
+   
+</head>
+<body>
+    <h1 id="head"></h1>
+</body>
+<script>
+
+    let params=new URLSearchParams(document.location.search);
+    let index=params.get("index");
+
+    let resume_data=localStorage.getItem("resumes");
+    let resume_parsed=JSON.parse(resume_data);
+    // console.log(resume_parsed[index])
+document.getElementById("head").innerHTML=resume_parsed[index].title
+</script>
+</html>
