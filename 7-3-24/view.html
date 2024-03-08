@@ -1,0 +1,146 @@
+
+<html>
+<head>
+    <script src="resume_builder.js" type="text/javaScript"></script>
+   
+</head>
+<body>
+    <h3 id="head"></h3>
+    <h3 id="name"></h3>
+    
+<table border=1>
+    <thead>
+        <th>Course</th>
+        <th>Inst_name</th>
+        <th>percentage</th>
+    </thead>
+    <tbody id="tabledatas1">
+
+
+    </tbody>
+</table>
+<br>
+
+<table border=1>
+    <thead>
+        <th>Company_name</th>
+        <th>Years_of_experience</th>
+        
+    </thead>
+    <tbody id="tabledatas2">
+
+
+    </tbody>
+</table>
+<br>
+<table border=1>
+    <thead>
+        <th>skills</th>
+            
+    </thead>
+    <tbody id="tabledatas3">
+
+
+    </tbody>
+</table>
+<br>
+
+<table border=1>
+    <thead>
+        <th>Hobbies</th>
+            
+    </thead>
+    <tbody id="tabledatas4">
+
+
+    </tbody>
+</table>
+<br>
+
+<table border=1>
+    <thead>
+        <th>Languages_known</th>
+            
+    </thead>
+    <tbody id="tabledatas5">
+
+
+    </tbody>
+</table>
+
+
+
+</body>
+<script>
+
+    let params=new URLSearchParams(document.location.search);
+    let index=params.get("index");
+
+    let resume_data=localStorage.getItem("resumes");
+    let resume_parsed=JSON.parse(resume_data);
+    // console.log(resume_parsed[index])
+document.getElementById("head").innerHTML=resume_parsed[index].title;
+document.getElementById("name").innerHTML=resume_parsed[index].name;
+
+let no_of_education=''
+
+for(let each of resume_parsed[index].education){
+
+no_of_education=no_of_education+`<tr>
+    <td>${each.course}</td>
+    <td>${each.inst}</td>
+    <td>${each.percentage}</td>
+                               
+    </tr>`
+// console.log(no_of_education)
+        }
+        document.getElementById("tabledatas1").innerHTML=no_of_education
+
+
+let no_of_experience=''
+for(let each of resume_parsed[index].experience){
+
+no_of_experience=no_of_experience+`<tr>
+    <td>${each.company_name}</td>
+    <td>${each.years_of_experience}</td>                               
+    </tr>`
+// console.log(no_of_education)
+        }
+        document.getElementById("tabledatas2").innerHTML=no_of_experience
+
+let no_of_skills=''
+for(let each of resume_parsed[index].skills){
+
+no_of_skills=no_of_skills+`<tr>
+    <td>${each}</td>                              
+    </tr>`
+// console.log(no_of_skills)
+        }
+        document.getElementById("tabledatas3").innerHTML=no_of_skills
+
+
+    let no_of_hobbies=''
+    for(let each of resume_parsed[index].personal_details.hobbies){
+
+    no_of_hobbies=no_of_hobbies+`<tr>
+    <td>${each}</td>                              
+    </tr>`
+// console.log(no_of_hobbies)
+        }
+        document.getElementById("tabledatas4").innerHTML=no_of_skills
+
+
+
+     let no_of_languages=''
+    for(let each of resume_parsed[index].personal_details.languages_known){
+
+    no_of_languages=no_of_languages+`<tr>
+    <td>${each}</td>                              
+    </tr>`
+// console.log(no_of_languages)
+        }
+        document.getElementById("tabledatas5").innerHTML=no_of_languages
+
+
+</script>
+</html>
