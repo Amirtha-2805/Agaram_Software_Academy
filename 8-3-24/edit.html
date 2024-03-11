@@ -1,0 +1,153 @@
+<html>
+<head>
+    <script  defer src="resume_builder.js" type="text/javaScript"></script>
+
+</head>
+<body>
+    
+        Title<input id="data_input1" type="text"/>
+        Name<input id="data_input2" type="text"/>
+        <!-- <ul>
+            skills:<input id="skills" type="text"/>
+
+        </ul> -->
+        <div id="skills">
+
+        </div>
+
+        <div id="hobbies">
+
+        </div>
+
+        <div id="education">
+
+        </div>
+
+
+    <button type="button" onclick="edit()">Update</button>
+
+</body>
+<script>
+
+    let params=new URLSearchParams(document.location.search);
+    let index=params.get("index");
+
+    let resume_data=localStorage.getItem("resumes");
+    let resume_parsed=JSON.parse(resume_data);
+    // console.log(resume_parsed[index])
+    document.getElementById("data_input1").value=resume_parsed[index].title;
+    document.getElementById("data_input2").value=resume_parsed[index].name;
+
+
+   
+    let skills_added=''    
+   for (each of resume_parsed[index].skills){          
+    skills_added=skills_added+`<input type="text" value=${each} class="added_skills"/>`               
+   }
+   document.getElementById("skills").innerHTML=skills_added
+
+
+   let hobbies_added=''    
+   for (each of resume_parsed[index].personal_details.hobbies){          
+    hobbies_added=hobbies_added+`<input type="text" value=${each} class="added_hobbies"/>`               
+   }
+   document.getElementById("hobbies").innerHTML=hobbies_added
+
+
+
+   let education_qualification=''
+   for (each in resume_parsed[index].education){
+    education_qualification=education_qualification+`course:<input type="text"  value=${ resume_parsed[index].education[each].course} class="added_education"/>`+`inst:<input type="text" value=${resume_parsed[index].education[each].inst} class="added_education"/>`+`percentage:<input type="text" value=${resume_parsed[index].education[each].percentage} class="added_education"/>`
+    
+    
+   }
+
+   
+   
+document.getElementById("education").innerHTML=education_qualification
+console.log(education_qualification);
+
+
+function edit(){
+    let params=new URLSearchParams(document.location.search);
+    let index=params.get("index");
+   
+    let new_array=[];
+ 
+ for (let each in resume_parsed){
+     if(index==each){           
+        let updated_value1=document.getElementById("data_input1").value
+        let updated_value2=document.getElementById("data_input2").value 
+        resume_parsed[each].title=updated_value1;
+        resume_parsed[each].name=updated_value2;         
+ }
+        new_array.push((resume_parsed)[each])
+
+   localStorage.setItem("resumes",JSON.stringify(new_array))
+
+ }
+
+
+
+    let updated_skills= document.getElementsByClassName("added_skills");
+    // console.log(updated_skills);
+    skills_added=[]
+
+    for (let i of updated_skills){
+        // skills_added.push(i.value)
+        // console.log(i);
+    }
+    resume_parsed[index].skills=skills_added;
+    localStorage.setItem("resumes",JSON.stringify(resume_parsed))
+
+
+
+    
+let updated_hobbies=document.getElementsByClassName("added_hobbies");
+// console.log(updated_hobbies)
+new_hobbies=[]
+for(each of updated_hobbies){
+    // console.log(each.value);
+    new_hobbies.push(each.value);
+}
+resume_parsed[index].personal_details.hobbies=new_hobbies;
+localStorage.setItem("resumes",JSON.stringify(resume_parsed))    
+   
+
+
+    
+
+let updated_education=document.getElementsByClassName("added_education");
+
+// console.log(updated_education)
+new_education=[]
+for (each of updated_education){
+    let updated_education=document.getElementsByClassName("added_education");
+    education_object={}
+
+education_object.course=each.value;
+education_object.inst=each.value; 
+education_object.percentage=each.value;
+
+
+console.log(education_object)
+// new_education.push(education_object);
+
+}
+
+    // console.log(new_education)
+
+
+
+// resume_parsed[index].education=new_education;
+// localStorage.setItem("resumes",JSON.stringify(resume_parsed))
+
+}
+
+
+
+
+</script>
+</html>
+
+
