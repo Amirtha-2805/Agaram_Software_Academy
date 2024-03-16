@@ -1,0 +1,36 @@
+body{
+    background-color: #e5989b;
+   
+}
+
+#main{
+    display:flex;
+    /* margin:100px; */
+    /* flex-direction: column; */
+}
+#preview{
+    margin-left: 300px;
+    background-color: pink;
+    width:30%;
+    height:1025px;
+    /* height:200px; */
+}
+#register{
+    background: aquamarine;
+    width:140%;
+    padding: 50px 30px;
+    margin-left: 15px;
+}
+.savebutton{
+    margin-left: 15px;
+    font-size: bold;
+    width:20%;
+    height:45px;
+    border-radius: 20%;
+    margin-top: 10px;
+    border: none;
+    background-color: #fe6d73;
+}
+.savebutton:hover{
+    background-color: wheat;    
+}

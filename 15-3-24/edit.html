@@ -1,0 +1,451 @@
+<html>
+<head>
+    <script  defer src="resume_builder.js" type="text/javaScript"></script>
+
+</head>
+<body>
+    
+        Title<input id="data_input1" type="text"/>
+        Name<input id="data_input2" type="text"/>
+        <!-- <ul>
+            skills:<input id="skills" type="text"/>
+
+        </ul> -->
+        <div id="skills">
+
+        </div>
+        <button onclick="add_newskills()">Add new skills</button>
+
+
+        <div id="hobbies">
+
+        </div>
+        <button onclick="add_newhobbies()">Add new hobbies</button>
+        <div id="languages">
+
+        </div>
+        <button onclick="add_newlanguage()">Add new language</button>
+
+
+        <table border=1>
+            <thead>
+                <th>Course</th>
+                <th>Inst_name</th>
+                <th>percentage</th>
+            </thead>
+            <tbody id="tabledatas">
+        
+        
+            </tbody>
+        </table>
+        <button onclick="add_neweducation()">click to add education</button>
+<br>
+<br>
+        <table border=1>
+            <thead>
+                <th>company_name</th>
+                <th>years_of_experience</th>
+                <th>role</th>
+
+            
+            </thead>
+            <tbody id="experience">
+        
+        
+            </tbody>
+        </table>
+        <button onclick="add_newexperience()">Add new experience</button>
+        <br>
+        <br>
+        <table border=1>
+            <thead>
+                <th>title</th>
+                <th>major</th>
+                <th>subject</th>
+
+            
+            </thead>
+            <tbody id="projects">
+        
+        
+            </tbody>
+        </table>
+        <button onclick="add_newprojects()">Add new projects</button>
+
+    <button type="button" onclick="edit()">Update</button>
+
+</body>
+<script>
+
+    let params=new URLSearchParams(document.location.search);
+    let index=params.get("index");
+
+    let resume_data=localStorage.getItem("resumes");
+    let resume_parsed=JSON.parse(resume_data);
+    // console.log(resume_parsed[index])
+    document.getElementById("data_input1").value=resume_parsed[index].title;
+    document.getElementById("data_input2").value=resume_parsed[index].name;
+
+
+   
+    let skills_added=''    
+   for (each of resume_parsed[index].skills){          
+
+    skills_added=skills_added+`<input type="text" value=${each} class="added_skills"/>`  
+            
+   }
+   
+   
+   
+   document.getElementById("skills").innerHTML=skills_added
+
+
+   let hobbies_added=''    
+   for (each of resume_parsed[index].personal_details.hobbies){          
+    hobbies_added=hobbies_added+`<input type="text" value="${each}" class="added_hobbies"/>`               
+   }
+   document.getElementById("hobbies").innerHTML=hobbies_added
+
+
+
+   let languages_added=''    
+   for (each of resume_parsed[index].personal_details.languages_known){          
+    languages_added=languages_added+`<input type="text" value="${each}"" class="added_languages"/>`               
+   }
+   document.getElementById("languages").innerHTML=languages_added
+
+   
+
+   let no_of_education=''
+
+for(let each in resume_parsed[index].education){
+
+no_of_education=no_of_education+`<tr>
+    <td><input type="text" value="${resume_parsed[index].education[each].course}" class="updated_education" onkeyup="edit(this,${each},'education','course')"/></td>
+    <td><input type="text" value="${resume_parsed[index].education[each].inst}" class="updated_education" onkeyup="edit(this,${each},'education','inst')"/></td>
+    <td><input type="text" value="${resume_parsed[index].education[each].percentage}" class="updated_education" onkeyup="edit(this,${each},'education','percentage')"/></td>
+                               
+    </tr>`
+    
+
+    document.getElementById("tabledatas").innerHTML=no_of_education
+   
+    
+
+
+}
+
+        
+
+
+let no_of_experience=''
+
+for(let each in resume_parsed[index].experience){
+
+no_of_experience=no_of_experience+`<tr>
+    <td><input type="text" value="${resume_parsed[index].experience[each].company_name}" onkeyup="edit(this,${each},'experience','company_name')"/></td>
+    <td><input type="text" value="${resume_parsed[index].experience[each].years_of_experience}" onkeyup="edit(this,${each},'experience','years_of_experience')"/><td> <input type="text" value="${resume_parsed[index].experience[each].role}"  onkeyup="edit(this,${each},'experience','role')"/></td>                                  
+    </tr>`
+        }
+        document.getElementById("experience").innerHTML=no_of_experience
+
+let no_of_projects=''
+
+for(let each in resume_parsed[index].projects){
+
+no_of_projects=no_of_projects+`<tr>
+    <td><input type="text" value="${resume_parsed[index].projects[each].title}" onkeyup="edit(this,${each},'projects','title')"/></td>
+    
+    <td><input type="text" value="${resume_parsed[index].projects[each].major}" onkeyup="edit(this,${each},'projects','major')"/><td> <input type="text" value="${resume_parsed[index].projects[each].subject}"  onkeyup="edit(this,${each},'projects','subject')"/></td>                                  
+    </tr>`
+        }
+        document.getElementById("projects").innerHTML=no_of_projects
+
+
+   
+   
+// document.getElementById("education").innerHTML=education_qualification
+// console.log(education_qualification);
+
+
+function edit(ele,key_index,key,c_key){
+    let params=new URLSearchParams(document.location.search);
+    let index=params.get("index");
+   
+    let new_array=[];
+ 
+ for (let each in resume_parsed){
+     if(index==each){           
+        let updated_value1=document.getElementById("data_input1").value
+        let updated_value2=document.getElementById("data_input2").value 
+        resume_parsed[each].title=updated_value1;
+        resume_parsed[each].name=updated_value2;         
+ }
+        new_array.push((resume_parsed)[each])
+
+
+ }
+
+
+
+    let updated_skills= document.getElementsByClassName("added_skills");
+    // console.log(updated_skills);
+    let skills_added=[]
+
+    // console.log("updated_skills",updated_skills)
+    for (let each of updated_skills){
+        skills_added.push(each.value)
+        // console.log(each);
+    }
+    
+    // console.log("skills_added",skills_added)
+    resume_parsed[index].skills=skills_added;
+    //localStorage.setItem("resumes",JSON.stringify(resume_parsed))
+
+
+
+    
+let updated_hobbies=document.getElementsByClassName("added_hobbies");
+// console.log(updated_hobbies)
+new_hobbies=[]
+for(each of updated_hobbies){
+    // console.log(each.value);
+    new_hobbies.push(each.value);
+}
+resume_parsed[index].personal_details.hobbies=new_hobbies;
+   
+
+
+let updated_languages=document.getElementsByClassName("added_languages");
+// console.log(updated_hobbies)
+new_language=[]
+for(each of updated_languages){
+    // console.log(each.value);
+    new_language.push(each.value);
+}
+resume_parsed[index].personal_details.languages_known=new_language;
+
+
+
+
+    if(key=='education'){
+ resume_parsed[index][key][key_index][c_key]=ele.value;
+ 
+    }
+// console.log(element.value)
+// window.location="edit.html"
+if(key=='experience'){
+ resume_parsed[index][key][key_index][c_key]=ele.value;
+    }
+
+    if(key=='projects'){
+ resume_parsed[index][key][key_index][c_key]=ele.value;
+    }
+    
+localStorage.setItem("resumes",JSON.stringify(resume_parsed))
+
+}
+
+
+function add_newskills(){
+    
+    let resume_data=localStorage.getItem("resumes");
+    let resume_parsed=JSON.parse(resume_data);
+    let input=`<input type="text" class="added_skills"/>`
+    // skills_added.push(input.value)
+
+  document.getElementById("skills").innerHTML=skills_added+input;    
+}
+
+localStorage.setItem("resumes",JSON.stringify(resume_parsed))
+
+
+function add_newhobbies(){
+    
+    let resume_data=localStorage.getItem("resumes");
+    let resume_parsed=JSON.parse(resume_data);
+    let input=`<input type="text" class="added_hobbies"/>`
+    // skills_added.push(input.value)
+
+  document.getElementById("hobbies").innerHTML=hobbies_added+input;
+
+    
+}
+
+localStorage.setItem("resumes",JSON.stringify(resume_parsed[index].education))
+
+
+
+
+function add_newlanguage(){
+    
+    let resume_data=localStorage.getItem("resumes");
+    let resume_parsed=JSON.parse(resume_data);
+    let input=`<input type="text" class="added_languages"/>`
+    // skills_added.push(input.value)
+
+  document.getElementById("languages").innerHTML=languages_added+input;
+
+    
+}
+
+localStorage.setItem("resumes",JSON.stringify(resume_parsed))
+
+// function add_neweducation(){
+//     let resume_data=localStorage.getItem("resumes");
+//     let resume_parsed=JSON.parse(resume_data);
+//     new_education={}
+    
+//     new_education.course=`<td><input type="text"/></td>`
+//     new_education.inst=`<td><input type="text"/></td>`
+//     new_education.percentage=`<td><input type="text"/></td>`
+//     education_object=new_education.course+new_education.inst+new_education.percentage
+//     document.getElementById("tabledatas").innerHTML=no_of_education+education_object
+
+
+   
+    
+// //    console.log(new_education)
+
+// }
+// localStorage.setItem("resumes",JSON.stringify(resume_parsed))
+
+
+
+
+
+// function add_neweducation(){
+//     let params=new URLSearchParams(document.location.search);
+//     let index=params.get("index");
+//     let resume_data=localStorage.getItem("resumes");
+//     let resume_parsed=JSON.parse(resume_data);
+//     let education_index=resume_parsed[index].education.length
+//     console.log(education_index);
+   
+//     new_education={}
+    
+//     new_education.course=`<td><input type="text"/></td>`
+//     new_education.inst=`<td><input type="text"/></td>`
+//     new_education.percentage=`<td><input type="text"/></td>`
+//     education_object=new_education.course+new_education.inst+new_education.percentage
+//     document.getElementById("tabledatas").innerHTML=no_of_education+education_object
+    
+
+   
+    
+// //    console.log(new_education)
+
+// }
+// localStorage.setItem("resumes",JSON.stringify(resume_parsed))
+
+function add_neweducation(){
+    let params=new URLSearchParams(document.location.search);
+    let index=params.get("index");
+    let resume_data=localStorage.getItem("resumes");
+    let resume_parsed=JSON.parse(resume_data);
+    let tbody=document.getElementById("tabledatas").innerHTML
+    let education_index=resume_parsed[index].education.length
+
+    let new_tablerow=`<tr>
+            <td><input type="text" onkeyup="add_neweducation(this,${education_index},'education','course')"/></td>
+            <td><input type="text" onkeyup="add_neweducation(this,${education_index},'education','inst')"/></td>
+            <td><input type="text" onkeyup="add_neweducation(this,${education_index},'education','percentage')"/></td>
+        </tr>`
+document.getElementById("tabledatas").innerHTML=tbody+new_tablerow
+resume_parsed[index].education[education_index]={
+
+course:"",
+inst:"",
+percentage:""
+}
+localStorage.setItem("resumes",JSON.stringify(resume_parsed))
+
+   
+    window.location.reload()
+//    console.log(new_education)
+
+}
+function add_newexperience(){
+    let params=new URLSearchParams(document.location.search);
+    let index=params.get("index");
+    let resume_data=localStorage.getItem("resumes");
+    let resume_parsed=JSON.parse(resume_data);
+    let tbody=document.getElementById("experience").innerHTML
+    let experience_index=resume_parsed[index].experience.length
+
+    let new_tablerow=`<tr>
+            <td><input type="text" onkeyup="add_neweducation(this,${experience_index},'experience','company_name')"/></td>
+            <td><input type="text" onkeyup="add_neweducation(this,${experience_index},'experience','years_of_experience')"/></td>
+            <td><input type="text" onkeyup="add_neweducation(this,${experience_index},'experience','role')"/></td>
+        </tr>`
+document.getElementById("tabledatas").innerHTML=tbody+new_tablerow
+resume_parsed[index].experience[experience_index]={
+
+company_name:"",
+years_of_experience:"",
+role:""
+}
+localStorage.setItem("resumes",JSON.stringify(resume_parsed))
+
+   
+    window.location.reload()
+//    console.log(new_education)
+
+}
+
+function add_newprojects(){
+    let params=new URLSearchParams(document.location.search);
+    let index=params.get("index");
+    let resume_data=localStorage.getItem("resumes");
+    let resume_parsed=JSON.parse(resume_data);
+    let tbody=document.getElementById("projects").innerHTML
+    let project_index=resume_parsed[index].projects.length
+
+    let new_tablerow=`<tr>
+            <td><input type="text" onkeyup="add_neweducation(this,${project_index},'experience','title')"/></td>
+            <td><input type="text" onkeyup="add_neweducation(this,${project_index},'experience','major')"/></td>
+            <td><input type="text" onkeyup="add_neweducation(this,${project_index},'experience','subject')"/></td>
+        </tr>`
+document.getElementById("tabledatas").innerHTML=tbody+new_tablerow
+resume_parsed[index].projects[project_index]={
+
+title:"",
+major:"",
+subject:""
+}
+localStorage.setItem("resumes",JSON.stringify(resume_parsed))
+
+   
+    window.location.reload()
+//    console.log(new_education)
+
+}
+
+
+
+
+
+
+
+
+
+// function education(element,ed_index,key){
+//     let params=new URLSearchParams(document.location.search);
+// let index=params.get("index");
+
+//     let resume_data=localStorage.getItem("resumes");
+//     let resume_parsed=JSON.parse(resume_data);
+    
+//     resume_parsed[index].education[ed_index][key]=element.value;
+
+// // console.log(element.value)
+// localStorage.setItem("resumes",JSON.stringify(resume_parsed))
+// // window.location="edit.html"
+
+// }
+     
+
+
+
+</script>
+</html>
