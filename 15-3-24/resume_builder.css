@@ -8,13 +8,13 @@ body{
     /* margin:100px; */
     /* flex-direction: column; */
 }
-#preview{
-    margin-left: 300px;
+ #preview{
+    margin-left: 350px;
     background-color: pink;
     width:30%;
-    height:1025px;
-    /* height:200px; */
-}
+    height:1500px;
+
+ }  
 #register{
     background: aquamarine;
     width:140%;

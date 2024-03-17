@@ -29,11 +29,11 @@
     <div class="content-wrapper">
         <aside>
             <div class="profile-img-wrapper">
-                <img src="assets/images/Profile.png" alt="profile">
+                <img src="assets/images/Profile.png" alt="profile" id="my_image">
             </div>
             <h1 class="profile-name" id="my_title">Daisy Murphy</h1>
             <div class="text-center">
-                <span class="badge badge-white badge-pill profile-designation">UI / UX Designer</span>
+                <span class="badge badge-white badge-pill profile-designation" id="profession">UI / UX Designer</span>
             </div>
             <nav class="social-links">
                 <a href="#!" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -66,8 +66,9 @@
             </div>
             <div class="widget card">
                 <div class="card-body">
-                    <div class="widget-content">
-                        <h5 class="widget-title card-title">INTERESTS</h5>
+                    <h5 class="widget-title card-title">INTERESTS</h5>
+
+                    <div class="widget-content" id="my_hobby">
                         <p>games</p>
                         <p>Finance</p>
                         <p>Basketball</p>
@@ -79,7 +80,7 @@
         <main>
             <section class="intro-section">
                 <h2 class="section-title" id="my_name">Hello, Daisy Murphy!</h2>
-                <p>I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print
+                <p id="my_obj">I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print
                     media. I enjoy turning complex problems into simple, beautiful and intuitive designs. My job is to
                     build your website so that it is functional and user-friendly but at the same time attractive.
                     Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use.
@@ -154,19 +155,19 @@
             </section>
             <section class="services-section">
                 <h6 class="section-subtitle">WHAT I DO</h6>
-                <h2 class="section-title">SERVICES</h2>
+                <h2 class="section-title">SKILLS</h2>
                 <div class="row">
                     <div class="media service-card col-lg-6">
-                        <div class="service-icon">
+                        <!-- <div class="service-icon">
                             <img src="assets/images/001-target.svg" alt="target">
-                        </div>
-                        <div class="media-body">
+                        </div> -->
+                        <div class="media-body" ID="my_skills">
                             <h5 class="service-title">web designing</h5>
                             <p class="service-description">Mauris magna sapien, pharetra consectetur fringilla vitae, interdum sed
                                 tortor.</p>
                         </div>
                     </div>
-                    <div class="media service-card col-lg-6">
+                    <!-- <div class="media service-card col-lg-6">
                         <div class="service-icon">
                             <img src="assets/images/003-idea.svg" alt="bulb">
                         </div>
@@ -198,7 +199,7 @@
                                 tortor.
                             </p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </section>
             <section class="testimonial-section">
@@ -240,7 +241,7 @@
     <script src="assets/js/live-resume.js"></script>
 
 
-    <script src="../template.js"></script>
+    <script src="../template_1.js"></script>
 
 </body>
 

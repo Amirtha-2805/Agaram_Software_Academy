@@ -1,2 +1,6 @@
 .venv/
 vendors/
+fontawesome/
+# images/
+# scss/
+# css/
