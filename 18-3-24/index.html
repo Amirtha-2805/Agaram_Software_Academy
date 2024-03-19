@@ -1,0 +1,146 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <center>
+    <label>Name</label>
+    <input type="text" id="name" placeholder="Enter your name"/>
+    <br>
+    <br>
+    <label>Age</label>
+    <input type="text" id="age" placeholder="Enter your age"/>
+<button type="button" id="submit_btn">Submit</button>
+<button type="button" id="update_btn">Update</button>
+<button type="button" id="delete_btn">Delete</button>
+
+
+
+</center>
+</form>
+</body>
+</html>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+    // import {getFirestore,setDoc,addDoc,doc,collection,updateDoc,deleteDoc} from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+    
+    import {getFirestore,getDoc,doc,query,collection,where,getDocs,onSnapshot} from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+    
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCENzcsZCEV1G4_3jNHz999W35DmtbykUo",
+      authDomain: "fir-crud-c727c.firebaseapp.com",
+      projectId: "fir-crud-c727c",
+      storageBucket: "fir-crud-c727c.appspot.com",
+      messagingSenderId: "549942679288",
+      appId: "1:549942679288:web:52baf684c91aad4e394d0d"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    // Initialize Cloud Firestore and get a reference to the service
+    const db = getFirestore(app);
+
+    //to add data
+
+    // submit_btn.addEventListener('click',(e) =>{
+
+    //     let name=document.getElementById("name").value;
+    //     let age=document.getElementById("age").value;
+
+
+
+    //     addDoc(collection(db, "user_detail"), {
+    //         name: name,
+    //         age: age
+    //     });
+    //     alert("Successfully Submitted")
+
+    // })
+
+//to update data
+
+// update_btn.addEventListener('click',(e) =>{
+// let name=document.getElementById("name").value;
+// let age=document.getElementById("age").value;
+
+
+
+// updateDoc(doc(db, "user_detail",'3GhUvjf8tk4tvvrtNa3m'), {
+//     name: name,
+//     age: age
+// });
+// alert("Successfully Updated")
+
+// })
+
+//to delete data
+
+// delete_btn.addEventListener('click',(e) =>{
+// let name=document.getElementById("name").value;
+// let age=document.getElementById("age").value;
+
+
+
+// deleteDoc(doc(db, "user_detail",'3GhUvjf8tk4tvvrtNa3m'), {
+//     name: name,
+//     age: age
+// });
+// alert("Successfully deleted")
+
+// })
+
+//to get data
+
+submit_btn.addEventListener('click',(e)=>{
+
+    // getDoc(doc(db,"user_detail",'9GR76Fy8vP741Z99AVhk')).then(docSnap =>{
+    //     if(docSnap.exists()){
+    //         console.log("document data:",docSnap.data()['name']);
+    //     }
+    //     else{
+    //         console.log("No such data")
+    //     }
+    // })
+
+
+// to get data with query
+
+    const q=query(collection(db, "user_detail"), where("age", "==", '22'));
+    getDocs(q).then(docSnap =>{
+        let user_detail=[];
+        docSnap.forEach((doc)=>{
+            user_detail.push({...doc.data(), id:doc.id})
+        })
+        console.log("document data", user_detail[0]['name']);
+    })
+
+
+//to listen for realtime updates
+//  const unsub=onSnapshot(doc(db,"user_detail","id"),(doc)=>{
+//     console.log("current data", doc.data());
+//  })
+
+
+//to get all data
+   getDocs(collection(db,"user_detail")).then(docSnap=>{
+
+    let user_detail=[];
+    docSnap.forEach((doc)=>{
+        user_detail.push({...doc.data(),id:doc.id})
+    })
+    console.log("document data",user_detail);
+   })
+
+})
+
+  </script>

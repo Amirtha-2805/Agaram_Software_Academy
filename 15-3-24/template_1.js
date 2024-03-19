@@ -55,7 +55,7 @@ document.getElementById("my_experience").innerHTML=experience_details
 let language_details=''
 for(each of resume_index.personal_details.languages_known){
     language_details=language_details+`
-        <p >${each}</p>`    
+        <p>${each}</p>`    
 
 }
 document.getElementById("my_lang").innerHTML=language_details
