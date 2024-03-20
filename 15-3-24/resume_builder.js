@@ -190,10 +190,10 @@ function listed_resumes(){
     let renderHTML=''
 
     for(let each in resume_parsed){
-      renderHTML=renderHTML+`<li><a href="view.html?index=${each}"> ${resume_parsed[each].title}</a><div id="btncontainer"><button type="button" id="deletebtn" onclick=delete_data('${each}')>delete</button><a href="edit.html?index=${each}"><button type="button" id="editbtn"> edit</button></a></div></li>`
+      renderHTML=renderHTML+`<li><a href="view.html?index=${each}">${resume_parsed[each].title}</a><div id="btncontainer"><button type="button" id="deletebtn" onclick=delete_data('${each}')>delete</button><a href="edit.html?index=${each}"><button type="button" id="editbtn"> edit</button></a></div></li>`
       document.getElementById("list").innerHTML=renderHTML
-       
 
+      
     //   console.log(renderHTML)
         // list.innerHTML=renderHTML
     }

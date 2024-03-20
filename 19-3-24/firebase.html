@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="firebase.js" type="text/javaScript"></script>
+    
+</head>
+<body>
+    <form>
+        <center>
+    <label for="First Name">First Name</label>
+    <input  type="text" id="fname" placeholder="Enter your firstname"/>
+    <br>
+    <br>
+    <label for="Last Name">Last Name</label>
+    <input type="text" id="lname" placeholder="Enter your lastname"/>
+    <br>
+    <br>
+    <label for="Roll No" >Roll No</label>
+    <input type="number" id="rno" style="margin-left: 20px;" placeholder="Enter your rollno"/>
+    <br>
+    <br>
+    <button type="button" id="submit_btn">Submit</button>
+    <button type="button" id="update_btn">Update</button>
+    <button type="button" id="delete_btn">Delete</button>
+<br>
+<br>
+
+<table border="1" >
+    <thead>
+        <th>First_name</th>
+        <th>Last_name</th>
+        <th>Roll no</th>
+       
+
+    </thead>
+    <tbody id="table_data">
+
+    </tbody>
+</table>
+
+
+</center>
+</form>
+</body>
+</html>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+  import { getFirestore,addDoc,collection ,setDoc,doc,deleteDoc,updateDoc,query,where,getDocs } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+//   import { getFirestore,query,collection,doc,getDocs,where } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyB4MiqCB72AfGFMdjmrva2uQDIq7jBXqgY",
+    authDomain: "final-project-704e5.firebaseapp.com",
+    projectId: "final-project-704e5",
+    storageBucket: "final-project-704e5.appspot.com",
+    messagingSenderId: "681912503237",
+    appId: "1:681912503237:web:7adc32c8af0294353b19ac"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
+  
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
+
+submit_btn.addEventListener('click',(e) => {
+
+
+    let first_name=document.getElementById("fname").value
+    let last_name=document.getElementById("lname").value
+    let rollno=document.getElementById("rno").value
+  
+    addDoc(collection(db, "user"), {
+  first_name: first_name,
+  last_name: last_name,
+  rollno: rollno
+});
+alert("successfully submitted")
+
+
+})
+
+// delete_btn.addEventListener('click', (e) =>{
+
+  
+//   let first_name=document.getElementById("fname").value
+//     let last_name=document.getElementById("lname").value
+//     let rollno=document.getElementById("rno").value
+
+//   deleteDoc(doc(db, "user",'g39bNmqVTFsQPPpeIBFh'), {
+//   first_name: first_name,
+//   last_name: last_name,
+//   rollno: rollno
+// });
+// alert("successfully deleted")
+
+    
+// })
+
+// update_btn.addEventListener('click', (e) =>{
+
+  
+// let first_name=document.getElementById("fname").value
+//   let last_name=document.getElementById("lname").value
+//   let rollno=document.getElementById("rno").value
+
+// updateDoc(doc(db, "user",'g39bNmqVTFsQPPpeIBFh'), {
+// first_name: first_name,
+// last_name: last_name,
+// rollno: rollno
+// });
+// alert("successfully updated")
+
+  
+// })
+
+//getting data using query
+let rollno=document.getElementById("rno").value
+
+const q=query(collection(db,"user"),where("rollno", "==", "3"));
+getDocs(q).then(docSnap =>{
+        let user=[];
+        docSnap.forEach((doc)=>{
+            user.push({...doc.data(), id:doc.id})
+
+        })
+// console.log(user);
+})
+
+//getting all data
+
+getDocs(collection(db,"user")).then(docSnap =>{
+        let user=[];
+        docSnap.forEach((doc)=>{
+            user.push({...doc.data(), id:doc.id})       
+        })
+// console.log(user[0].first_name)
+// document.getElementById(id).innerHTML=user[0].first_name
+
+
+let table_data=''
+getDocs(collection(db,"user")).then(docSnap =>{
+    docSnap.forEach((doc)=>{
+        table_data=table_data+`<tr>
+        <td>${doc.data().first_name}</td>
+        <td>${doc.data().last_name}</td>
+        <td>${doc.data().rollno}</td>
+        </tr> <a href="firebase.html?id=${doc.id}">delete</a> <button type="button">edit</button>`
+
+//  console.log(doc.id)      
+
+    }) 
+    document.getElementById("table_data").innerHTML=table_data
+    let params=new URLSearchParams(document.location.search);
+let id=params.get("id");
+deleteDoc(doc(db,"user",id))
+
+
+
+})   
+
+
+console.log(user);
+// let rollno=document.getElementById("rno").value
+
+})
+
+
+// function delete_data(user_id){
+    
+
+//         new_array=[]
+//         getDocs(collection(db,"user")).then(docSnap=>{
+//         docSnap.forEach((doc)=>{
+//             if(user_id!=id){
+//                 new_array.push(doc.data())
+//             }
+//         })
+//         })
+
+// }
+// del_btn.addEventListener('click', (e) =>{
+
+  
+  
+//     new_array=[]
+//       getDocs(collection(db,"user",doc.id)).then(docSnap=>{
+//         docSnap.forEach((doc)=>{
+//             if(user_id!=doc.id){
+//                 new_array.push(doc.data())
+//             }
+//         })
+//       })
+
+// });
+// alert("successfully deleted")
+
+    
+
+
+</script>
