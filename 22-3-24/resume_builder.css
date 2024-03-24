@@ -1,0 +1,94 @@
+/* body{
+    background-color: #e5989b;
+   
+} */
+*{
+    font-family: "Cherry Cream Soda", system-ui;
+
+}
+
+#main{
+    display:flex;
+    /* margin:100px; */
+    /* flex-direction: column; */
+}
+ #preview{
+    margin-left: 100px;
+    background-color: pink;
+    width:45%;
+    height:1500px;
+
+ }  
+#register{
+    background: aquamarine;
+    width:95%;
+    padding: 50px 30px;
+    margin-left: 15px;
+    height:1400px
+}
+.savebutton{
+    margin-left: 1px;
+    font-size: bold;
+    width:20%;
+    height:45px;
+    border-radius: 20%;
+    margin-top: 250px;
+    border: none;
+    background-color: #fe6d73;
+}
+.savebutton:hover{
+    background-color: wheat;    
+}
+.title_box{
+    margin-left: 250px;
+}
+.prof_box{
+    margin-left: 192px;
+
+}
+.name_box{    
+    margin-left: 239px;
+}
+.mail_box{    
+    margin-left: 242px;
+}
+.phone_box{    
+    margin-left: 235px;
+}
+.date_box{    
+    margin-left: 178px;
+}
+.obj_box{    
+    margin-left: 200px;
+}
+.dec_box{    
+    margin-left: 190px;
+}
+#skill{
+    margin-left: 245px;
+}
+.fname_box{    
+    margin-left: 170px;
+}
+.mname_box{    
+    margin-left: 160px;
+}
+.address_box{    
+    margin-left: 220px;
+}
+.pincode_box{    
+    margin-left: 225px;
+}
+#hobby{
+    margin-left: 224px;
+
+}
+#language{
+    margin-left: 134px;
+
+}
+
+
+
+
+

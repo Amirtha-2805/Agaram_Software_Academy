@@ -104,17 +104,17 @@
 
 submit_btn.addEventListener('click',(e)=>{
 
-    // getDoc(doc(db,"user_detail",'9GR76Fy8vP741Z99AVhk')).then(docSnap =>{
-    //     if(docSnap.exists()){
-    //         console.log("document data:",docSnap.data()['name']);
-    //     }
-    //     else{
-    //         console.log("No such data")
-    //     }
-    // })
+    getDoc(doc(db,"user_detail",'9GR76Fy8vP741Z99AVhk')).then(docSnap =>{
+        if(docSnap.exists()){
+            console.log("document data:",docSnap.data()['name']);
+        }
+        else{
+            console.log("No such data")
+        }
+    })
 
 
-// to get data with query
+// *****to get data with query*****//
 
     const q=query(collection(db, "user_detail"), where("age", "==", '22'));
     getDocs(q).then(docSnap =>{

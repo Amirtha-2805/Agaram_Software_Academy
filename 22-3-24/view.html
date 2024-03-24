@@ -1,0 +1,221 @@
+
+<html>
+<head>
+    <script src="resume_builder.js" type="text/javaScript"></script>
+   
+</head>
+<body>
+    <h3 id="head"></h3>
+    <h3 id="name"></h3>
+    <div id="image"></div>
+    
+<table border=1>
+    <thead>
+        <th>Course</th>
+        <th>Inst_name</th>
+        <th>percentage</th>
+    </thead>
+    <tbody id="tabledatas1">
+
+
+    </tbody>
+</table>
+<br>
+
+<table border=1>
+    <thead>
+        <th>Company_name</th>
+        <th>Years_of_experience</th>
+        <th>Role</th>
+
+        
+    </thead>
+    <tbody id="tabledatas2">
+
+
+    </tbody>
+</table>
+<br>
+<table border=1>
+    <thead>
+        <th>skills</th>
+            
+    </thead>
+    <tbody id="tabledatas3">
+
+
+    </tbody>
+</table>
+<br>
+
+<table border=1>
+    <thead>
+        <th>Hobbies</th>
+            
+    </thead>
+    <tbody id="tabledatas4">
+
+
+    </tbody>
+</table>
+<br>
+
+<table border=1>
+    <thead>
+        <th>Languages_known</th>
+            
+    </thead>
+    <tbody id="tabledatas5">
+
+
+    </tbody>
+</table>
+
+<table border=1>
+    <thead>
+        <th>Title</th>
+        <th>Major</th>
+        <th>Subject</th>
+    </thead>
+    <tbody id="tabledatas6">
+
+
+    </tbody>
+</table>
+
+<ul>
+    <li><a href="#" onclick="viewtemplate(1)">Template1</a></li>
+    <li><a href="#"  onclick="viewtemplate(2)">Template2</a></li>
+    <li><a href="#"  onclick="viewtemplate(3)">Template3</a></li>
+   </ul>
+<button type="button" onclick="logingout()">LogOut</button>
+</body>
+<script>
+
+    let params=new URLSearchParams(document.location.search);
+    let id=params.get("id");
+    function viewtemplate(template_id){
+    if(template_id==1){
+        window.location=`template_1/index.html?id=${id}`
+        
+    }
+    else if(template_id==2){
+        window.location=`template_2/index.html?id=${id}`
+
+    }
+    else if(template_id==3){
+        window.location=`template_3/index.html?id=${id}`
+
+    }
+}
+
+    
+</script>
+</html>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+    import { getFirestore,addDoc,collection,getDocs,onSnapshot,doc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDDy11LJ-SUWpMfx75fA7FrVVZyR9aEKQ0",
+      authDomain: "resume-builder-1cd9c.firebaseapp.com",
+      projectId: "resume-builder-1cd9c",
+      storageBucket: "resume-builder-1cd9c.appspot.com",
+      messagingSenderId: "258294776955",
+      appId: "1:258294776955:web:89d72d56de3bb3d21c8ede"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    // Initialize Cloud Firestore and get a reference to the service
+    const db = getFirestore(app);
+
+
+
+    //to display single values of a resume in view.html page
+    
+    let params2=new URLSearchParams(document.location.search);
+    let id2=params.get("id");
+     let single_data=''
+    // getDocs(collection(db,"my_resumes")).then(docSnap=>{
+    //     docSnap.forEach((doc)=>{
+    //         if(id2==doc.id){
+    //             let datas=doc.data()
+
+    //         single_data=single_data+`<h5>${doc.data(id).title}</h5>`
+    //         // single_data=single_data+`<h5>${doc.data(id).name}</h5>`
+    //         // single_data=single_data+`<h5>${doc.data(id).phone}</h5>`
+    //         // single_data=single_data+`<h5>${doc.data(id).objectives}</h5>`
+    //         // single_data=single_data+`<h5>${doc.data(id).profession}</h5>`
+    //         // single_data=single_data+`<h5>${doc.data(id).declaration}</h5>`
+    //         // singlle_data=single_data+`<h5>${doc.data(id).email}</h5>`
+    //         // single_data=_data+`<h5>${doc.data(id).date}</h5>`
+    //         }
+    //     })
+
+    //     document.getElementById("head").innerHTML=single_data
+    // })
+
+    // // let skill_data=''
+    // // getDocs(collection(db,"my_resumes")).then(docSnap=>{
+    // //     docSnap.forEach((doc)=>{
+    // //         if(id==doc.id){
+    // //             doc.forEach((skills)=>{})
+    // //                 skill_data=skill_data+`<tr>
+    // //                 <td>${doc.data().skills}</td>            
+    // //                 </tr>`
+          
+    // //             }
+                      
+    // //     })
+    // //     document.getElementById("tabledatas3").innerHTML=skill_data
+    // // })
+
+
+
+    // getDocs(collection(db,"my_resumes")).then(docSnap=>{
+    //     let hobby_data=''
+    //     docSnap.forEach((doc)=>{
+    //         if(id==doc.id){
+    
+    //         hobby_data=hobby_data+`<tr>
+    //             <td>${doc.data().personal_details.hobbies}</td>            
+    //             </tr>`
+    //         }
+    //     })
+    
+    //     document.getElementById("tabledatas4").innerHTML=hobby_data
+    // })
+
+   
+    // getDocs(collection(db,"my_resumes")).then(docSnap=>{
+    //     let lang_data=''
+    //     docSnap.forEach((doc)=>{
+    //         if(id==doc.id){
+    //         lang_data=lang_data+`<tr>
+    //             <td>${doc.data().personal_details.languages_known}</td>            
+    //             </tr>`
+    //         }
+    //     })
+    //     document.getElementById("tabledatas5").innerHTML=lang_data
+    // })
+
+// onSnapshot(doc(db,"my_resumes",id),(response)=>{
+//     console.log(response.data())
+// })
+
+</script>
+
+<script>
+    function logingout(){
+    localStorage.removeItem("reg_details")
+    window.location="login.html"
+    }
+
+</script>
