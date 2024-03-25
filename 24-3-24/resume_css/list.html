@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="resume_builder.js" type="text/javaScript"></script>
+    <link rel="stylesheet" href="list.css"/>
+    </head>
+<body>
+    <h1>Resume List</h1>
+    <ul id="list">
+
+    </ul>
+</body>
+<!-- <script>listed_resumes()</script> -->
+</html>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+    import { getFirestore,addDoc,collection,getDocs,deleteDoc,doc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDDy11LJ-SUWpMfx75fA7FrVVZyR9aEKQ0",
+      authDomain: "resume-builder-1cd9c.firebaseapp.com",
+      projectId: "resume-builder-1cd9c",
+      storageBucket: "resume-builder-1cd9c.appspot.com",
+      messagingSenderId: "258294776955",
+      appId: "1:258294776955:web:89d72d56de3bb3d21c8ede"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    // Initialize Cloud Firestore and get a reference to the service
+    const db = getFirestore(app);
+    getDocs(collection(db,"my_resumes")).then(docSnap =>{
+    let renderHTML='';
+
+    docSnap.forEach((doc)=>{
+        renderHTML=renderHTML+`<li><a href="view_template.html?id=${doc.id}">${doc.data().title}</a></li><a href="list.html?id=${doc.id}"><button type="button">Delete</button></a><a href="edit.html?id=${doc.id}"><button type="button" id="update_btn">Edit</button></a>`
+        //   console.log(doc.data())      
+
+    }) 
+    document.getElementById('list').innerHTML=renderHTML
+    let params=new URLSearchParams(document.location.search);
+let id=params.get("id");
+deleteDoc(doc(db,"my_resumes",id))
+
+})   
+
+</script>

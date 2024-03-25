@@ -1,0 +1,137 @@
+  *{
+    font-family: "Cherry Cream Soda", system-ui;
+
+}
+body{
+    background:linear-gradient(#c11e38,#220b34)
+}
+#main{
+    display:flex;
+    /* margin:100px; */
+    flex-direction: column;
+}
+  #preview{
+    /* border:1px solid black; */
+    width:65%;
+    height:200px;
+    overflow-y:scroll;
+    margin-left: 215px;
+    color: grey;
+ }   
+#register{
+    /* border:1px solid black; */
+    text-align: center;
+    /* height: 50px; */
+       
+} 
+.savebutton{
+    margin-top: 20px;
+}
+.title_box{
+    margin-left: 250px;
+}
+.prof_box{
+    margin-left: 192px;
+
+}
+.name_box{    
+    margin-left: 239px;
+}
+.mail_box{    
+    margin-left: 242px;
+}
+.phone_box{    
+    margin-left: 235px;
+}
+.date_box{    
+    margin-left: 210px;
+}
+.obj_box{    
+    margin-left: 200px;
+}
+.dec_box{    
+    margin-left: 190px;
+}
+#skill{
+    margin-left: 10px;
+}
+.fname_box{    
+    margin-left: 170px;
+}
+.mname_box{    
+    margin-left: 160px;
+}
+.address_box{    
+    margin-left: 220px;
+}
+.pincode_box{    
+    margin-left: 225px;
+}
+#hobby{
+    margin-left: 10px;
+
+}
+#language{
+    margin-left: 10px;
+
+}
+input{
+    border-radius: 5px;
+    border-style: none;
+    height:40px;
+    width:20%;
+    background-color: rgb(196, 171, 171);
+    -webkit-box-shadow:0px 0px 6px 2px rgba(177,49,189,0.9);
+-moz-box-shadow: 0px 0px 6px 2px rgba(177,49,189,0.9);
+box-shadow: 0px 0px 6px 2px rgba(177,49,189,0.9);
+}
+.savebutton{
+    width: 150px;
+    height: 50px;
+    background-color: transparent;
+    color:white;
+    font-weight: bold;
+    border-width: 2px;
+    border-color: #FF5858;
+    border-radius: 20px;
+    transition: all 0.3s;
+  }
+  
+  .savebutton:hover {
+    transform: translateY(-10px);
+    background-color: #FF5858;
+  }
+  
+  .savebutton::after {
+    transform: translateY(0);
+  }
+ .menu__icon {
+    width: 2rem;
+    height: 2rem;
+    padding: .25rem;
+    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgba(105, 4, 126, 0.7);
+    border: solid 1px rgba(181, 181, 243, 0.7);
+  }
+  
+  .menu__icon::before {
+    display: block;
+    content: "+";
+    color: rgb(245, 245, 247);
+    font-size: 1.125rem;
+    font-weight: 400;
+    transition: transform .3s ease-out;
+    transform-origin: center;
+  }
+  
+  .menu__icon:hover::before {
+    transform: rotate(45deg) scale(1.08);
+  }
+      
+      
+        
+
+
+
+
+

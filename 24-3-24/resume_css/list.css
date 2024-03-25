@@ -1,0 +1,31 @@
+/* 
+*{
+    text-align: center;
+}
+#btncontainer{
+    position: relative;
+   
+}
+#deletebtn{
+    position: absolute;
+    top: -20px;
+    left:900px
+}
+li{
+    list-style: none;
+    margin-left: -210px;
+    /* width:1300px; */
+/* } */
+/* #editbtn{ */
+    /* margin-left: 20px; */
+    /* position: absolute;
+    top: -20px;
+    left:850px;
+    
+} */
+/* body{
+    /* background: linear-gradient(black,blue,black,blue); */
+    /* background-repeat: no-repeat;
+    background-color: aqua;
+     */
+    /* }  */
