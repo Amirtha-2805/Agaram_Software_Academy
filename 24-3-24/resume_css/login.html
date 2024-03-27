@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login page</title>
+    <link rel="stylesheet" href="login.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <center>
+        <h1>Login</h1>
+        <div class="form">
     <form>
 
-        <table>           
+        <table class="table">           
             <tr>
                 <td>Email</td>
                 <td><input type="email" id="login_email"/></td>
@@ -21,6 +26,7 @@
         </table>
     </form>
     <button type="button" id="login-data">Login</button>
+</div>
     
 </center>
 </body>
@@ -48,6 +54,9 @@
 
     // Initialize Cloud Firestore and get a reference to the service
     const db = getFirestore(app);
+    let params=new URLSearchParams(document.location.search);
+    let id=params.get("id");   
+
 
     document.getElementById("login-data").addEventListener('click',(e)=>{
     let login_email=document.getElementById("login_email").value
@@ -69,7 +78,7 @@
                              }
                         })
                         if(login_email==firebase_email&&login_pwd==firebase_pwd){
-                            let local_array=[]
+                            // let local_array=[]
                             let localstorage_data={
                                 "name":firebase_name,
                                 "email":firebase_email,
@@ -83,7 +92,7 @@
                            let parsed_local=JSON.parse(localstg_data)
                            let store_local=[...parsed_local,localstorage_data]
                            localStorage.setItem("register_local",JSON.stringify(store_local))
-                            window.location=`resume_security.html?id=${firebase_id}`
+                            window.location=`resume_security.html?firebaseid=${firebase_id}`
                         }
                        if(login_email!=firebase_email&&login_pwd!=firebase_pwd){
                             alert("please enter valid email and password or create new account")

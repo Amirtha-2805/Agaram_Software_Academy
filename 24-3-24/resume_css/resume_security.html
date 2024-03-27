@@ -32,7 +32,8 @@
     // Initialize Cloud Firestore and get a reference to the service
     const db = getFirestore(app); 
     let params=new URLSearchParams(document.location.search);
-    let id=params.get("id");
+    let firebase_id=params.get("firebaseid");
+    console.log("firebase",firebase_id)
    
        let loc_data= localStorage.getItem("register_local")
        let parsed_data=JSON.parse(loc_data)
@@ -41,11 +42,11 @@
             loc_id=each["id"]
             // console.log(loc_id);    
        }     
-    getDoc(doc(db,"registration",id)).then(docSnap =>{
+    getDoc(doc(db,"registration",firebase_id)).then(docSnap =>{
         if(docSnap.exists()){
             // console.log("document data:",docSnap.data());
-            if(id==loc_id){
-                window.location="resume_builder.html"
+            if(firebase_id==loc_id){
+                window.location=`resume_builder.html?firebaseid=${firebase_id}`
             }
             else{
                 window.location="login.html"

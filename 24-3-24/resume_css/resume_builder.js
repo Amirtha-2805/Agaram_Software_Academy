@@ -84,7 +84,7 @@ let registerdata={}
 function register(element,key){
     registerdata[key]=element.value
 }
-console.log(registerdata);
+// console.log(registerdata);
 
 
 function resume(element,key,p_key,index,c_key){

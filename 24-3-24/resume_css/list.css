@@ -1,31 +1,67 @@
-/* 
-*{
+ *{
     text-align: center;
-}
-#btncontainer{
-    position: relative;
-   
-}
-#deletebtn{
-    position: absolute;
-    top: -20px;
-    left:900px
-}
-li{
+   } 
+   body{
+    background:linear-gradient(#1f0021,#751006);
+    background-repeat: no-repeat;
+    height:650px;
+    font-family: "Cherry Cream Soda", system-ui;
+
+   }
+.list_td{
     list-style: none;
-    margin-left: -210px;
-    /* width:1300px; */
-/* } */
-/* #editbtn{ */
-    /* margin-left: 20px; */
-    /* position: absolute;
-    top: -20px;
-    left:850px;
-    
-} */
-/* body{
-    /* background: linear-gradient(black,blue,black,blue); */
-    /* background-repeat: no-repeat;
-    background-color: aqua;
-     */
-    /* }  */
+    text-align: center; 
+   
+    /* margin-top: 30px; */
+} 
+#list_a{
+    text-decoration: none;
+    margin-right: 100px;
+    color: white;
+    font-size: large;    
+}
+#list_a:hover{
+    color:gray
+}
+
+.table{
+    margin-left: 450px;
+    margin-top: 50px;
+}
+#update_btn{
+    margin-left: 30px;
+}
+button {
+    padding: 10px 20px;
+    /* text-transform: lowercase; */
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 500;
+    color:white;
+    text-shadow: none;
+    background: transparent;
+    cursor: pointer;
+    box-shadow: transparent;
+    border: 1px solid #ffffff80;
+    transition: 0.5s ease;
+    user-select: none;
+  }
+  
+  .del:hover,
+  :focus {
+    color: #ffffff;
+    background: #ee0d0d;
+    border: 1px solid #ee0d0d;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+    box-shadow: 0 0 5px #ee0d0d, 0 0 20px #ee0d0d, 0 0 50px#ee0d0d,
+      0 0 100px #ee0d0d;
+  }
+  #update_btn:hover,
+  :focus {
+    color: #ffffff;
+    background: #def044;
+    border: 1px solid #def044;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+    box-shadow: 0 0 5px #def044, 0 0 20px #def044, 0 0 50px #def044,
+      0 0 100px #def044;
+  }

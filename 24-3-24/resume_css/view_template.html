@@ -16,6 +16,7 @@
 
     let params=new URLSearchParams(document.location.search);
     let id=params.get("id");
+    
     function viewtemplate(template_id){
     if(template_id==1){
         window.location=`template_1/index.html?id=${id}`
@@ -30,8 +31,9 @@
 
     }
 }
+    
 function logingout(){
-    localStorage.removeItem("reg_details")
+    localStorage.removeItem("reg_details")        
     window.location="login.html"
     }
 

@@ -1,0 +1,78 @@
+body{
+    font-family: "Cherry Cream Soda", system-ui;
+    /* background:linear-gradient(#1f0021,#751006); */
+    background:linear-gradient(#1f0021,#751006);
+   
+    height:650px;
+    color:white
+
+    
+}
+
+.form{
+    /* border: 1px solid black; */
+    height:450px;
+    width:50%;
+    margin-top:60px;
+    border-radius: 30px;
+    /* background:linear-gradient(#1f0021,#751006); */
+    background:linear-gradient(#1f0021,#751006);
+   
+    -webkit-box-shadow:0px 0px 26px 3px rgba(235, 30, 91, 0.9);
+    -moz-box-shadow: 0px 0px 26px 3px rgba(235, 30, 91, 0.9);
+    box-shadow: 0px 0px 26px 3px rgba(235, 30, 91, 0.9);
+}
+ 
+
+.table{
+    margin-top: 55px;
+}
+tr{
+    line-height: 110px;
+}
+input{
+    height:45px;
+    width:300px;
+    margin-left: 30px;
+    background-color: rgb(192, 182, 182);
+    border-radius: 15px;
+    border-style: none;
+    color:black;
+    font-weight: bold;
+    text-align: center;
+}
+input:hover{
+    background-color: rgb(240, 234, 234);
+}
+#submit_button{
+    margin-right: 180px;
+    
+}
+#submit_button:hover{
+    background-color: #21c91bd8
+}
+
+#signin_button{
+    margin-left: 20px;
+}  
+#signin_button:hover{
+  background-color:#3b78aad7 ;
+}  
+
+button {
+    padding: 10px 20px;
+    /* text-transform: lowercase; */
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 500;
+    color:white;
+    text-shadow: none;
+    background: transparent;
+    cursor: pointer;
+    box-shadow: transparent;
+    border: 1px solid #ffffff80;
+    transition: 0.5s ease;
+    user-select: none;
+  }
+  
+  

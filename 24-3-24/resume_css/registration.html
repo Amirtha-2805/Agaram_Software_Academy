@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register page</title>
     <script src="resume_builder.js" type="text/javaScript"></script>
+    <link rel="stylesheet" href="registration.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <center>
     <h2>Register</h2>
+    <div class="form">
     <form>
+        <div class="table">
         <table>
             <tr>
                 <td>Name</td>
@@ -24,10 +29,13 @@
                 <td><input type="password" onkeyup="register(this,'password')" id="security_pin"></td>
             </tr>
         </table>
+    </div>
     </form>
     <button type="button" id="submit_button">Create new</button>
     <button type="button" id="signin_button">Sign In</button>
 
+</div>
+    
 
 
 </center>

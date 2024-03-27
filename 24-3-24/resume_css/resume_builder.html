@@ -11,8 +11,9 @@
 
 </head>
 <body>
-    
-       <h1 style="text-align: center;   color:white
+    <center>    <img src="download (1).png"/></center>
+
+       <h1 style="text-align: center;   color:white;
        ">Resume Builder</h1>
 
     <div id="main">
@@ -66,7 +67,7 @@
         <br>
 
         <div>
-            <label style="margin-left: -40px; color:white">Date of Birth</label>
+            <label style=" color:white">DOB</label>
             <input type="date"  class="date_box" placeholder="Enter date" onkeyup="resume(this,'date')"/>
         </div>
         <br>
@@ -206,7 +207,7 @@
 <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-    import { getFirestore,addDoc,collection,getDocs } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+    import { getFirestore,addDoc,collection,getDocs,getDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
 
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
@@ -228,12 +229,40 @@
     const db = getFirestore(app);
 
     document.getElementById("save_btn").addEventListener('click',async(e)=>{
+        let params=new URLSearchParams(document.location.search);
+        let firebase_id=params.get("firebaseid");
+   
 
         const docRef = await addDoc(collection(db, "my_resumes"),my_resume)
-        window.location="list.html"
+        window.location=`list.html?firebase_id=${firebase_id}`
 
 
-    })
+    })    
+    // let params=new URLSearchParams(document.location.search);
+    // let id=params.get("id");
+   
+    //    let loc_data= localStorage.getItem("register_local")
+    //    let parsed_data=JSON.parse(loc_data)
+    //    let loc_id=""
+    //    for(let each of parsed_data){
+    //         loc_id=each["id"]
+    //         // console.log(loc_id);    
+    //    }     
+    // getDoc(doc(db,"registration",id)).then(docSnap =>{
+    //     if(docSnap.exists()){
+    //         // console.log("document data:",docSnap.data());
+    //         if(id==loc_id){
+    //             window.location=`list.html?id=${id}`
+    //         }
+    //         else{
+    //             window.location="login.html"
+    //         }
+    //     }
+    //     else{
+    //         console.log("No such data")
+    //     }
+    // })
+
     // let registeration_data=localStorage.getItem("reg_details")
     //      let register_parsed=JSON.parse(registeration_data)
     //      getDocs(collection(db,"registration")).then(docSnap=>{

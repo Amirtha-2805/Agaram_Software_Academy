@@ -43,11 +43,11 @@
         //   console.log(doc.data())      
 
     }) 
+    // console.log(renderHTML);
     document.getElementById('list').innerHTML=renderHTML
     let params=new URLSearchParams(document.location.search);
-let id=params.get("id");
-deleteDoc(doc(db,"my_resumes",id))
-
+    let id=params.get("id");
+        deleteDoc(doc(db,"my_resumes",id))
 })   
 
 </script>

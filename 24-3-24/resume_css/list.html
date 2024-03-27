@@ -3,12 +3,18 @@
 <head>
     <script src="resume_builder.js" type="text/javaScript"></script>
     <link rel="stylesheet" href="list.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&display=swap" rel="stylesheet">
+
     </head>
 <body>
-    <h1>Resume List</h1>
+    <h1 style="color: white;">Resume List</h1>
     <ul id="list">
 
     </ul>
+    <script>
+       let li=[]
+       
+    </script>
 </body>
 <!-- <script>listed_resumes()</script> -->
 </html>
@@ -35,19 +41,49 @@
 
     // Initialize Cloud Firestore and get a reference to the service
     const db = getFirestore(app);
+    let params1=new URLSearchParams(document.location.search);
+    let firebase_userid=params1.get("firebase_id");
+    console.log( "fire",firebase_userid)
+
+// *****function to get data*****//
+    function get_data(){  
     getDocs(collection(db,"my_resumes")).then(docSnap =>{
-    let renderHTML='';
-
-    docSnap.forEach((doc)=>{
-        renderHTML=renderHTML+`<li><a href="view_template.html?id=${doc.id}">${doc.data().title}</a></li><a href="list.html?id=${doc.id}"><button type="button">Delete</button></a><a href="edit.html?id=${doc.id}"><button type="button" id="update_btn">Edit</button></a>`
-        //   console.log(doc.data())      
-
+    let params1=new URLSearchParams(document.location.search);
+    let resume_id=params1.get("resume_id");      
+    // console.log(resume_id) 
+    if(firebase_userid){   
+    let renderHTML=''; 
+      
+    docSnap.forEach((doc)=>{        
+            // console.log("doc id",doc.id)
+            // console.log("user id is" ,user_id)
+                renderHTML=renderHTML+`<table class="table">
+                    <tr class="t_row"><td class="list_td"><li class="list"><a href="view_template.html?id=${doc.id}" id="list_a">${doc.data().title}</a></li></td><td><button type="button" class="del" onclick="delete_data('${doc.id}')">Delete</button></td><td><a href="edit.html?id=${doc.id}">
+                    <button type="button" id="update_btn">Edit</button></a></td></tr></table>`                                                                   
+        document.getElementById("list").innerHTML=renderHTML
+                    
+//         // else{
+//         //     window.location=`login.html`
+//         // }         
     }) 
-    document.getElementById('list').innerHTML=renderHTML
-    let params=new URLSearchParams(document.location.search);
-let id=params.get("id");
-deleteDoc(doc(db,"my_resumes",id))
+}        
+}) 
+} 
+get_data()
+    // *****function to delete data*****//
+    function delete_data(data_id){
+            deleteDoc(doc(db,"my_resumes",data_id))
+            get_data()
+        } 
+    window.delete_data=delete_data 
 
-})   
+// getDoc(doc(db,"my_resumes",firebase_userid)).then(docSnap =>{
+//         if(docSnap.exists()){
+//             console.log("document data:",docSnap.data()['title']);
+//         }
+//         else{
+//             console.log("No such data")
+//         }
+//     }) 
 
 </script>

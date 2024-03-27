@@ -120,7 +120,7 @@
 
 for(let each in resume_parsed[index].education){
 
-no_of_education=no_of_education+`<tr>
+    no_of_education=no_of_education+`<tr>
     <td><input type="text" value="${resume_parsed[index].education[each].course}" class="updated_education" onkeyup="edit(this,${each},'education','course')"/></td>
     <td><input type="text" value="${resume_parsed[index].education[each].inst}" class="updated_education" onkeyup="edit(this,${each},'education','inst')"/></td>
     <td><input type="text" value="${resume_parsed[index].education[each].percentage}" class="updated_education" onkeyup="edit(this,${each},'education','percentage')"/></td>
