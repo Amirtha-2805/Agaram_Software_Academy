@@ -78,20 +78,13 @@
                              }
                         })
                         if(login_email==firebase_email&&login_pwd==firebase_pwd){
-                            // let local_array=[]
-                            let localstorage_data={
-                                "name":firebase_name,
-                                "email":firebase_email,
-                                "id":firebase_id
-                            }
                             
-                           if(!localStorage.getItem("register_local")){
-                                localStorage.setItem("register_local",JSON.stringify([]))
-                           }
-                           let localstg_data=localStorage.getItem("register_local")
-                           let parsed_local=JSON.parse(localstg_data)
-                           let store_local=[...parsed_local,localstorage_data]
-                           localStorage.setItem("register_local",JSON.stringify(store_local))
+                            let localstorage_data={
+                                name:firebase_name,
+                                email:firebase_email,
+                                id:firebase_id
+                            }                                                       
+                           localStorage.setItem("register_local",JSON.stringify(localstorage_data))
                             window.location=`resume_security.html?firebaseid=${firebase_id}`
                         }
                        if(login_email!=firebase_email&&login_pwd!=firebase_pwd){

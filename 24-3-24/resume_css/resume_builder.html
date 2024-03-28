@@ -227,17 +227,18 @@
 
     // Initialize Cloud Firestore and get a reference to the service
     const db = getFirestore(app);
+    
 
     document.getElementById("save_btn").addEventListener('click',async(e)=>{
         let params=new URLSearchParams(document.location.search);
-        let firebase_id=params.get("firebaseid");
-   
+        let firebase_id=params.get("firebaseid");  
+        let loc_data= localStorage.getItem("register_local")
+        let parsed_data=JSON.parse(loc_data)
+    console.log(parsed_data.email);
 
-        const docRef = await addDoc(collection(db, "my_resumes"),my_resume)
+        const docRef = await addDoc(collection(db,"my_resumes"),{...my_resume,user_id:parsed_data.id});
         window.location=`list.html?firebase_id=${firebase_id}`
-
-
-    })    
+    })   
     // let params=new URLSearchParams(document.location.search);
     // let id=params.get("id");
    

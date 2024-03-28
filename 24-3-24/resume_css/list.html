@@ -21,7 +21,7 @@
 <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-    import { getFirestore,addDoc,collection,getDocs,deleteDoc,doc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+    import { getFirestore,addDoc,collection,getDocs,deleteDoc,doc,query,where } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
 
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
@@ -45,37 +45,33 @@
     let firebase_userid=params1.get("firebase_id");
     console.log( "fire",firebase_userid)
 
-// *****function to get data*****//
+//*****function to get data*****//
     function get_data(){  
-    getDocs(collection(db,"my_resumes")).then(docSnap =>{
-    let params1=new URLSearchParams(document.location.search);
-    let resume_id=params1.get("resume_id");      
-    // console.log(resume_id) 
-    if(firebase_userid){   
-    let renderHTML=''; 
-      
-    docSnap.forEach((doc)=>{        
-            // console.log("doc id",doc.id)
-            // console.log("user id is" ,user_id)
-                renderHTML=renderHTML+`<table class="table">
-                    <tr class="t_row"><td class="list_td"><li class="list"><a href="view_template.html?id=${doc.id}" id="list_a">${doc.data().title}</a></li></td><td><button type="button" class="del" onclick="delete_data('${doc.id}')">Delete</button></td><td><a href="edit.html?id=${doc.id}">
+        let loc_data= localStorage.getItem("register_local")
+        let parsed_data=JSON.parse(loc_data)     
+        const q=query(collection(db, "my_resumes"), where("user_id", "==", parsed_data.id));
+        getDocs(q).then(docSnap =>{           
+            let renderHTML='';       
+            docSnap.forEach((doc)=>{                            
+                    renderHTML=renderHTML+`<table class="table">
+                    <tr class="t_row"><td class="list_td1"><li class="list"><a href="view_template.html?id=${doc.id}" id="list_a">${doc.data().title}</a></li></td><td class="del_td"><button type="button" class="del" onclick="delete_data('${doc.id}')">Delete</button></td><td class="edit_td"><a href="edit.html?id=${doc.id}">
                     <button type="button" id="update_btn">Edit</button></a></td></tr></table>`                                                                   
-        document.getElementById("list").innerHTML=renderHTML
-                    
-//         // else{
-//         //     window.location=`login.html`
-//         // }         
     }) 
-}        
+    document.getElementById("list").innerHTML=renderHTML                    
+
+        
 }) 
 } 
 get_data()
+
     // *****function to delete data*****//
     function delete_data(data_id){
             deleteDoc(doc(db,"my_resumes",data_id))
             get_data()
         } 
     window.delete_data=delete_data 
+
+
 
 // getDoc(doc(db,"my_resumes",firebase_userid)).then(docSnap =>{
 //         if(docSnap.exists()){

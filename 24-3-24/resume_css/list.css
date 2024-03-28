@@ -8,9 +8,10 @@
     font-family: "Cherry Cream Soda", system-ui;
 
    }
-.list_td{
+.list_td1{
     list-style: none;
-    text-align: center; 
+    text-align: center;
+    width:80%; 
    
     /* margin-top: 30px; */
 } 
@@ -25,11 +26,27 @@
 }
 
 .table{
-    margin-left: 450px;
+    /* margin-left: 20px; */
     margin-top: 50px;
+    text-align: center;
+    /* border:1px solid white */
+}
+#list{
+    border:1px solid white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 #update_btn{
     margin-left: 30px;
+}
+.del_td{
+    width:32%
+}
+.edit_td{
+    width:32%;
+    
 }
 button {
     padding: 10px 20px;

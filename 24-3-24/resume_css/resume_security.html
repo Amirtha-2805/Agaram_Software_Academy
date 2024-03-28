@@ -37,15 +37,11 @@
    
        let loc_data= localStorage.getItem("register_local")
        let parsed_data=JSON.parse(loc_data)
-       let loc_id=""
-       for(let each of parsed_data){
-            loc_id=each["id"]
-            // console.log(loc_id);    
-       }     
+        
     getDoc(doc(db,"registration",firebase_id)).then(docSnap =>{
         if(docSnap.exists()){
             // console.log("document data:",docSnap.data());
-            if(firebase_id==loc_id){
+            if(firebase_id==parsed_data.id){
                 window.location=`resume_builder.html?firebaseid=${firebase_id}`
             }
             else{

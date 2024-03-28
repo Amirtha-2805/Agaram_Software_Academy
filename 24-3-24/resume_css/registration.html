@@ -69,14 +69,15 @@
     document.getElementById("submit_button").addEventListener('click',async (e)=>{
         let u_name=document.getElementById("user_name").value
         let u_email=document.getElementById("mail_id").value
-        let u_pwd=document.getElementById("security_pin").value        
+        let u_pwd=document.getElementById("security_pin").value   
+        let loc_data= localStorage.getItem("register_local")
+        let parsed_data=JSON.parse(loc_data)
         if(u_name==""|| u_email==""|| u_pwd=="" ){
             alert("please fill out all the data")
         }
         else{
-        const docRef = await addDoc(collection(db, "registration"),registerdata).then(()=>{
-        window.location=`login.html` 
-        // console.log(registerdata)         
+        const docRef = await addDoc(collection(db,"registration"),registerdata).then(()=>{
+        window.location=`login.html`                 
         })   
         }
              
