@@ -57,9 +57,7 @@
                     <tr class="t_row"><td class="list_td1"><li class="list"><a href="view_template.html?id=${doc.id}" id="list_a">${doc.data().title}</a></li></td><td class="del_td"><button type="button" class="del" onclick="delete_data('${doc.id}')">Delete</button></td><td class="edit_td"><a href="edit.html?id=${doc.id}">
                     <button type="button" id="update_btn">Edit</button></a></td></tr></table>`                                                                   
     }) 
-    document.getElementById("list").innerHTML=renderHTML                    
-
-        
+    document.getElementById("list").innerHTML=renderHTML                            
 }) 
 } 
 get_data()

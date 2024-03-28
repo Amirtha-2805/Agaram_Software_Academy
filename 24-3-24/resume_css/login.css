@@ -49,6 +49,9 @@ button {
     transition: 0.5s ease;
     user-select: none;
   }
-  button:hover{
+  #login-data:hover{
     background-color:#3b78aad7 
   }
+  #register-data:hover{
+    background-color: #21c91bd8
+}
