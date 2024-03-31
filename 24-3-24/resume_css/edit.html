@@ -1,6 +1,7 @@
 <html>
 <head>
     <script  defer src="resume_builder.js" type="text/javaScript"></script>
+    <script type="module" src="script.js"></script>
 
 </head>
 <body>
@@ -14,17 +15,17 @@
         <div id="skills">
 
         </div>
-        <button type="button" id="skill_btn">Add new skills</button>
+        <button type="button" onclick="add_newskill()">Add new skills</button>
 
 
         <div id="hobbies">
 
         </div>
-        <button type="button" id="hobby_btn">Add new hobbies</button>
+        <button type="button" onclick="add_newhobby()">Add new hobbies</button>
         <div id="languages">
 
         </div>
-        <button type="button" id="lang_btn">Add new language</button>
+        <button type="button" onclick="add_newlang()">Add new language</button>
 
 
         <table border=1>
@@ -38,7 +39,7 @@
         
             </tbody>
         </table>
-        <button type="button" id="edu_btn">click to add education</button>
+        <button type="button" onclick="add_newedu()">click to add education</button>
 <br>
 <br>
         <table border=1>
@@ -54,7 +55,7 @@
         
             </tbody>
         </table>
-        <button onclick="add_newexperience()">Add new experience</button>
+        <button type="button" onclick="add_newexperience()">Add new experience</button>
         <br>
         <br>
         <table border=1>
@@ -70,414 +71,54 @@
         
             </tbody>
         </table>
-        <button onclick="add_newprojects()">Add new projects</button>
+        <button type="button" onclick="add_newprojects()">Add new projects</button>
 
     <button type="button" id="up_btn">Update</button>
 
 </body>
 <script>
-
-function add_neweducation(){
-    let params=new URLSearchParams(document.location.search);
-    let index=params.get("index");
-    let resume_data=localStorage.getItem("resumes");
-    let resume_parsed=JSON.parse(resume_data);
-    let tbody=document.getElementById("tabledatas").innerHTML
-    let education_index=resume_parsed[index].education.length
-
-    let new_tablerow=`<tr>
-            <td><input type="text" onkeyup="add_neweducation(this,${education_index},'education','course')"/></td>
-            <td><input type="text" onkeyup="add_neweducation(this,${education_index},'education','inst')"/></td>
-            <td><input type="text" onkeyup="add_neweducation(this,${education_index},'education','percentage')"/></td>
-        </tr>`
-document.getElementById("tabledatas").innerHTML=tbody+new_tablerow
-resume_parsed[index].education[education_index]={
-course:"",
-inst:"",
-percentage:""
-}
-localStorage.setItem("resumes",JSON.stringify(resume_parsed))
-
-   
-    window.location.reload()
-//    console.log(new_education)
-
-}
-function add_newexperience(){
-    let params=new URLSearchParams(document.location.search);
-    let index=params.get("index");
-    let resume_data=localStorage.getItem("resumes");
-    let resume_parsed=JSON.parse(resume_data);
-    let tbody=document.getElementById("experience").innerHTML
-    let experience_index=resume_parsed[index].experience.length
-
-    let new_tablerow=`<tr>
-            <td><input type="text" onkeyup="add_neweducation(this,${experience_index},'experience','company_name')"/></td>
-            <td><input type="text" onkeyup="add_neweducation(this,${experience_index},'experience','years_of_experience')"/></td>
-            <td><input type="text" onkeyup="add_neweducation(this,${experience_index},'experience','role')"/></td>
-        </tr>`
-document.getElementById("tabledatas").innerHTML=tbody+new_tablerow
-resume_parsed[index].experience[experience_index]={
-
-company_name:"",
-years_of_experience:"",
-role:""
-}
-localStorage.setItem("resumes",JSON.stringify(resume_parsed))
-
-   
-    window.location.reload()
-//    console.log(new_education)
-
-}
-
-function add_newprojects(){
-    let params=new URLSearchParams(document.location.search);
-    let index=params.get("index");
-    let resume_data=localStorage.getItem("resumes");
-    let resume_parsed=JSON.parse(resume_data);
-    let tbody=document.getElementById("projects").innerHTML
-    let project_index=resume_parsed[index].projects.length
-
-    let new_tablerow=`<tr>
-            <td><input type="text" onkeyup="add_neweducation(this,${project_index},'experience','title')"/></td>
-            <td><input type="text" onkeyup="add_neweducation(this,${project_index},'experience','major')"/></td>
-            <td><input type="text" onkeyup="add_neweducation(this,${project_index},'experience','subject')"/></td>
-        </tr>`
-document.getElementById("tabledatas").innerHTML=tbody+new_tablerow
-resume_parsed[index].projects[project_index]={
-
-title:"",
-major:"",
-subject:""
-}
-localStorage.setItem("resumes",JSON.stringify(resume_parsed))
-
-   
-    window.location.reload()
-//    console.log(new_education)
-
-}
-
-// function education(element,ed_index,key){
-//     let params=new URLSearchParams(document.location.search);
-//     let index=params.get("index");
-
-//     let resume_data=localStorage.getItem("resumes");
-//     let resume_parsed=JSON.parse(resume_data);
-    
-//     resume_parsed[index].education[ed_index][key]=element.value;
-
-// // console.log(element.value)
-// localStorage.setItem("resumes",JSON.stringify(resume_parsed))
-// // window.location="edit.html"
-
-// }    
+    let edited_resume={}
 </script>
-</html>
-
-<!-- firebase initialization -->
-
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-    import { getFirestore,addDoc,collection,getDocs,onSnapshot,doc,getDoc,updateDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
-
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyDDy11LJ-SUWpMfx75fA7FrVVZyR9aEKQ0",
-      authDomain: "resume-builder-1cd9c.firebaseapp.com",
-      projectId: "resume-builder-1cd9c",
-      storageBucket: "resume-builder-1cd9c.appspot.com",
-      messagingSenderId: "258294776955",
-      appId: "1:258294776955:web:89d72d56de3bb3d21c8ede"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-
-    // Initialize Cloud Firestore and get a reference to the service
-    const db = getFirestore(app);
-    let params2=new URLSearchParams(document.location.search);
-    let id=params2.get("id");
-
-//*****getting datas from firebase database to display it in a edit page*****//
 
 
-    getDoc(doc(db,"my_resumes",id)).then(docSnap=>{
-        if(docSnap.exists()){
-    document.getElementById("data_input1").value=docSnap.data()['title'];
-    document.getElementById("data_input2").value=docSnap.data()['name'];
 
 
-    let skills_added=''    
-   for (let each of docSnap.data()['skills']){          
-
-    skills_added=skills_added+`<input type="text" value=${each} class="added_skills" id="multi_skills"/>`  
-            
-   }      
-   document.getElementById("skills").innerHTML=skills_added
-
-      let hobbies_added=''    
-   for (let each of docSnap.data()['personal_details']['hobbies']){          
-    hobbies_added=hobbies_added+`<input type="text" value="${each}" class="added_hobbies"/>`               
-   }
-   document.getElementById("hobbies").innerHTML=hobbies_added
 
 
-   let languages_added=''    
-   for (let each of docSnap.data()['personal_details']['languages_known']){          
-    languages_added=languages_added+`<input type="text" value="${each}" class="added_languages"/>`               
-   }
-   document.getElementById("languages").innerHTML=languages_added
-
-let no_of_education=''
-for(let each of docSnap.data()['education']){
-
-no_of_education=no_of_education+`<tr>
-    <td><input type="text" value="${each.course}"  class="course" onkeyup="edit(this,${each},'education','course')"/></td>
-    <td><input type="text" value="${each.inst}" class="institute"  onkeyup="edit(this,${each},'education','inst')"/></td>
-    <td><input type="text" value="${each.percentage}" class="percentage" onkeyup="edit(this,${each},'education','percentage')"/></td>                              
-    </tr>`
-    document.getElementById("tabledatas").innerHTML=no_of_education       
-}
-let no_of_experience=''
-
-for(let each of docSnap.data()['experience']){
-
-no_of_experience=no_of_experience+`<tr>
-    <td><input type="text" value="${each.company_name}" onkeyup="edit(this,${each},'experience','company_name')"/></td>
-    <td><input type="text" value="${each.years_of_experience}" onkeyup="edit(this,${each},'experience','years_of_experience')"/><td> <input type="text" value="${each.role}"  onkeyup="edit(this,${each},'experience','role')"/></td>                                  
-    </tr>`
-        }
-        document.getElementById("experience").innerHTML=no_of_experience
 
 
-let no_of_projects=''
 
-for(let each of docSnap.data()['projects']){
 
-no_of_projects=no_of_projects+`<tr>
-    <td><input type="text" value="${each.title}" onkeyup="edit(this,${each},'projects','title')"/></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
-    <td><input type="text" value="${each.major}" onkeyup="edit(this,${each},'projects','major')"/><td> <input type="text" value="${each.subject}"  onkeyup="edit(this,${each},'projects','subject')"/></td>                                  
-    </tr>`
-        }
-        document.getElementById("projects").innerHTML=no_of_projects
-
-//*****to update the datas*****//
-
-let params1=new URLSearchParams(document.location.search);
-let id1=params1.get("id");
-   
-  document.getElementById("up_btn").addEventListener('click',(e)=>{
-    let updated_value1=document.getElementById("data_input1").value
-    let updated_value2=document.getElementById("data_input2").value
-    let updated_skills= document.getElementsByClassName("added_skills");
-    let skills_added=[]
-    for (let each of updated_skills){
-        skills_added.push(each.value)
-        // console.log(each);
-    }    
-    
-let updated_hobbies=document.getElementsByClassName("added_hobbies");
-let new_hobbies=[]
-for( let each of updated_hobbies){
-    new_hobbies.push(each.value);
-}
-console.log(new_hobbies);
-
-let updated_languages=document.getElementsByClassName("added_languages");
-let new_language=[]
-for(let each of updated_languages){    
-    new_language.push(each.value);
-}
-    
-    updateDoc(doc(db,"my_resumes",id),{
-            title:updated_value1,
-            name:updated_value2,
-            skills:skills_added,
-            personal_details:{hobbies:new_hobbies,
-                              languages_known:new_language},                                              
-    })
-  })  
-        }
-    })
-
-document.getElementById("up_btn").addEventListener('click',(e)=>{
-    getDoc(doc(db,"my_resumes",id)).then(docSnap=>{
-        if(docSnap.exists()){
-            
-            for(let each in docSnap.data()['education']){
-                let updated_course=document.querySelector(".course").value
-                let updated_inst=document.querySelector(".institute").value
-                let updated_percentage=document.querySelector(".percentage").value               
-                // console.log(firebase_course)                
-                docSnap.data()['education'][each]['course']=updated_course             
-                docSnap.data()['education'][each]['inst']=updated_inst
-                docSnap.data()['education'][each]['percentage']=updated_percentage               
-                updateDoc(doc(db,"my_resumes",id),{            
-                education:[{
-                course:updated_course,
-                inst:updated_inst,
-                percentage:updated_percentage
-            },
-            // {
-            //     course:updated_course,
-            //     inst:updated_inst,
-            //     percentage:updated_percentage
-            // },                                 
-        ]                                        
-    })
-            }
-            // console.log(education)
-               
-
-
-        }
-    })
-
-
-})
-
-               
-    document.getElementById("skill_btn").addEventListener('click',(e)=>{    
-    getDoc(doc(db,"my_resumes",id)).then(docSnap=>{
-        if(docSnap.exists()){    
-            let skills_added=''    
-            for (let each of docSnap.data()['skills']){          
-                skills_added=skills_added+`<input type="text" value=${each} class="added_skills" id="multi_skills"/>`              
-            }      
-            document.getElementById("skills").innerHTML=skills_added
-            let input=`<input type="text" class="added_skills"/>`
-            document.getElementById("skills").innerHTML=skills_added+input;  
-        
-            }    
-})
-})
-
-document.getElementById("hobby_btn").addEventListener('click',(e)=>{
-    getDoc(doc(db,"my_resumes",id)).then(docSnap=>{
-        if(docSnap.exists()){
-            let hobbies_added=''    
-            for (let each of docSnap.data()['personal_details']['hobbies']){          
-                hobbies_added=hobbies_added+`<input type="text" value="${each}" class="added_hobbies"/>`               
-            }
-            document.getElementById("hobbies").innerHTML=hobbies_added
-            let input1=`<input type="text" class="added_hobbies"/>`    
-            document.getElementById("hobbies").innerHTML=hobbies_added+input1;
-        }
-    })
-})     
-  
-
-document.getElementById("lang_btn").addEventListener('click',(e)=>{
-    getDoc(doc(db,"my_resumes",id)).then(docSnap=>{
-        if(docSnap.exists()){
-            let languages_added=''    
-            for (let each of docSnap.data()['personal_details']['languages_known']){          
-                languages_added=languages_added+`<input type="text" value="${each}" class="added_languages"/>`               
-            }
-            document.getElementById("languages").innerHTML=languages_added
-            let input=`<input type="text" class="added_languages"/>`   
-            document.getElementById("languages").innerHTML=languages_added+input;           
-        }
-    })
-})     
-
-document.getElementById("edu_btn").addEventListener('click',(e)=>{
-    getDoc(doc(db,"my_resumes",id)).then(docSnap=>{
-        if(docSnap.exists()){
-
-            let no_of_education=''
-
-for(let each of docSnap.data()['education']){
-
-    no_of_education=no_of_education+`<tr>
-    <td><input type="text" value="${each.course}"  class="course" onkeyup="edit(this,${each},'education','course')"/></td>
-    <td><input type="text" value="${each.inst}" class="institute"  onkeyup="edit(this,${each},'education','inst')"/></td>
-    <td><input type="text" value="${each.percentage}" class="percentage" onkeyup="edit(this,${each},'education','percentage')"/></td>                               
-    </tr>`
-    document.getElementById("tabledatas").innerHTML=no_of_education       
-    }
-    let tbody=document.getElementById("tabledatas").innerHTML
-    let education_index=docSnap.data()['education'].length
-
-    let new_tablerow=`<tr>
-            <td><input type="text" onkeyup="add_neweducation(this,${education_index},'education','course')"/></td>
-            <td><input type="text" onkeyup="add_neweducation(this,${education_index},'education','inst')"/></td>
-            <td><input type="text" onkeyup="add_neweducation(this,${education_index},'education','percentage')"/></td>
-        </tr>`
-        document.getElementById("tabledatas").innerHTML=tbody+new_tablerow
-        resume_parsed[index].education[education_index]={
-
-        course:"",
-        inst:"",
-        percentage:""
-        }
-        }
-    })
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //  function edit(ele,key_index,key,c_key){
-//     if(key=='education'){
-//  resume_parsed[index][key][key_index][c_key]=ele.value;
- 
-//     }
-// // console.log(element.value)
-// // window.location="edit.html"
-// if(key=='experience'){
-//  resume_parsed[index][key][key_index][c_key]=ele.value;
-//     }
-
-//     if(key=='projects'){
-//  resume_parsed[index][key][key_index][c_key]=ele.value;
-//     }
-    
-// localStorage.setItem("resumes",JSON.stringify(resume_parsed))
-
-// }
 
     
 
 
-    </script>

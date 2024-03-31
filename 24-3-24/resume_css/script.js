@@ -1,127 +1,128 @@
- // Import the functions you need from the SDKs you need
- import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
- import { getFirestore,addDoc,collection,getDocs,getDoc,doc,updateDoc,query,where,deleteDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+import { getFirestore,addDoc,collection,getDocs,getDoc,doc,updateDoc,query,where,deleteDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
 
- // TODO: Add SDKs for Firebase products that you want to use
- // https://firebase.google.com/docs/web/setup#available-libraries
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
- // Your web app's Firebase configuration
- const firebaseConfig = {
-   apiKey: "AIzaSyDDy11LJ-SUWpMfx75fA7FrVVZyR9aEKQ0",
-   authDomain: "resume-builder-1cd9c.firebaseapp.com",
-   projectId: "resume-builder-1cd9c",
-   storageBucket: "resume-builder-1cd9c.appspot.com",
-   messagingSenderId: "258294776955",
-   appId: "1:258294776955:web:89d72d56de3bb3d21c8ede"
- };
- // Initialize Firebase
- const app = initializeApp(firebaseConfig);
- // Initialize Cloud Firestore and get a reference to the service
- const db = getFirestore(app);
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDDy11LJ-SUWpMfx75fA7FrVVZyR9aEKQ0",
+  authDomain: "resume-builder-1cd9c.firebaseapp.com",
+  projectId: "resume-builder-1cd9c",
+  storageBucket: "resume-builder-1cd9c.appspot.com",
+  messagingSenderId: "258294776955",
+  appId: "1:258294776955:web:89d72d56de3bb3d21c8ede"
+};
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
 
 // *****Registration*****//
-    async function submit_data(){
-        let u_name=document.getElementById("user_name").value
+
+ async function submit_data(){
+    let u_name=document.getElementById("user_name").value
         let u_email=document.getElementById("mail_id").value
-        let u_pwd=document.getElementById("security_pin").value           
+        let u_pwd=document.getElementById("security_pin").value   
         if(u_name==""|| u_email==""|| u_pwd=="" ){
             alert("please fill out all the data")
         }
         else{
-         await addDoc(collection(db,"registration"),registerdata).then(()=>{
+        const docRef = await addDoc(collection(db,"registration"),registerdata).then(()=>{
             alert("Your registration completed successfully")
-        window.location="login.html"                 
+        window.location=`login.html`                 
         })   
-        }
- }
- window.submit_data=submit_data   
- 
+        }             
+
+}
+window.submit_data=submit_data
+
 // ***** signin*****//
 
- function signin(){
+function signin(){
     window.location=`login.html`
  }
  window.signin=signin
 
-//  *****LogIn*****//
+ //  *****LogIn*****//
  function logging_in(){
-  let login_email=document.getElementById("login_email").value
-  let login_pwd=document.getElementById("login_pwd").value  
-  if(login_email==""||login_pwd==""){
-    alert("Please fill required details")
-    window.location="login.html"
-}
-     
-  getDocs(collection(db,"registration")).then(docSnap=>{
-
-    
-          let firebase_email=""
-          let firebase_pwd=""
-          let firebase_name=""
-          let firebase_id=""
-        
-      
-              docSnap.forEach((doc)=>{
-               
-                      if(login_email==doc.data().email && login_pwd==doc.data().password){
-                          firebase_email=doc.data().email;
-                          firebase_pwd=doc.data().password;
-                          firebase_name=doc.data().name;
-                          firebase_id=doc.id;
-                           }
-                      })
-                      if(login_email==firebase_email&&login_pwd==firebase_pwd){
-                          
-                          let localstorage_data={
-                              name:firebase_name,
-                              email:firebase_email,
-                              id:firebase_id
-                          }                                                       
-                         localStorage.setItem("register_local",JSON.stringify(localstorage_data))
-                          window.location=`resume_security.html?firebaseid=${firebase_id}`
-                      }
-                     if(login_email!=firebase_email&&login_pwd!=firebase_pwd){
-                          alert("please enter valid email and password or create new account")
-                          window.location="registration.html"
-                      }                                                                                      
-                  })                          
-                }
-                window.logging_in=logging_in
-
-    function register_data(){
-     window.location="registration.html"
-    }
-    window.register_data=register_data
+    let login_email=document.getElementById("login_email").value
+    let login_pwd=document.getElementById("login_pwd").value  
+    if(login_email==""||login_pwd==""){
+      alert("Please fill required details")
+      window.location="login.html"
+  }
        
+    getDocs(collection(db,"registration")).then(docSnap=>{
+  
+      
+            let firebase_email=""
+            let firebase_pwd=""
+            let firebase_name=""
+            let firebase_id=""
+          
+        
+                docSnap.forEach((doc)=>{
+                 
+                        if(login_email==doc.data().email && login_pwd==doc.data().password){
+                            firebase_email=doc.data().email;
+                            firebase_pwd=doc.data().password;
+                            firebase_name=doc.data().name;
+                            firebase_id=doc.id;
+                             }
+                        })
+                        if(login_email==firebase_email&&login_pwd==firebase_pwd){
+                            
+                            let localstorage_data={
+                                name:firebase_name,
+                                email:firebase_email,
+                                id:firebase_id
+                            }                                                       
+                           localStorage.setItem("register_local",JSON.stringify(localstorage_data))
+                            window.location=`resume_security.html?firebaseid=${firebase_id}`
+                        }
+                       if(login_email!=firebase_email&&login_pwd!=firebase_pwd){
+                            alert("please enter valid email and password or create new account")
+                            window.location="registration.html"
+                        }                                                                                      
+                    })                          
+                  }
+                  window.logging_in=logging_in
+  
+   function register_data(){
+     window.location="registration.html"
+         }
+    window.register_data=register_data
+
     //*****function to list data*****//
-       function get_data(){  
-            let loc_data= localStorage.getItem("register_local")
-            let parsed_data=JSON.parse(loc_data)             
-            const q=query(collection(db, "my_resumes"), where("user_id", "==", parsed_data.id));
-            getDocs(q).then(docSnap =>{           
-                let renderHTML='';       
-                docSnap.forEach((doc)=>{                            
-                        renderHTML=renderHTML+`<table class="table">
-                        <tr class="t_row"><td class="list_td1"><li class="list"><a href="view_template.html?id=${doc.id}" id="list_a">${doc.data().title}</a></li></td><td class="del_td"><button type="button" class="del" onclick="delete_data('${doc.id}')">Delete</button></td><td class="edit_td"><a href="edit.html?id=${doc.id}">
-                        <button type="button" id="update_btn">Edit</button></a></td></tr></table>`                                                                   
-        }) 
-        document.getElementById("list").innerHTML=renderHTML                            
-    
+    function get_data(){  
+        let loc_data= localStorage.getItem("register_local")
+        let parsed_data=JSON.parse(loc_data)             
+        const q=query(collection(db, "my_resumes"), where("user_id", "==", parsed_data.id));
+        getDocs(q).then(docSnap =>{           
+            let renderHTML='';       
+            docSnap.forEach((doc)=>{                            
+                    renderHTML=renderHTML+`<table class="table">
+                    <tr class="t_row"><td class="list_td1"><li class="list"><a href="view_template.html?id=${doc.id}" id="list_a">${doc.data().title}</a></li></td><td class="del_td"><button type="button" class="del" onclick="delete_data('${doc.id}')">Delete</button></td><td class="edit_td"><a href="edit.html?id=${doc.id}">
+                    <button type="button" id="update_btn">Edit</button></a></td></tr></table>`                                                                   
     }) 
-    
-    } 
-    get_data()
-    window.get_data=get_data
-    
-        // *****function to delete data*****//
-       async function delete_data(data_id){
-                deleteDoc(doc(db,"my_resumes",data_id))
-                get_data()
-            } 
-        window.delete_data=delete_data 
-    
-    
-//*****getting datas from firebase database to display it in a edit page and updating*****//
+    document.getElementById("list").innerHTML=renderHTML                            
+
+}) 
+
+} 
+get_data()
+window.get_data=get_data
+
+    // *****function to delete data*****//
+   async function delete_data(data_id){
+            deleteDoc(doc(db,"my_resumes",data_id))
+            get_data()
+        } 
+    window.delete_data=delete_data 
+
+    //*****getting datas from firebase database to display it in a edit page and updating*****//
 
     
     let params2=new URLSearchParams(document.location.search);
@@ -233,8 +234,6 @@ let updated_skills= document.getElementsByClassName("added_skills");
 })      
         }
 })
-
-
 //  *****to add extra input box *****//
 async function add_newskill(){
     getDoc(doc(db,"my_resumes",id)).then(docSnap=>{
@@ -345,6 +344,3 @@ function add_newprojects(){
     })
 }
 window.add_newprojects=add_newprojects
-
-
-

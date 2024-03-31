@@ -28,9 +28,9 @@ input:hover{
     border-radius: 30px;
     background:linear-gradient(#1f0021,#751006);
    
-    -webkit-box-shadow:0px 0px 26px 3px rgba(235, 30, 91, 0.9);
-    -moz-box-shadow: 0px 0px 26px 3px rgba(235, 30, 91, 0.9);
-    box-shadow: 0px 0px 26px 3px rgba(235, 30, 91, 0.9);}
+    -webkit-box-shadow:0px 0px 26px 3px  rgba(14, 1, 5, 0.9);
+    -moz-box-shadow: 0px 0px 26px 3px rgba(14, 1, 5, 0.9);
+    box-shadow: 0px 0px 26px 3px rgba(14, 1, 5, 0.9);}
 tr{
     line-height: 110px;
 }

@@ -7,6 +7,7 @@
     <script src="resume_builder.js" type="text/javaScript"></script>
     <link rel="stylesheet" href="registration.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&display=swap" rel="stylesheet">
+    <script type="module" src="script.js"></script>
 
 </head>
 <body>
@@ -31,8 +32,8 @@
         </table>
     </div>
     </form>
-    <button type="button" id="submit_button">Create new</button>
-    <button type="button" id="signin_button">Sign In</button>
+    <button type="button" id="submit_button" onclick="submit_data()">Create new</button>
+    <button type="button" id="signin_button" onclick="signin()">Sign In</button>
 
 </div>
     
@@ -41,50 +42,5 @@
 </center>
 </body>
 
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-    import { getFirestore,addDoc,collection,getDocs } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
-
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyDDy11LJ-SUWpMfx75fA7FrVVZyR9aEKQ0",
-      authDomain: "resume-builder-1cd9c.firebaseapp.com",
-      projectId: "resume-builder-1cd9c",
-      storageBucket: "resume-builder-1cd9c.appspot.com",
-      messagingSenderId: "258294776955",
-      appId: "1:258294776955:web:89d72d56de3bb3d21c8ede"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-
-    // Initialize Cloud Firestore and get a reference to the service
-    const db = getFirestore(app);
-    
-
-    document.getElementById("submit_button").addEventListener('click',async (e)=>{
-        let u_name=document.getElementById("user_name").value
-        let u_email=document.getElementById("mail_id").value
-        let u_pwd=document.getElementById("security_pin").value   
-        let loc_data= localStorage.getItem("register_local")
-        let parsed_data=JSON.parse(loc_data)
-        if(u_name==""|| u_email==""|| u_pwd=="" ){
-            alert("please fill out all the data")
-        }
-        else{
-        const docRef = await addDoc(collection(db,"registration"),registerdata).then(()=>{
-            alert("Your registration completed successfully")
-        window.location=`login.html`                 
-        })   
-        }             
-    })
-    document.getElementById("signin_button").addEventListener('click',(e)=>{
-    window.location=`login.html`
-    })
-
-       </script> 
+ 
         </html>

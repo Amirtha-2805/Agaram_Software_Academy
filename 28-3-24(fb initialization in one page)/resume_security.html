@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Security page</title>
+    <script type="module" src="script.js"></script>
 </head>
 <body>
     
@@ -31,6 +32,9 @@
 
     // Initialize Cloud Firestore and get a reference to the service
     const db = getFirestore(app); 
+
+    //*****checking firebase id and local strage id and navigate to resume_builder.html*****//
+    
     let params=new URLSearchParams(document.location.search);
     let firebase_id=params.get("firebaseid");
     console.log("firebase",firebase_id)
@@ -51,24 +55,6 @@
         else{
             console.log("No such data")
         }
-    })
-
-    //    getDocs(collection(db,"registration")).then(docSnap=>{
-    //         let id=""    
-    //         docSnap.forEach((doc)=>{
-    //                 id=doc.id                                   
-    //             // console.log(id)
-    //             if(id==loc_id){
-    //                 alert("same Id")
-    //                 window.location="resume_builder.html"
-    //             }
-    //             else{
-    //                 window.location="login.html"
-    //             }
-    //         })
-    //     })
-
-    
-    
+    })    
  </script>
 </html>

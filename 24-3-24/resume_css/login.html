@@ -6,7 +6,7 @@
     <title>Login page</title>
     <link rel="stylesheet" href="login.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&display=swap" rel="stylesheet">
-
+    <script type="module" src="script.js"></script>
 </head>
 <body>
     <center>
@@ -25,79 +25,11 @@
             </tr>
         </table>
     </form>
-    <button type="button" id="login-data">Login</button>
-    <button type="button" id="register-data">Register</button>
+    <button type="button" id="login-data" onclick="logging_in()">Login</button>
+    <button type="button" id="register-data" onclick="register_data()">Register</button>
 
 </div>
     
 </center>
 </body>
 </html>
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-    import { getFirestore,addDoc,collection,getDocs,deleteDoc,doc,query,where,getDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
-
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyDDy11LJ-SUWpMfx75fA7FrVVZyR9aEKQ0",
-      authDomain: "resume-builder-1cd9c.firebaseapp.com",
-      projectId: "resume-builder-1cd9c",
-      storageBucket: "resume-builder-1cd9c.appspot.com",
-      messagingSenderId: "258294776955",
-      appId: "1:258294776955:web:89d72d56de3bb3d21c8ede"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-
-    // Initialize Cloud Firestore and get a reference to the service
-    const db = getFirestore(app);
-    let params=new URLSearchParams(document.location.search);
-    let id=params.get("id");   
-
-
-    document.getElementById("login-data").addEventListener('click',(e)=>{
-    let login_email=document.getElementById("login_email").value
-    let login_pwd=document.getElementById("login_pwd").value        
-    getDocs(collection(db,"registration")).then(docSnap=>{
-        if(login_email==""||login_pwd==""){
-            alert("Please fill required details")
-        }
-            let firebase_email=""
-            let firebase_pwd=""
-            let firebase_name=""
-            let firebase_id=""
-                docSnap.forEach((doc)=>{
-                        if(login_email==doc.data().email && login_pwd==doc.data().password){
-                            firebase_email=doc.data().email;
-                            firebase_pwd=doc.data().password;
-                            firebase_name=doc.data().name;
-                            firebase_id=doc.id;
-                             }
-                        })
-                        if(login_email==firebase_email&&login_pwd==firebase_pwd){
-                            
-                            let localstorage_data={
-                                name:firebase_name,
-                                email:firebase_email,
-                                id:firebase_id
-                            }                                                       
-                           localStorage.setItem("register_local",JSON.stringify(localstorage_data))
-                            window.location=`resume_security.html?firebaseid=${firebase_id}`
-                        }
-                       if(login_email!=firebase_email&&login_pwd!=firebase_pwd){
-                            alert("please enter valid email and password or create new account")
-                            window.location="registration.html"
-                        }                                                                                      
-                    })            
-                })
-                
-          document.getElementById("register-data").addEventListener('click',(e)=>{
-            window.location="registration.html"
-          })      
-    </script>
-    

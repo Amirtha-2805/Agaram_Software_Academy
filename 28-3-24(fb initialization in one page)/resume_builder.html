@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&display=swap" rel="stylesheet">
-
+    
 </head>
 <body>
     <center>    <img src="download (1).png"/></center>
@@ -180,8 +180,6 @@
         </div>
 <br>
 
-
-
         <div>
             
             <input type="text"  class="one" placeholder="Enter title" onkeyup="resume(this,'projects',false,1,'title')"/>
@@ -229,64 +227,19 @@
     const db = getFirestore(app);
     
 
+    
+    //***** to save resume and navigate to list.hhtml page*****//
+
     document.getElementById("save_btn").addEventListener('click',async(e)=>{
         let params=new URLSearchParams(document.location.search);
         let firebase_id=params.get("firebaseid");  
         let loc_data= localStorage.getItem("register_local")
         let parsed_data=JSON.parse(loc_data)
-    console.log(parsed_data.email);
+        console.log(parsed_data.email);
 
         const docRef = await addDoc(collection(db,"my_resumes"),{...my_resume,user_id:parsed_data.id});
         window.location=`list.html`
     })   
-    // let params=new URLSearchParams(document.location.search);
-    // let id=params.get("id");
-   
-    //    let loc_data= localStorage.getItem("register_local")
-    //    let parsed_data=JSON.parse(loc_data)
-    //    let loc_id=""
-    //    for(let each of parsed_data){
-    //         loc_id=each["id"]
-    //         // console.log(loc_id);    
-    //    }     
-    // getDoc(doc(db,"registration",id)).then(docSnap =>{
-    //     if(docSnap.exists()){
-    //         // console.log("document data:",docSnap.data());
-    //         if(id==loc_id){
-    //             window.location=`list.html?id=${id}`
-    //         }
-    //         else{
-    //             window.location="login.html"
-    //         }
-    //     }
-    //     else{
-    //         console.log("No such data")
-    //     }
-    // })
-
-    // let registeration_data=localStorage.getItem("reg_details")
-    //      let register_parsed=JSON.parse(registeration_data)
-    //      getDocs(collection(db,"registration")).then(docSnap=>{
-    //     let register_detail=[];
-
-    //             docSnap.forEach((doc)=>{
-
-    //                 register_detail.push({...doc.data(),id:doc.id})
-    //                 // console.log(doc.data())
-    //                 if(register_parsed[id]==doc.id){                       
-    //                     window.location="view.html"    
-    //                 }
-    //                 else{
-    //                     window.location="login.html"
-    //                 }
-    //             })
-    //             // console.log("document data",register_detail);
-
-    //             })
-
-
-
-
-
+    
   </script>
 

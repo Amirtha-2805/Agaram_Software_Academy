@@ -19,7 +19,9 @@
     text-decoration: none;
     margin-right: 100px;
     color: white;
-    font-size: large;    
+    font-size: large;
+    
+
 }
 #list_a:hover{
     color:gray
@@ -32,25 +34,30 @@
     /* border:1px solid white */
 }
 #list{
-    border:1px solid white;
+    /* border:1px solid white; */
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    
+
+}
+ul li{
+   
+    width:75%
+
 }
 #update_btn{
-    margin-left: 30px;
+    margin-right: 200px;
 }
-.del_td{
-    width:32%
-}
-.edit_td{
-    width:32%;
-    
+.del{
+    margin-left: -100px;
+
 }
 button {
     padding: 10px 20px;
-    /* text-transform: lowercase; */
+   
     border-radius: 8px;
     font-size: 17px;
     font-weight: 500;
@@ -64,21 +71,14 @@ button {
     user-select: none;
   }
   
-  .del:hover,
-  :focus {
+  .del:hover
+   {
     color: #ffffff;
     background: #ee0d0d;
     border: 1px solid #ee0d0d;
-    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
-    box-shadow: 0 0 5px #ee0d0d, 0 0 20px #ee0d0d, 0 0 50px#ee0d0d,
-      0 0 100px #ee0d0d;
-  }
-  #update_btn:hover,
-  :focus {
+     }
+  #update_btn:hover {
     color: #ffffff;
     background: #def044;
     border: 1px solid #def044;
-    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
-    box-shadow: 0 0 5px #def044, 0 0 20px #def044, 0 0 50px #def044,
-      0 0 100px #def044;
-  }
+     }

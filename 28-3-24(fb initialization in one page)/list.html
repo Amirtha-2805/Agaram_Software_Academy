@@ -2,8 +2,8 @@
 <html>
 <head>
     <script src="resume_builder.js" type="text/javaScript"></script>
-    <link rel="stylesheet" href="list.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&display=swap" rel="stylesheet">
+    
+    <script type="module" src="script.js"></script>
 
     </head>
 <body>
@@ -11,10 +11,7 @@
     <ul id="list">
 
     </ul>
-    <script>
-       let li=[]
-       
-    </script>
+   
 </body>
 <!-- <script>listed_resumes()</script> -->
 </html>
@@ -41,31 +38,31 @@
 
     // Initialize Cloud Firestore and get a reference to the service
     const db = getFirestore(app);
-    let params1=new URLSearchParams(document.location.search);
-    let firebase_userid=params1.get("firebase_id");
-    console.log( "fire",firebase_userid)
+    // let params1=new URLSearchParams(document.location.search);
+    // let firebase_userid=params1.get("firebase_id");
+    // console.log( "fire",firebase_userid)
 
-//*****function to get data*****//
-    function get_data(){  
-        let loc_data= localStorage.getItem("register_local")
-        let parsed_data=JSON.parse(loc_data)     
-        const q=query(collection(db, "my_resumes"), where("user_id", "==", parsed_data.id));
-        getDocs(q).then(docSnap =>{           
-            let renderHTML='';       
-            docSnap.forEach((doc)=>{                            
-                    renderHTML=renderHTML+`<table class="table">
-                    <tr class="t_row"><td class="list_td1"><li class="list"><a href="view_template.html?id=${doc.id}" id="list_a">${doc.data().title}</a></li></td><td class="del_td"><button type="button" class="del" onclick="delete_data('${doc.id}')">Delete</button></td><td class="edit_td"><a href="edit.html?id=${doc.id}">
-                    <button type="button" id="update_btn">Edit</button></a></td></tr></table>`                                                                   
-    }) 
-    document.getElementById("list").innerHTML=renderHTML                            
-}) 
-} 
-get_data()
+// //*****function to get data*****//
+//     function get_data(){  
+//         let loc_data= localStorage.getItem("register_local")
+//         let parsed_data=JSON.parse(loc_data)     
+//         const q=query(collection(db, "my_resumes"), where("user_id", "==", parsed_data.id));
+//         getDocs(q).then(docSnap =>{           
+//             let renderHTML='';       
+//             docSnap.forEach((doc)=>{                            
+//                     renderHTML=renderHTML+`<table class="table">
+//                     <tr class="t_row"><td class="list_td1"><li class="list"><a href="view_template.html?id=${doc.id}" id="list_a">${doc.data().title}</a></li></td><td class="del_td"><button type="button" class="del" onclick="delete_data('${doc.id}')">Delete</button></td><td class="edit_td"><a href="edit.html?id=${doc.id}">
+//                     <button type="button" id="update_btn">Edit</button></a></td></tr></table>`                                                                   
+//     }) 
+//     document.getElementById("list").innerHTML=renderHTML                            
+// }) 
+// } 
+// get_data()
 
-    // *****function to delete data*****//
-    function delete_data(data_id){
-            deleteDoc(doc(db,"my_resumes",data_id))
-            get_data()
-        } 
-    window.delete_data=delete_data 
+//     // *****function to delete data*****//
+//     function delete_data(data_id){
+//             deleteDoc(doc(db,"my_resumes",data_id))
+//             get_data()
+//         } 
+//     window.delete_data=delete_data 
 </script>
