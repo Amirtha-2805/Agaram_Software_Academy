@@ -1,0 +1,43 @@
+
+<html>
+<head>
+    <script src="resume_builder.js" type="text/javaScript"></script>
+   
+</head>
+<h1>Select your templates here!</h1>
+<ul>
+    <li><a href="#" onclick="viewtemplate(1)">Template1</a></li>
+    <li><a href="#"  onclick="viewtemplate(2)">Template2</a></li>
+    <li><a href="#"  onclick="viewtemplate(3)">Template3</a></li>
+   </ul>
+<button type="button" onclick="logingout()">LogOut</button>
+</body>
+<script>
+
+    let params=new URLSearchParams(document.location.search);
+    let id=params.get("id");
+    
+    function viewtemplate(template_id){
+    if(template_id==1){
+        window.location=`template_1/index.html?id=${id}`
+        
+    }
+    else if(template_id==2){
+        window.location=`template_2/index.html?id=${id}`
+
+    }
+    else if(template_id==3){
+        window.location=`template_3/index.html?id=${id}`
+
+    }
+}
+    
+function logingout(){
+    localStorage.removeItem("reg_details")        
+    window.location="login.html"
+    }
+
+    
+</script>
+</html>
+
