@@ -78,7 +78,8 @@
                               id:firebase_id
                           }                                                       
                          localStorage.setItem("register_local",JSON.stringify(localstorage_data))
-                          window.location=`resume_security.html?firebaseid=${firebase_id}`
+                        //   window.location=`resume_security.html?firebaseid=${firebase_id}`
+                        security(firebase_id)
                       }
                      if(login_email!=firebase_email&&login_pwd!=firebase_pwd){
                           alert("please enter valid email and password or create new account")
@@ -87,12 +88,50 @@
                   })                          
                 }
                 window.logging_in=logging_in
+                
+    //*****checking firebase id and local strage id and navigate to resume_builder.html*****//   
+
+function security(firebase_id){
+       let loc_data= localStorage.getItem("register_local")
+       let parsed_data=JSON.parse(loc_data)        
+    getDoc(doc(db,"registration",firebase_id)).then(docSnap =>{
+        if(docSnap.exists()){
+            // console.log("document data:",docSnap.data());
+            if(firebase_id==parsed_data.id){
+                window.location=`resume_builder.html`
+            }
+            else{
+                window.location="login.html"
+            }
+        }
+        else{
+            console.log("No such data")
+        }
+    })    
+
+}
+
+ //***** to save resume and navigate to list.hhtml page*****//
+ async function saveResume(){
+    alert("saved")
+    //  let params=new URLSearchParams(document.location.search);
+    // let firebase_id=params.get("firebaseid");  
+    let loc_data= localStorage.getItem("register_local")
+    let parsed_data=JSON.parse(loc_data)
+    console.log(parsed_data.email);
+
+    const docRef = await addDoc(collection(db,"my_resumes"),{...my_resume,user_id:parsed_data.id});
+    window.location=`list.html` 
+ }
+ window.saveResume=saveResume 
+
 
     function register_data(){
      window.location="registration.html"
     }
     window.register_data=register_data
-       
+
+
     //*****function to list data*****//
        function get_data(){  
             let loc_data= localStorage.getItem("register_local")
@@ -161,7 +200,8 @@ no_of_education=no_of_education+`<tr>
     <td><input type="text" value="${edited_resume.education[each].percentage}" class="percentage" onkeyup="edit(this,${each},'education','percentage')"/></td>                              
     </tr>`
     document.getElementById("tabledatas").innerHTML=no_of_education       
-} 
+}
+
 let no_of_experience=''
 for(let each in edited_resume.experience){
 no_of_experience=no_of_experience+`<tr>
@@ -228,7 +268,7 @@ let updated_skills= document.getElementsByClassName("added_skills");
     }
     edited_resume.personal_details.languages_known=new_language
 
-      updateDoc(doc(db,"my_resumes",id),edited_resume)                       
+    updateDoc(doc(db,"my_resumes",id),edited_resume)                       
    }   
 })      
         }
@@ -345,6 +385,7 @@ function add_newprojects(){
     })
 }
 window.add_newprojects=add_newprojects
+
 
 
 

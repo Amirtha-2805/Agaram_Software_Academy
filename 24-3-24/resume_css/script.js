@@ -80,7 +80,9 @@ function signin(){
                                 id:firebase_id
                             }                                                       
                            localStorage.setItem("register_local",JSON.stringify(localstorage_data))
-                            window.location=`resume_security.html?firebaseid=${firebase_id}`
+                            // window.location=`resume_security.html?firebaseid=${firebase_id}`
+                        security(firebase_id)
+
                         }
                        if(login_email!=firebase_email&&login_pwd!=firebase_pwd){
                             alert("please enter valid email and password or create new account")
@@ -89,7 +91,43 @@ function signin(){
                     })                          
                   }
                   window.logging_in=logging_in
-  
+
+ //*****checking firebase id and local strage id and navigate to resume_builder.html*****//   
+
+ function security(firebase_id){
+    let loc_data= localStorage.getItem("register_local")
+    let parsed_data=JSON.parse(loc_data)        
+ getDoc(doc(db,"registration",firebase_id)).then(docSnap =>{
+     if(docSnap.exists()){
+         // console.log("document data:",docSnap.data());
+         if(firebase_id==parsed_data.id){
+             window.location=`resume_builder.html`
+         }
+         else{
+             window.location="login.html"
+         }
+     }
+     else{
+         console.log("No such data")
+     }
+ })    
+
+}                  
+ 
+//***** to save resume and navigate to list.hhtml page*****//
+async function saveResume(){
+    alert("saved")
+    //  let params=new URLSearchParams(document.location.search);
+    // let firebase_id=params.get("firebaseid");  
+    let loc_data= localStorage.getItem("register_local")
+    let parsed_data=JSON.parse(loc_data)
+    console.log(parsed_data.email);
+
+    const docRef = await addDoc(collection(db,"my_resumes"),{...my_resume,user_id:parsed_data.id});
+    window.location=`list.html` 
+ }
+ window.saveResume=saveResume 
+
    function register_data(){
      window.location="registration.html"
          }

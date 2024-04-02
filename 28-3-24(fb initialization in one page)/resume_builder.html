@@ -8,13 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&display=swap" rel="stylesheet">
+    <script type="module" src="script.js"></script>
     
 </head>
 <body>
-    <center>    <img src="download (1).png"/></center>
-
-       <h1 style="text-align: center;   color:white;
-       ">Resume Builder</h1>
+    <center>    <img src="download (1).png"/>   
+           <h1>Resume Builder</h1>
 
     <div id="main">
     <form>
@@ -22,8 +21,7 @@
         <div id="register">
             <div>
 
-                <label  style="color:white"
-                >Title</label>
+                <label>Title</label>
                 <input type="text" class="title_box" id="title" placeholder="Enter your Resume title" 
                  onkeyup="resume(this,'title')"/>
             </div>
@@ -31,8 +29,7 @@
     
             <div>
 
-                <label   style="color:white"
-                >Profession</label>
+                <label>Profession</label>
                 <input type="text" class="prof_box" placeholder="Enter your profession" 
                  onkeyup="resume(this,'profession')"/>
             </div>
@@ -49,90 +46,90 @@
 
         <div>
 
-            <label style="color:white">Name</label>
+            <label>Name</label>
             <input type="text" class="name_box" id="name" placeholder="Enter your name" onkeyup="resume(this,'name')"/>
         </div>
         <br>
 
         <div>
-            <label  style="color:white">Email</label>
+            <label >Email</label>
             <input type="email"  class="mail_box" placeholder="Enter email" onkeyup="resume(this,'email')"/>
         </div>
         <br>
 
         <div>
-            <label  style="color:white">Phone</label>
+            <label >Phone</label>
             <input type="number"  class="phone_box" placeholder="Enter contact number" onkeyup="resume(this,'phone')"/>
         </div>
         <br>
 
         <div>
-            <label style=" color:white">DOB</label>
+            <label >DOB</label>
             <input type="date"  class="date_box" placeholder="Enter date" onkeyup="resume(this,'date')"/>
         </div>
         <br>
 
         <div>
-            <label  style="color:white">Objectives</label>
+            <label  >Objectives</label>
             <input type="text"  class="obj_box" placeholder="Type objectives" onkeyup="resume(this,'objectives')"/>
         </div>
         <br>
 
         <div>
-            <label  style="color:white">Declaration</label>
+            <label >Declaration</label>
             <input type="text"  class="dec_box" placeholder="Enter declaration" onkeyup="resume(this,'declaration')">
         </div>
         <br>
 
         <div>
-           <h3  style="color:white">Skills</h3>
+           <h3>Skills</h3>
             <input type="text"   placeholder="Add your skills" id="skill"/>
-            <button type="button"  class="menu__icon" onclick="add_array('skills','skill')"></button>
+            <button type="button"  class="menu__icon" onclick="add_array('skills','skill')">Add</button>
         </div>         
         <br>
 
-        <h2  style="color:white">Personal details</h2>
+        <h2>Personal details</h2>
 
         
         <div>
-            <label  style="color:white">Father's name</label>
+            <label>Father's name</label>
             <input type="text"  class="fname_box"  placeholder="Enter your father's name" onkeyup="resume(this,'fathername','personal_details')"/>
 
         </div>
 <br>
         <div>
-            <label  style="color:white">Mother's name</label>
+            <label >Mother's name</label>
             <input type="text"  class="mname_box"  placeholder="Enter your mother's name" onkeyup="resume(this,'mothername','personal_details')">
 
         </div>
 <br>
         <div>
-            <label  style="color:white">Address</label>
+            <label>Address</label>
             <input type="text"  class="address_box" placeholder="Enter your Address" onkeyup="resume(this,'address','personal_details')"/>
 
         </div>
 
 <br>
         <div>
-            <label  style="color:white">Pincode</label>
+            <label>Pincode</label>
             <input type="number"  class="pincode_box" placeholder="Enter your pincode" onkeyup="resume(this,'pin_code','personal_details')"/>
 
         </div>
         <br>
 
         <div>
-            <h3  style="color:white">Hobbies</h3>
+            <h3>Hobbies</h3>
             <input type="text"  placeholder="Add your hobbies" id="hobby"/>
-            <button type="button" class="menu__icon" onclick="array('hobbies','hobby','personal_details')"></button>
+            <button type="button" class="menu__icon" onclick="array('hobbies','hobby','personal_details')">Add</button>
         </div>
 <br>
         <div>
-            <h3  style="color:white">Languages_known</h3>
+            <h3>Languages_known</h3>
             <input type="text" placeholder="Add your languages" id="language"/>
-            <button type="button" class="menu__icon" onclick="array('languages_known','language','personal_details')"></button>
+            <button type="button" class="menu__icon" onclick="array('languages_known','language','personal_details')">Add</button>
         </div>
 
-        <h2  style="color:white">Education</h2>
+        <h2 >Education</h2>
    
         <div>
             <input type="text"  class="one" placeholder="Enter course name" onkeyup="resume(this,'education',false,0,'course')"/>
@@ -153,7 +150,7 @@
             <input type="text"  class="one" placeholder="Enter percentage"onkeyup="resume(this,'education',false,2,'percentage')"/>
         </div>
          <br>
-        <h2  style="color:white">Experience</h2>
+        <h2 >Experience</h2>
 
         <div>            
             <input type="text"  class="one" placeholder="Enter your company name" onkeyup="resume(this,'experience',false,0,'company_name')"/>
@@ -170,7 +167,7 @@
 
         </div>
 
-        <h2  style="color:white">projects</h2>
+        <h2>projects</h2>
 
         <div>
             
@@ -186,11 +183,14 @@
             <input type="text"  class="one" placeholder="Enter major" onkeyup="resume(this,'projects',false,1,'major')"/>
             <input type="text"  class="one" placeholder="Enter subject"onkeyup="resume(this,'projects',false,1,'subject')"/>
         </div>
-        <button type="button" class="savebutton" id="save_btn"><b>Save</b></button>       
+        <button type="button" class="savebutton" onclick="saveResume()"><b>Save</b></button>       
 
     </div>
 
         </form>
+    </center>
+
+
 
 
 
@@ -202,44 +202,4 @@
     
 </body>
 </html>
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-    import { getFirestore,addDoc,collection,getDocs,getDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
-
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyDDy11LJ-SUWpMfx75fA7FrVVZyR9aEKQ0",
-      authDomain: "resume-builder-1cd9c.firebaseapp.com",
-      projectId: "resume-builder-1cd9c",
-      storageBucket: "resume-builder-1cd9c.appspot.com",
-      messagingSenderId: "258294776955",
-      appId: "1:258294776955:web:89d72d56de3bb3d21c8ede"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-
-    // Initialize Cloud Firestore and get a reference to the service
-    const db = getFirestore(app);
-    
-
-    
-    //***** to save resume and navigate to list.hhtml page*****//
-
-    document.getElementById("save_btn").addEventListener('click',async(e)=>{
-        let params=new URLSearchParams(document.location.search);
-        let firebase_id=params.get("firebaseid");  
-        let loc_data= localStorage.getItem("register_local")
-        let parsed_data=JSON.parse(loc_data)
-        console.log(parsed_data.email);
-
-        const docRef = await addDoc(collection(db,"my_resumes"),{...my_resume,user_id:parsed_data.id});
-        window.location=`list.html`
-    })   
-    
-  </script>
 
