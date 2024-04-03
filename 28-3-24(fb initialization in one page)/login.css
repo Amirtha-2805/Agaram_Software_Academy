@@ -1,0 +1,20 @@
+body{
+    position:relative;
+    background: url(grey.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:100vh;
+}
+input:hover{
+    background-color: rgb(202, 198, 198);    
+}  
+#register{
+    position: absolute;
+    top:0;
+    right:0
+}
+
+input{
+    border: none;
+   
+}

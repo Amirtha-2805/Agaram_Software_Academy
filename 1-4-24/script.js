@@ -35,10 +35,10 @@
 
 
 
-let a=[1,2,3]
-let b=[4,5,6]
-c=[...a,...b]
-console.log(c)
+// let a=[1,2,3]
+// let b=[4,5,6]
+// c=[...a,...b]
+// console.log(c)
 
 
 // let name="Amirtha"

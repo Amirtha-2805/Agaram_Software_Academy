@@ -9,28 +9,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&display=swap" rel="stylesheet">
     <script type="module" src="script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">        
+ <link rel="stylesheet" href="resume_builder.css"/>
     
 </head>
 <body>
-    <center>    <img src="download (1).png"/>   
-           <h1>Resume Builder</h1>
+    <center>
+        <img src="download (1).png"/>       
+           <h1 style="color:white">Resume Builder</h1>
+        </center>
 
     <div id="main">
     <form>
 
         <div id="register">
-            <div>
+            <div class="container p-5">   
+            
+                      <div>
 
-                <label>Title</label>
-                <input type="text" class="title_box" id="title" placeholder="Enter your Resume title" 
+                <label style="color:white;font-weight:bold;">Title</label>
+                <input type="text"  class="form-control" id="title" placeholder="Enter your Resume title" 
                  onkeyup="resume(this,'title')"/>
             </div>
             <br>
     
             <div>
 
-                <label>Profession</label>
-                <input type="text" class="prof_box" placeholder="Enter your profession" 
+                <label style="color:white;font-weight:bold;">Profession</label>
+                <input type="text"  class="form-control" placeholder="Enter your profession" 
                  onkeyup="resume(this,'profession')"/>
             </div>
             <br>
@@ -46,157 +52,162 @@
 
         <div>
 
-            <label>Name</label>
-            <input type="text" class="name_box" id="name" placeholder="Enter your name" onkeyup="resume(this,'name')"/>
+            <label style="color:white;font-weight:bold;">Name</label>
+            <input type="text"  class="form-control" id="name" placeholder="Enter your name" onkeyup="resume(this,'name')"/>
         </div>
         <br>
 
         <div>
-            <label >Email</label>
-            <input type="email"  class="mail_box" placeholder="Enter email" onkeyup="resume(this,'email')"/>
+            <label style="color:white;font-weight: bold;" >Email</label>
+            <input type="email"   class="form-control" placeholder="Enter email" onkeyup="resume(this,'email')"/>
         </div>
         <br>
 
         <div>
-            <label >Phone</label>
-            <input type="number"  class="phone_box" placeholder="Enter contact number" onkeyup="resume(this,'phone')"/>
+            <label style="color:white;font-weight: bold;" >Phone</label>
+            <input type="number"  class="form-control" placeholder="Enter contact number" onkeyup="resume(this,'phone')"/>
         </div>
         <br>
 
         <div>
-            <label >DOB</label>
-            <input type="date"  class="date_box" placeholder="Enter date" onkeyup="resume(this,'date')"/>
+            <label style="color:white;font-weight: bold;">DOB</label>
+            <input type="date"   class="form-control" placeholder="Enter date" onkeyup="resume(this,'date')"/>
         </div>
         <br>
 
         <div>
-            <label  >Objectives</label>
-            <input type="text"  class="obj_box" placeholder="Type objectives" onkeyup="resume(this,'objectives')"/>
+            <label style="color:white;font-weight: bold;" >Objectives</label>
+            <input type="text"   class="form-control" placeholder="Type objectives" onkeyup="resume(this,'objectives')"/>
         </div>
         <br>
 
         <div>
-            <label >Declaration</label>
-            <input type="text"  class="dec_box" placeholder="Enter declaration" onkeyup="resume(this,'declaration')">
+            <label style="color:white;font-weight: bold;" >Declaration</label>
+            <input type="text"  class="form-control" placeholder="Enter declaration" onkeyup="resume(this,'declaration')">
         </div>
         <br>
+        <h4 style="color:white;font-weight: bold;">Skills</h4>
 
-        <div>
-           <h3>Skills</h3>
-            <input type="text"   placeholder="Add your skills" id="skill"/>
-            <button type="button"  class="menu__icon" onclick="add_array('skills','skill')">Add</button>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control"  placeholder="Add your skills" id="skill"/>
+            <button type="button" class="btn" id="add_skill" onclick="add_array('skills','skill')"><span class="form-control-text">Add</span></button>
         </div>         
         <br>
 
-        <h2>Personal details</h2>
+        <h3 style="color:white;font-weight: bold;">Personal details</h3>
 
         
         <div>
-            <label>Father's name</label>
-            <input type="text"  class="fname_box"  placeholder="Enter your father's name" onkeyup="resume(this,'fathername','personal_details')"/>
+            <label style="color:white;font-weight: bold;">Father's name</label>
+            <input type="text"  class="form-control"  placeholder="Enter your father's name" onkeyup="resume(this,'fathername','personal_details')"/>
 
         </div>
 <br>
         <div>
-            <label >Mother's name</label>
-            <input type="text"  class="mname_box"  placeholder="Enter your mother's name" onkeyup="resume(this,'mothername','personal_details')">
+            <label style="color:white;font-weight: bold;" >Mother's name</label>
+            <input type="text"   class="form-control"  placeholder="Enter your mother's name" onkeyup="resume(this,'mothername','personal_details')">
 
         </div>
 <br>
         <div>
-            <label>Address</label>
-            <input type="text"  class="address_box" placeholder="Enter your Address" onkeyup="resume(this,'address','personal_details')"/>
+            <label style="color:white;font-weight: bold;">Address</label>
+            <input type="text"  class="form-control" placeholder="Enter your Address" onkeyup="resume(this,'address','personal_details')"/>
 
         </div>
 
 <br>
         <div>
-            <label>Pincode</label>
-            <input type="number"  class="pincode_box" placeholder="Enter your pincode" onkeyup="resume(this,'pin_code','personal_details')"/>
+            <label style="color:white;font-weight: bold;">Pincode</label>
+            <input type="number"  class="form-control" placeholder="Enter your pincode" onkeyup="resume(this,'pin_code','personal_details')"/>
 
         </div>
         <br>
+        <h4 style="color:white;font-weight: bold;">Hobbies</h4>
 
-        <div>
-            <h3>Hobbies</h3>
-            <input type="text"  placeholder="Add your hobbies" id="hobby"/>
-            <button type="button" class="menu__icon" onclick="array('hobbies','hobby','personal_details')">Add</button>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Add your hobbies" id="hobby"/>
+            <button type="button" class="btn" id="add_hobby"  onclick="array('hobbies','hobby','personal_details')"><span class="form-control-text">Add</span></button>
         </div>
 <br>
-        <div>
-            <h3>Languages_known</h3>
-            <input type="text" placeholder="Add your languages" id="language"/>
-            <button type="button" class="menu__icon" onclick="array('languages_known','language','personal_details')">Add</button>
+<h4 style="color:white;font-weight: bold;">Languages_known</h4>
+
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Add your languages" id="language"/>
+            <button type="button" class="btn" id="add_lang"  onclick="array('languages_known','language','personal_details')"><span class="form-control-text">Add</span></button>
         </div>
 
-        <h2 >Education</h2>
+        <h2 style="color:white;font-weight: bold;">Education</h2>
    
         <div>
-            <input type="text"  class="one" placeholder="Enter course name" onkeyup="resume(this,'education',false,0,'course')"/>
-            <input type="text"  class="one" placeholder="Enter institute name" onkeyup="resume(this,'education',false,0,'inst')"/>
-            <input type="text"  class="one" placeholder="Enter percentage"onkeyup="resume(this,'education',false,0,'percentage')"/>                        
+            <input type="text"   class="form-control" placeholder="Enter course name" onkeyup="resume(this,'education',false,0,'course')"/>
+            <input type="text"   class="form-control" placeholder="Enter institute name" onkeyup="resume(this,'education',false,0,'inst')"/>
+            <input type="text"   class="form-control" placeholder="Enter percentage"onkeyup="resume(this,'education',false,0,'percentage')"/>                        
         </div>
         <br>
 
          <div>
-             <input type="text"  class="one" placeholder="Enter course name"onkeyup="resume(this,'education',false,1,'course')"/>
-             <input type="text" class="one"  placeholder="Enter institute name"  onkeyup="resume(this,'education',false,1,'inst')"/>
-             <input type="text"  class="one" placeholder="Enter percentage" onkeyup="resume(this,'education',false,1,'percentage')"/>                                        
+             <input type="text"   class="form-control" placeholder="Enter course name"onkeyup="resume(this,'education',false,1,'course')"/>
+             <input type="text"  class="form-control"  placeholder="Enter institute name"  onkeyup="resume(this,'education',false,1,'inst')"/>
+             <input type="text"   class="form-control" placeholder="Enter percentage" onkeyup="resume(this,'education',false,1,'percentage')"/>                                        
          </div>
          <br>
          <div>
-            <input type="text"  class="one" placeholder="Enter course name"onkeyup="resume(this,'education',false,2,'course')"/>
-            <input type="text"  class="one" placeholder="Enter institute name"  onkeyup="resume(this,'education',false,2,'inst')"/>
-            <input type="text"  class="one" placeholder="Enter percentage"onkeyup="resume(this,'education',false,2,'percentage')"/>
+            <input type="text"   class="form-control" placeholder="Enter course name"onkeyup="resume(this,'education',false,2,'course')"/>
+            <input type="text"   class="form-control" placeholder="Enter institute name"  onkeyup="resume(this,'education',false,2,'inst')"/>
+            <input type="text"   class="form-control" placeholder="Enter percentage"onkeyup="resume(this,'education',false,2,'percentage')"/>
         </div>
          <br>
-        <h2 >Experience</h2>
+        <h2 style="color:white;font-weight: bold;" >Experience</h2>
 
         <div>            
-            <input type="text"  class="one" placeholder="Enter your company name" onkeyup="resume(this,'experience',false,0,'company_name')"/>
-            <input type="text"  class="one" placeholder="Enter years_of_experience" onkeyup="resume(this,'experience',false,0,'years_of_experience')"/>
-            <input type="text"  class="one" placeholder="Enter role" onkeyup="resume(this,'experience',false,0,'role')"/>
+            <input type="text"   class="form-control" placeholder="Enter your company name" onkeyup="resume(this,'experience',false,0,'company_name')"/>
+            <input type="text"   class="form-control" placeholder="Enter years_of_experience" onkeyup="resume(this,'experience',false,0,'years_of_experience')"/>
+            <input type="text"   class="form-control" placeholder="Enter role" onkeyup="resume(this,'experience',false,0,'role')"/>
 
         </div>
 
         <br>
         <div>            
-            <input type="text"  class="one"  placeholder="Enter your company name" onkeyup="resume(this,'experience',false,1,'company_name')"/>
-            <input type="text"  class="one" placeholder="Enter years_of_experience" onkeyup="resume(this,'experience',false,1,'years_of_experience')"/>
-            <input type="text"  class="one" placeholder="Enter role" onkeyup="resume(this,'experience',false,1,'role')"/>
+            <input type="text"   class="form-control"  placeholder="Enter your company name" onkeyup="resume(this,'experience',false,1,'company_name')"/>
+            <input type="text"   class="form-control" placeholder="Enter years_of_experience" onkeyup="resume(this,'experience',false,1,'years_of_experience')"/>
+            <input type="text"   class="form-control" placeholder="Enter role" onkeyup="resume(this,'experience',false,1,'role')"/>
 
         </div>
 
-        <h2>projects</h2>
+        <h2 style="color:white;font-weight: bold;">projects</h2>
 
         <div>
             
-            <input type="text"  class="one" placeholder="Enter title" onkeyup="resume(this,'projects',false,0,'title')"/>
-            <input type="text"  class="one"  placeholder="Enter major" onkeyup="resume(this,'projects',false,0,'major')"/>
-            <input type="text"  class="one" placeholder="Enter subject"onkeyup="resume(this,'projects',false,0,'subject')"/>
+            <input type="text"   class="form-control" placeholder="Enter title" onkeyup="resume(this,'projects',false,0,'title')"/>
+            <input type="text"   class="form-control"  placeholder="Enter major" onkeyup="resume(this,'projects',false,0,'major')"/>
+            <input type="text"   class="form-control" placeholder="Enter subject"onkeyup="resume(this,'projects',false,0,'subject')"/>
         </div>
 <br>
 
         <div>
             
-            <input type="text"  class="one" placeholder="Enter title" onkeyup="resume(this,'projects',false,1,'title')"/>
-            <input type="text"  class="one" placeholder="Enter major" onkeyup="resume(this,'projects',false,1,'major')"/>
-            <input type="text"  class="one" placeholder="Enter subject"onkeyup="resume(this,'projects',false,1,'subject')"/>
+            <input type="text"   class="form-control" placeholder="Enter title" onkeyup="resume(this,'projects',false,1,'title')"/>
+            <input type="text"   class="form-control" placeholder="Enter major" onkeyup="resume(this,'projects',false,1,'major')"/>
+            <input type="text"   class="form-control" placeholder="Enter subject"onkeyup="resume(this,'projects',false,1,'subject')"/>
         </div>
-        <button type="button" class="savebutton" onclick="saveResume()"><b>Save</b></button>       
+    </div>
+
+<center>
+
+        <button type="button" class="btn btn-success" onclick="saveResume()"><b>Save</b></button> 
+    </center>      
 
     </div>
 
         </form>
-    </center>
+    
 
 
 
 
-
-        <div id="preview">
+        <!-- <div id="preview">
             <pre id="code"></pre>
-        </div>
+        </div> -->
 
     </div>
     
