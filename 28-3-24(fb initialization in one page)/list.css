@@ -73,10 +73,11 @@ button {
   
   .del:hover
    {
-    color: #ffffff;
+    color:#ffffff;
     background: #ee0d0d;
     border: 1px solid #ee0d0d;
-     }
+    }
+
   #update_btn:hover {
     color: #ffffff;
     background: #def044;
