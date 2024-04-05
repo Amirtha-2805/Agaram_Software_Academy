@@ -175,7 +175,7 @@ place:"Kottar"
 
 let filter_students=student_details.filter((stu)=>{
 if(stu.name!="Amirtha"){
-  return true
+  return true   //this method is only used for filter
 }
 })
 console.log(filter_students) */
@@ -194,6 +194,8 @@ console.log(filter_students) */
 // }
 // })
 // console.log(add_numbers)
+
+
 
 //*****task2(finding a middle value of an odd number array)*****//
 
@@ -242,6 +244,7 @@ console.log(filter_students) */
 // }
 // console.log(multiplication)
 
+
 //*****task5(multiplication of 2 array with same length using map)*****//
 
 // let array_1=[3,4,7,9,8]
@@ -252,6 +255,7 @@ console.log(filter_students) */
 //  console.log(multiplication)
 
  
+
 //*****task6(multiplication of array with random length)*****//
 
 //  let array_1=[3,4,7,9,8]
@@ -265,5 +269,221 @@ console.log(filter_students) */
 //  })
 //  console.log(multiplication)
 
+//*****string in alphabet order and number******/
+// let fruits_name=["mango","goa","apple","orange"]
+// fruits_name.sort()
+// console.log(fruits_name)
+
+// let numbers=[1,5,6,4,3,44,6,4]
+// numbers.sort()
+// console.log(numbers)
+
  
+//*****integer in ascending order*****/
+// let numbers=[1,5,6,4,3,44,6,4]
+// numbers.sort((a,b)=>a-b)
+// console.log(numbers)
+
+
+//*****integer in descending order*****/
+// let numbers=[1,5,6,4,3,44,6,4]
+// numbers.sort((a,b)=>b-a)
+// console.log(numbers)
+
+//*****Class******//
+// class StudentDetails{
+
+//   studentName(){
+//       return "Amirtha"
+//   }
+
+// }
+// let student_name=new StudentDetails
+// let stu=student_name.studentName()
+// console.log(stu)
+
+
+//*****Constructor*****/
+// class Users{
+// 	constructor(){
+//   console.log("Welcome")
+//   }
+	
+// }
+// let user_detail=new Users();
+
+//****passing values *****//
+
+// class Users{
+// 	constructor(name){
+//   this.name=name
+//   console.log(name)
+//   }
+//   getName(){
+//   console.log(this.name)
+//   }
+	
+// }
+// let user_detail=new Users("Amirtha");
+// let user_name=user_detail.getName()
+
+
+//*****task on constructor*****//
+
+// class UserName{
+//   constructor(name,lname){
+//    this.name=name;
+//    this.lname=lname
+//   }
+//   getName(){
+//     console.log(this.name)
+//   }
+//   getFullName(){
+//  console.log(this.name+'' +this.lname)
+//  }
+
+// }
+// let user=new UserName("Amirtha","Natarajan")
+// let user_name=user.getName()
+// let user_fname=user.getFullName()
+
+//*****task*****//
+// class UserName{
+//   constructor(details){
+//    this.name=details.name;
+//    this.lname=details.lname;
+//    this.education=details.education
+//   }
+//   getName(){
+//     console.log(this.name)
+   
+//   }
+//   getFullName(){
+//  console.log(this.name+ " " +this.lname)
+//  console.log(this.education)   
+//  this.getName()   
+//  }
+  
+// }
+
+// let user=new UserName({name:"Amirtha",
+//                      lname:"Natarajan",
+//                      education:[
+//                          {
+//                          course:"SSLc",
+//                          inst:"Convent",
+//                           percentage:"90%"
+//                          },
+                         
+//                          {
+//                          course:"BSC",
+//                          inst:"Govt clg",
+//                           percentage:"99%"
+                         
+//                          }                    
+//                      ]
+//                      }
+//                      )
+// let user_name=user.getName()
+// let user_fname=user.getFullName()
+
+
+//****Accessing one class functions into another class*****//
+// class UserName{
+//   constructor(details){
+//    this.name=details.name;
+//    this.lname=details.lname;
+//    this.education=details.education
+//   }
+//   getName(){
+//     console.log(this.name)    
+//   }
+//   testFunc(){
+//       return "Welcome"
+//   }
+//   getFullName(){
+//  console.log(this.name+ " " +this.lname)
+ 
+//  }    
+// }
+
+// class Message extends UserName{
+//   constructor(obj){
+//  super(obj)
+//  }
+      
+// }
+// let object_detail={    name:"Amirtha",
+//                      lname:"Natarajan",
+//                      education:[
+//                          {
+//                          course:"SSLc",
+//                          inst:"Convent",
+//                           percentage:"90%"
+//                          },
+                         
+//                          {
+//                          course:"BSC",
+//                          inst:"Govt clg",
+//                           percentage:"99%"
+                         
+//                          }                    
+//                      ]
+//                      }
+// let user=new UserName(object_detail)
+
+// const messages=new Message(object_detail);
+// const u_name=messages.getFullName()
+
+//******* */
+class UserName{
+  constructor(details){
+   this.name=details.name;
+   this.lname=details.lname;
+   this.education=details.education
+  }
+  getName(){
+    console.log(this.name)    
+  }
+  testFunc(){
+      return "Welcome"
+  }
+  getFullName(){
+ console.log(this.name+ " " +this.lname)
+ 
+ }    
+}
+
+class Message extends UserName{
+  constructor(obj){
+ super(obj)
+ }
+      
+}
+let object_detail={    name:"Amirtha",
+                     lname:"Natarajan",
+                     education:[
+                         {
+                         course:"SSLc",
+                         inst:"Convent",
+                          percentage:"90%"
+                         },
+                         
+                         {
+                         course:"BSC",
+                         inst:"Govt clg",
+                          percentage:"99%"
+                         
+                         }                    
+                     ]
+                     }
+let user=new UserName(object_detail)
+
+const messages=new Message(object_detail);
+const u_name=messages.testFunc()
+console.log(u_name)
+
+
+
+
 
