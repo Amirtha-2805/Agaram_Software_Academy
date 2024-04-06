@@ -436,54 +436,300 @@ console.log(filter_students) */
 // const u_name=messages.getFullName()
 
 //******* */
-class UserName{
-  constructor(details){
-   this.name=details.name;
-   this.lname=details.lname;
-   this.education=details.education
-  }
-  getName(){
-    console.log(this.name)    
-  }
-  testFunc(){
-      return "Welcome"
-  }
-  getFullName(){
- console.log(this.name+ " " +this.lname)
+// class UserName{
+//   constructor(details){
+//    this.name=details.name;
+//    this.lname=details.lname;
+//    this.education=details.education
+//   }
+//   getName(){
+//     console.log(this.name)    
+//   }
+//   testFunc(){
+//       return "Welcome"
+//   }
+//   getFullName(){
+//  console.log(this.name+ " " +this.lname)
  
- }    
-}
+//  }    
+// }
 
-class Message extends UserName{
-  constructor(obj){
- super(obj)
- }
+// class Message extends UserName{
+//   constructor(obj){
+//       super(obj)
+//  }
       
+// }
+// let object_detail={    name:"Amirtha",
+//                      lname:"Natarajan",
+//                      education:[
+//                          {
+//                          course:"SSLc",
+//                          inst:"Convent",
+//                           percentage:"90%"
+//                          },
+                         
+//                          {
+//                          course:"BSC",
+//                          inst:"Govt clg",
+//                           percentage:"99%"
+                         
+//                          }                    
+//                      ]
+//                      }
+// let user=new UserName(object_detail)
+
+// const messages=new Message(object_detail);
+// const u_name=messages.testFunc()
+// console.log(u_name)
+
+
+
+//task my method//
+
+// let resume_list=[{
+//   name:"Amirtha",
+//   education:[{
+//       course:"SSLC",
+//       inst:"Convent",
+//       percentage:90
+//        },
+//        {
+//        course:"HSC",
+//        inst:"Convent",
+//        percentage:99      
+//        },
+//        {course:"BSC",
+//        inst:"Govt arts and science clg",
+//        percentage:88    
+//        },
+
+       
+//        ]
+// },
+
+// {
+//   name:"Aiswarya",
+//   education:[{
+//           course:"SSLC",
+//           inst:"SLB",
+//           percentage:90
+//            },
+//            {
+//            course:"HSC",
+//            inst:"SLB",
+//            percentage:60      
+//            },
+//            {course:"BSC",
+//            inst:"Pioneer clg",
+//            percentage:86   
+//            },
+
+
+//            ]
+//        },
+//        {
+//           name:"Jayasree",
+//          education:[{
+//               course:"SSLC",
+//               inst:"KDVP",
+//               percentage:60
+//                },
+//                {
+//                course:"HSC",
+//                inst:"KDVP",
+//                percentage:95     
+//                },
+//                {course:"BSC",
+//                inst:"Udhaya clg",
+//                percentage:82 
+//                },
+
+
+//            ]
+//        },
+//        {
+//           name:"Dhiya",
+//          education:[{
+//               course:"SSLC",
+//               inst:"Little flower",
+//               percentage:63
+//                },
+//                {
+//                course:"HSC",
+//                inst:"Little flower",
+//                percentage:69     
+//                },
+//                {course:"BSC",
+//                inst:"Ms university",
+//                percentage:78
+//                },
+
+
+//            ]
+//        },
+// ]
+
+// let particular_name=resume_list.map((stu,i)=>{	
+// /* console.log(resume_list[i].education[i].course) */
+// for(let each of resume_list[i].education){
+//   if(each.course==="HSC"){
+//       if(each.percentage>=95){
+//       console.log(resume_list[i].name+" "+each.percentage)
+//       }
+//   }
+//        }
+//   /* return resume_list[i].education[i].course */
+//  })
+
+//task explained by sir//
+let resume_list=[{
+  name:"Amirtha",
+  age:22,
+  skills:["c","c++","react","python"],
+  education:[{
+      course:"SSLC",
+      inst:"Convent",
+      percentage:90
+       },
+       {
+       course:"HSC",
+       inst:"Convent",
+       percentage:99      
+       },
+       {course:"BSC",
+       inst:"Govt arts and science clg",
+       percentage:88    
+       },
+
+       
+       ]
+},
+
+{
+  name:"Aiswarya",
+  age:27,
+  skills:["c","c++","python"],
+  education:[{
+          course:"SSLC",
+          inst:"SLB",
+          percentage:90
+           },
+           {
+           course:"HSC",
+           inst:"SLB",
+           percentage:60      
+           },
+           {course:"BSC",
+           inst:"Pioneer clg",
+           percentage:86   
+           },
+
+
+           ]
+       },
+       {
+          name:"Jayasree",
+          age:25,           
+          skills:["c","c++","react","python","css"],         
+         education:[{
+              course:"SSLC",
+              inst:"KDVP",
+              percentage:60
+               },
+               {
+               course:"HSC",
+               inst:"KDVP",
+               percentage:95     
+               },
+               {course:"BSC",
+               inst:"Udhaya clg",
+               percentage:82 
+               },
+
+
+           ]
+       },
+       {
+          name:"Dhiya",
+          age:19,          
+          skills:["c","c++","react","python","sql"],   
+         education:[{
+              course:"SSLC",
+              inst:"Little flower",
+              percentage:63
+               },
+               {
+               course:"HSC",
+               inst:"Little flower",
+               percentage:69     
+               },
+               {course:"BSC",
+               inst:"Ms university",
+               percentage:78
+               },
+           ]
+       },
+       {
+          name:"Natarajan",
+          age:29,           
+          skills:["c","c++","react"],          
+         education:[{
+              course:"SSLC",
+              inst:"Little flower",
+              percentage:63
+               },
+               {
+               course:"HSC",
+               inst:"Little flower",
+               percentage:77    
+               },
+               {course:"BSC",
+               inst:"Ms university",
+               percentage:78
+               },
+
+
+           ]
+       }
+]
+let skill_filters=resume_list.filter((v)=>{
+if(v.skills.includes("python")&&(v.skills.includes("react"))){
+      return true
 }
-let object_detail={    name:"Amirtha",
-                     lname:"Natarajan",
-                     education:[
-                         {
-                         course:"SSLc",
-                         inst:"Convent",
-                          percentage:"90%"
-                         },
-                         
-                         {
-                         course:"BSC",
-                         inst:"Govt clg",
-                          percentage:"99%"
-                         
-                         }                    
-                     ]
-                     }
-let user=new UserName(object_detail)
+    
+})
+console.log(skill_filters) 
 
-const messages=new Message(object_detail);
-const u_name=messages.testFunc()
-console.log(u_name)
+//to sort age
+ let ages=resume_list.sort((a,b)=>a.age-b.age)
+ console.log(ages)
+
+//to sort education
+let education=resume_list.sort((c,d)=>d.education.filter((val)=>val.course=="HSC")[0].percentage-c.education.filter((val)=>val.course=="HSC")[0].percentage)
+console.log(education)
 
 
+/* let mark_percentage=[] 
+let particular_name=resume_list.map((stu,i)=>{	
+for(let each of resume_list[i].education){
 
+    if(each.course==="HSC"){
+          mark_percentage.push(each.percentage)
+         console.log(resume_list[i].name)
+           console.log(each.percentage)
+       console.log(resume_list[i].name+" "+each.percentage)
+        
+    }
 
-
+         }
+    return resume_list[i].education[i].course
+       
+   
+   }
+   
+   )
+  
+     mark_percentage.sort((a,b)=>b-a)    
+    console.log(mark_percentage)
+ */
