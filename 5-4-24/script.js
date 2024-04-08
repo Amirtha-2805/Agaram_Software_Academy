@@ -1,30 +1,30 @@
 let company_details=[{
     company_name:"infosays",
     start_year:2001,
-    end_date:"1.05.2030",
+    end_year:2030,
     category:"retail",     
     },
     {
     company_name:"wipro limited",
     start_year:1990,
-    end_date:"3.10.2010",
+    end_year:2010,
     category:"whole sale",     
     },
     {
     company_name:"Tech Mahindra",
     start_year:1982,
-    end_date:"28.12.2060",
+    end_year:2060,
     category:"whole sale",     
     },
     {
     company_name:"Zoho",
     start_year:1987,
-    end_date:"12.11.2030",
+    end_year:2030,
     category:"retail",     
     },
-          {company_name:"TCS",
+      {company_name:"TCS",
     start_year:1986,
-    end_date:"12.11.2020",
+    end_year:2020,
     category:"retail",     
     },
 ]
@@ -71,7 +71,7 @@ for(let each of company_details){
           if(each.category=="retail"){
             console.log(each.company_name)
 renderHTML=renderHTML+`<tr><td>${each.company_name}</td>
-<td>${each.category}</td></tr>
+<td>${each.category}</td><td>${each.start_year}</td><td>${each.end_year}</td></tr>
 `
 }
 document.getElementById("company_data").innerHTML=renderHTML
@@ -112,6 +112,7 @@ let company_object= {
    let {company_name}=company_object 
    console.log(company_name)
 
+
 //task8
 function add(...args){
 	let total=0
@@ -125,11 +126,24 @@ add(1,2,4,5,9,100)
 
 
 //task9
-function data(...d){
-      return d  
-}
-console.log(data(1,3,"apple","orange",...["papaya","grapes",9,10,"mango"]))
-
+function data(...args){
+  let new_args=[]
+        for(let each of args){
+          if(typeof(each)==="number"){
+            new_args.push(each)
+          }
+          else if(typeof(each)==="string"){
+            new_args.push(each)
+          }
+          else if(typeof(each)==="object"){
+            new_args.push(...each)
+          }
+          
+        }
+        console.log(new_args)
+  }
+  console.log(data(1,3,"apple","orange",["papaya","grapes",9,10,"mango"]))
+  
 
 //task10
  
@@ -162,6 +176,8 @@ console.log(increment_number())
 
 let object={name:"Amirtha",
             age:22}
-let params=new URLSearchParams(document.location.search);
- let index=params.get(object);
-  console.log(index)
+let params=new URLSearchParams();
+let index=params.get(object);
+  console.log(index)      
+
+

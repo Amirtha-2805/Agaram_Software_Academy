@@ -25,7 +25,7 @@
         <div id="register">
             <div class="container p-5">   
             
-                      <div>
+                      <div >
 
                 <label style="color:white;font-weight:bold;">Title</label>
                 <input type="text"  class="form-control" id="title" placeholder="Enter your Resume title" 
@@ -138,7 +138,8 @@
 
         <h2 style="color:white;font-weight: bold;">Education</h2>
    
-        <div>
+        <div class="one">
+            
             <input type="text"   class="form-control" placeholder="Enter course name" onkeyup="resume(this,'education',false,0,'course')"/>
             <input type="text"   class="form-control" placeholder="Enter institute name" onkeyup="resume(this,'education',false,0,'inst')"/>
             <input type="text"   class="form-control" placeholder="Enter percentage"onkeyup="resume(this,'education',false,0,'percentage')"/>                        
@@ -195,7 +196,18 @@
 <center>
 
         <button type="button" class="btn btn-success" onclick="saveResume()"><b>Save</b></button> 
-    </center>      
+    <button type="button" class="btn btn-danger" onclick="logingout()">LogOut</button>
+
+    </center> 
+    <script>
+        let edited_resume={}
+        function logingout(){
+        localStorage.removeItem("reg_details")        
+        window.location="login.html"
+        }
+    
+    </script>
+         
 
     </div>
 

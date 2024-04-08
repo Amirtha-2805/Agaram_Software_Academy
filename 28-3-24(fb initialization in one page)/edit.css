@@ -1,0 +1,20 @@
+body{
+    position:relative;
+    background: url(grey.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:1500px;
+}
+table{
+    color:white;
+    
+}
+td{
+    background-color: rgb(58, 55, 55)!important;
+    background-repeat: no-repeat;
+}
+
+
+.container1{
+    width:50%
+}

@@ -241,7 +241,9 @@ no_of_projects=no_of_projects+`<tr>
  
 document.getElementById("up_btn").addEventListener('click',async(e)=>{
     let updated_value1=document.getElementById("data_input1").value
+   
     let updated_value2=document.getElementById("data_input2").value
+  
     if(id==docSnap.id){     
       edited_resume.title=updated_value1
       edited_resume.name=updated_value2
@@ -269,7 +271,7 @@ let updated_skills= document.getElementsByClassName("added_skills");
     edited_resume.personal_details.languages_known=new_language
 
     updateDoc(doc(db,"my_resumes",id),edited_resume)                       
-   }   
+   }  
 })      
         }
 })

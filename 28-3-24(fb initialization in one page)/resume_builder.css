@@ -1,9 +1,10 @@
 body{
     position:relative;
-    background: url(grey.jpg);
-    background: linear-gradient(black,grey,black,grey);
+    background: url(final.jpg);
+    /* background: linear-gradient(black,grey,black,grey); */
     background-repeat: no-repeat;
     background-size: cover;
+    /* height: 1000vh; */
     
 }
 #add_skill{
@@ -11,15 +12,15 @@ body{
     color: white;
 }
 #add_skill:hover{
-    background-color: rgb(187, 177, 177);
+    background-color: rgb(20, 20, 20);
 }
 #add_hobby{
-    background-color: rgb(36, 35, 35);
+    background-color: rgb(27, 27, 27);
     color: white;
 
 }
 #add_hobby:hover{
-    background-color: rgb(187, 177, 177);
+    background-color:rgb(20, 20, 20);
 }
 #add_lang{
     background-color: rgb(29, 28, 28);
@@ -27,10 +28,13 @@ body{
 
 }
 #add_lang:hover{
-    background-color: rgb(187, 177, 177);
+    background-color: rgb(20, 20, 20);
 }
 /* #preview{
     color:white;
     font-weight: bold;
     
     } */
+.container{
+    width:45%
+}   
