@@ -13,7 +13,7 @@ function App() {
   // function changeValue(){
   //     setStateFunc("Welcome to Agaram")
   // }
-  const[statelogged,setStateLog]=useState(true)
+  const[statelogged,setStateLog]=useState()
   return (
     <div className="App">
 {/* method1 for conditional statement */}
