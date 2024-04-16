@@ -1,30 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
-import Footer from './Script'
-import Header from './Header';
 import Register from './Register'
-import Register_again from './Login';
+import Login from './Login';
 
 
-function App() {
-  
-  const[stateLogged,setStateLog]=useState("")
-  // const[user,setUsers]=useState([])
-
+function App() {    
+  const[isLogged,setStateLogged]=useState(false)
+  const[userDetails,setUserDetails]=useState([])   
   
   return (    
     <div className="App">
-      <Register />  
-      {/* <Login />     */}
-      <Header stateLogged={stateLogged} setStateLog={setStateLog} />      
-      <header className="App-header">     
+      <Register isLogged={isLogged} setStateLogged={setStateLogged} userDetails={userDetails} setUserDetails={setUserDetails} />  
+      <Login isLogged={isLogged} setStateLogged={setStateLogged} userDetails={userDetails} setUserDetails={setUserDetails}/>    
+           <header className="App-header">     
 
       
-      </header>
-      
-      <Footer stateLogged={stateLogged} setStateLog={setStateLog}  />
-      {/* {user==true ?<button>Login</button>:null} */}
+      </header>     
     </div>
 
   );

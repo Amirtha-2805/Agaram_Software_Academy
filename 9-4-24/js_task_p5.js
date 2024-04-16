@@ -107,15 +107,66 @@
 // string_value()
 
 //task5
-function checkNum(num1,num2){
-    if(num1>0 && num2>0){
-        console.log("Both are positive")
-    }
-    if(num1>0 || num2>0){
-        console.log("One is positive")
-    }
-    if(num1<0 && num2<0){
-        console.log("Both are negative")
-    }
+// function checkNum(num1,num2){
+//     if(num1>0 && num2>0){
+//         console.log("Both are positive")
+//     }
+//     if(num1>0 || num2>0){
+//         console.log("One is positive")
+//     }
+//     if(num1<0 && num2<0){
+//         console.log("Both are negative")
+//     }
+// }
+// checkNum(-1,-3)
+
+
+//reverse of a num or string
+// let reverse=(num)=>{
+//     let reversed_no=""
+//     for(let each in num){
+//     //   console.log(each)  
+//       reversed_no=num[each]+reversed_no
+      
+//      }
+//     console.log(reversed_no);   
+ 
+// }
+// reverse("Amirtha")
+
+//palindrome 
+// let palindrome=(value)=>{
+//     let reversed=""
+//     for(let each in value){
+//         reversed=value[each]+reversed
+//            }
+//     if(reversed==value){
+//             console.log("It is a palindrome");
+//         }
+//     else{
+//         console.log("It is not a palindrome")
+//         }          
+// }
+// palindrome("malayalam")
+
+//alphabetical order
+let alphabetical=(string)=>{
+   string.sort()
+   console.log(string);
 }
-checkNum(-1,-3)
+alphabetical(["amirtha","aishu","jaya"])
+
+//numbers in order
+let numbers_in_order=[]
+order_num=-1
+let number_order=(numbers)=>{    
+   for(let each in numbers){
+     if(numbers[each]==order_num++ && numbers[each]==order_num){
+         order_num=numbers[each]
+     }
+   numbers_in_order.push(order_num)
+   }
+   console.log(numbers_in_order)
+}
+number_order([12,6,0,5,2,1,13,7,11,3,9,4,8,10])
+
