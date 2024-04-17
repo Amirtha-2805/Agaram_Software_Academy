@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import "./../node_modules/bootstrap/dist/css/bootstrap.min.css"
+
 export default function Login(){
 const navigate = useNavigate();
 
@@ -13,7 +15,7 @@ const navigate = useNavigate();
         <label>Password:</label>
         <input type="password" placeholder="Enter your password"/>
         <br/>
-        <button onClick={()=> navigate("/register")}>Register</button>
+        <button className="btn btn-primary" onClick={()=> navigate("/register")}>Register</button>
         <Link to="https://youtu.be/uKRo1Re_B8c?si=eg2V-an8vKxCMtqa" >YouTube</Link>
         </center>
         </>
