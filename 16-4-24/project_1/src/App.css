@@ -7,7 +7,7 @@
   pointer-events: none;
 }
 body{
-  background:linear-gradient(black,rgb(12, 12, 100),black,black);
+  /* background:linear-gradient(black,rgb(12, 12, 100),black,black); */
   background-size: cover;
   /* background-repeat: no-repeat; */
   color:white

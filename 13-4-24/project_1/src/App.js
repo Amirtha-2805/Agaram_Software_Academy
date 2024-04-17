@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <Register isLogged={isLogged} setStateLogged={setStateLogged} userDetails={userDetails} setUserDetails={setUserDetails} />  
       <Login isLogged={isLogged} setStateLogged={setStateLogged} userDetails={userDetails} setUserDetails={setUserDetails}/>    
-           <header className="App-header">     
+      <header className="App-header">     
 
       
       </header>     
