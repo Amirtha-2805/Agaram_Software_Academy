@@ -1,20 +1,24 @@
-import logo from './logo.svg';
+
 import './App.css';
-import { useState } from 'react';
-// import Register from './Register'
-// import Login from './Login';
+import Register from './Register'
+import Login from './Login';
+import { BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 
 
 function App() {    
-  
   return (    
     <div className="App">
-      {/* <Register isLogged={isLogged} setStateLogged={setStateLogged} userDetails={userDetails} setUserDetails={setUserDetails} />  
-      <Login isLogged={isLogged} setStateLogged={setStateLogged} userDetails={userDetails} setUserDetails={setUserDetails}/>     */}
-           <header className="App-header">     
+      <Router>
+          <Routes>
+            <Route path='/login/:userId' element={<Login/>}/>
+            <Route path='/register' element={<Register/>}/>            
+          </Routes>
+      </Router>             
+    <header className="App-header"> 
+         
+    </header>
 
-      
-      </header>     
+       
     </div>
 
   );
