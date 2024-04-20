@@ -18,7 +18,7 @@ function App() {
           <Routes>
             <Route path='/Create'  element={<Create user={user} setUser={setUser}/>}/>
             <Route  path='/list' element={<ListUser user={user} setUser={setUser}/>}/>
-            <Route  path='/view/:name' element={<ViewUser user={user} setUser={setUser}/>}/>
+            <Route  path='/view/:name' element={<ViewUser />}/>
             <Route  path='/edit/:name' element={<EditUser user={user} setUser={setUser}/>}/>
             <Route  path='/login' element={<Login parsed_data={parsed_data} />}/>
 

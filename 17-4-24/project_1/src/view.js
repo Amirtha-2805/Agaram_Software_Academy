@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-export default function ViewUser(props){
+export default function ViewUser(){
     let local_details=localStorage.getItem("user_details")
     let parsed_data=JSON.parse(local_details)  
     let {name} = useParams();

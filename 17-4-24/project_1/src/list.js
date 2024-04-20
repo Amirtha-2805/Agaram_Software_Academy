@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-// import { useState } from "react";
 export default function ListUser(props){
     let local_details=localStorage.getItem("user_details")
     let parsed_data=JSON.parse(local_details)  
@@ -17,18 +16,6 @@ export default function ListUser(props){
         let remaining_users=parsed_data.filter((del_user,i)=>i!=index)
         localStorage.setItem("user_details",JSON.stringify(remaining_users))
     }
-//     { parsed_data.map((value,i)=>{
-//         if(value.name!="Ammu"){
-//             return(
-//                 <>
-//                 <td>
-//                     <button onClick={()=>deleteUser(i)}>Delete</button>                           
-//                 </td>
-//                 </>
-//             )
-// }
-// })
-// }
     return(
         <>
         {/* {a} */}
@@ -49,31 +36,8 @@ export default function ListUser(props){
         </thead>
         <tbody>
        
-            {parsed_data.map((users,i)=>{
-
-                if(users.name=="Amirtha"){
-                    return(
-                        <>     
-                            <td>
-                                {users.name}
-                            </td>
-                            <td>
-                                {users.email}
-                            </td>
-                            <td>
-                                <Link to={`/view/${users.name}`}>view</Link>
-                            </td>
-                            <td>
-                                <Link to={`/edit/${users.name}`}>Edit</Link>
-                            </td>
-                            <td> 
-                                cannot be deleted                               
-                            </td>
-                            
-                            </>
-                    )
-                }
-                if(users.name!="Amirtha"){
+            {parsed_data.map((users,i)=>{                
+                if(users.name){
                     // console.log("user_name",users.name)                
                 return(                   
                      <>                         
@@ -91,15 +55,16 @@ export default function ListUser(props){
                                 <Link to={`/edit/${users.name}`}>Edit</Link>
                             </td>
                             <td>
-                                    <button type="button" onClick={()=>deleteUser(i)}>Delete</button>
-
+                                    {/* <button type="button" onClick={()=>deleteUser(i)}>Delete</button> */}
+                                 data cannot be deleted
                              </td>
                              
                                                          
                         </tr>
                     </>
                 )
- } })}
+ } 
+ })}
 
         </tbody>
         </table> 
