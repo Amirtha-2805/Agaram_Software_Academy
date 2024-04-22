@@ -8,6 +8,7 @@ import ViewUser from './view';
 import EditUser from './edit';
 import Login from './login';
 import { useNavigate } from "react-router-dom";
+import CreateApi from './createApi';
 
 
 function App() {  
@@ -30,10 +31,10 @@ function App() {
     <div className="App">
       <Router>
           <Routes>
-            <Route path='/Create'  element={<Create user={user} setUser={setUser} isLogged={isLogged} setIsLogged={setIsLogged} />}/>
+            <Route path='/' element={<Create user={user} setUser={setUser} isLogged={isLogged} setIsLogged={setIsLogged} />}/>
             <Route  path='/list' element={<ListUser isLogged={isLogged} setIsLogged={setIsLogged} />}/>
-            <Route  path='/view/:name' element={<ViewUser />}/>
-            <Route  path='/edit/:name' element={<EditUser user={user} setUser={setUser}/>}/>
+            <Route  path='/view/:id' element={<ViewUser />}/>
+            <Route  path='/edit/:id' element={<EditUser user={user} setUser={setUser}/>}/>
             <Route  path='/login' element={<Login parsed_data={parsed_data} />}/>
           </Routes>
       </Router>             

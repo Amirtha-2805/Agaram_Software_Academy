@@ -16,24 +16,14 @@ function App() {
   let local_details=localStorage.getItem("user_details")
   let parsed_data=JSON.parse(local_details)  
   const[user,setUser]=useState(parsed_data)
-  const[isLogged,setIsLogged]=useState(false)
-//   useEffect(()=>{
-//     if(user){
-//      navigate("/create")
-//      console.log("user")
-//     }
-//     else{
-//      navigate("/login")
-//     }
-//  },[user])
   return (    
     <div className="App">
       <Router>
           <Routes>
-            <Route path='/Create'  element={<Create user={user} setUser={setUser} isLogged={isLogged} setIsLogged={setIsLogged} />}/>
+            <Route path='/'  element={<Create user={user} setUser={setUser} isLogged={isLogged} setIsLogged={setIsLogged} />}/>
             <Route  path='/list' element={<ListUser isLogged={isLogged} setIsLogged={setIsLogged} />}/>
-            <Route  path='/view/:name' element={<ViewUser />}/>
-            <Route  path='/edit/:name' element={<EditUser user={user} setUser={setUser}/>}/>
+            <Route  path='/view/:id' element={<ViewUser />}/>
+            <Route  path='/edit/:id' element={<EditUser user={user} setUser={setUser}/>}/>
             <Route  path='/login' element={<Login parsed_data={parsed_data} />}/>
           </Routes>
       </Router>             
