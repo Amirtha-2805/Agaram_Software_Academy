@@ -115,12 +115,7 @@ export default function Create(props){
             <div>
                 <button type="button" onClick={()=>createNew()}>createApi</button>
                 <button type="button" onClick={()=>getAllData()}>Get</button>
-
             </div>
-
-    
-    
-
        </>
 )
 }

@@ -13,42 +13,24 @@ export default function EditUser(props){
     const[editData,setEditData]=useState({
         title:"",
         body:"",
-        userId:2,
-        id:3
+        userId:null,
+        
     })
     
-    const edit=async ()=>{
-        const editedData=await axios.put("https://jsonplaceholder.typicode.com/posts")
+    const edit=async (paramId)=>{
+        const editedData=await axios.get(`https://jsonplaceholder.typicode.com/posts/${paramId}`)
         // console.log("post",editedData)
         setEditData(editedData.data)
         console.log(editData)
-
     }  
     useEffect(()=>{
-        edit()
-    })
-    const[editingData,setEditingData]=useState(
-    editData.title)        
-    
-    const setEditDetails=()=>{
-         let existing_data=editData;
-         let new_data=[]
-         existing_data.forEach((user_datas)=>{
-            if(user_datas.title){
-                new_data.push(editData)
-            }
-            else{
-                new_data.push(user_datas)
-            }
-                console.log(new_data)
-                navigate("/list");  
-
-         })
-        localStorage.setItem("user_details",JSON.stringify(new_data))
-                
-    }
-       
-    
+        edit(id)
+    },[id])
+         
+    const setEditDetails=async (paramId)=>{
+        const updatedData=await axios.put(`https:jsonplaceholder.typicode.com/posts/${paramId}`)       
+        console.log(updatedData.data)                
+    }           
     return(
             <>
                     <h1>You can edit your details here!!</h1>        
@@ -61,13 +43,12 @@ export default function EditUser(props){
                         ...editData,
                         body:e.target.value
                     })}/>
+                    <br/>                    
                     <br/>
-                    
+                    <button onClick={()=>setEditDetails(id)}>Edit</button> 
                     <br/>
-                    <button onClick={()=>setEditDetails()}>Edit</button>
-                    {/* <h5>{JSON.stringify(editData)}</h5> */}
-    
-            
+                     {JSON.stringify(editData)}
+
             </>    
     )
     }

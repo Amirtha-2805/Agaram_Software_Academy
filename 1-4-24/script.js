@@ -290,7 +290,7 @@ console.log(filter_students) */
 // numbers.sort((a,b)=>b-a)
 // console.log(numbers)
 
-//*****Class******//
+//**************************************************Class*************************************************//
 // class StudentDetails{
 
 //   studentName(){
@@ -320,7 +320,7 @@ console.log(filter_students) */
 //   console.log(name)
 //   }
 //   getName(){
-//   console.log(this.name)
+//      console.log(this.name)
 //   }
 	
 // }
@@ -339,7 +339,7 @@ console.log(filter_students) */
 //     console.log(this.name)
 //   }
 //   getFullName(){
-//  console.log(this.name+'' +this.lname)
+//      console.log(this.name+'' +this.lname)
 //  }
 
 // }
@@ -409,7 +409,7 @@ console.log(filter_students) */
 
 // class Message extends UserName{
 //   constructor(obj){
-//  super(obj)
+//    super(obj)
 //  }
       
 // }
@@ -435,7 +435,7 @@ console.log(filter_students) */
 // const messages=new Message(object_detail);
 // const u_name=messages.getFullName()
 
-//******* */
+//********/
 // class UserName{
 //   constructor(details){
 //    this.name=details.name;

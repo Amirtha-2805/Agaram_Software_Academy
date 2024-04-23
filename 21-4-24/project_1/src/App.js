@@ -16,6 +16,7 @@ function App() {
   let local_details=localStorage.getItem("user_details")
   let parsed_data=JSON.parse(local_details)  
   const[user,setUser]=useState(parsed_data)
+  const[isLogged,setIsLogged]=useState(false)
   return (    
     <div className="App">
       <Router>

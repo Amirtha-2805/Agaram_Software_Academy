@@ -19,22 +19,23 @@ export default function Login(props){
     //         navigate("/login")
     //     }
     // },[])
-    // const checkLogin=()=>{
-    //     axios({
-    //         method:"POST",
-    //         Data:{
-    //             request:"candidate_login",
-    //             email:loginState.email,
-    //             password:loginState.password
-    //         }
-    //     }).then((response)=>{
-    //         console.log(response)
-    //     })
-    // }     
+    const checkLogin=()=>{
+        axios({
+            method:"POST",
+            url:"https://agaram.academy/api/action.php",
+            Data:{
+                request:"candidate_login",
+                email:loginState.email,
+                password:loginState.password
+            }
+        }).then((response)=>{
+            console.log(response)
+        })
+    }     
             return(
                 <>
                     <h1>Login page</h1>
-                {isLogged==true ? <h1>Login</h1>:null}
+                
                     <div>
                         <input type="email" placeholder="Enter your email" onKeyUp={(e)=> setStateLogin({
                             ...loginState,
@@ -49,7 +50,7 @@ export default function Login(props){
                     </div>
                     <div>
                         
-                        {/* <button type="button" onClick={()=>checkLogin()} >Login</button> */}
+                        <button type="button" onClick={()=>checkLogin()} >Login</button>
                     </div>            
                 <h5>{JSON.stringify(loginState)}</h5>
                 </>

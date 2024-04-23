@@ -4,13 +4,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export default function ViewUser(){
-    let local_details=localStorage.getItem("user_details")
-    let parsed_data=JSON.parse(local_details)  
     const[viewData,setViewData]=useState("")
     let {id} = useParams();
-    useEffect(()=>{
-        // console.log("Use effect concept")
-        // viewPosts(id)
+    useEffect(()=>{        
         getPostById(id)
     },[id])
     //method1
