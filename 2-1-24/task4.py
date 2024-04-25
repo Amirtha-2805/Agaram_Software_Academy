@@ -219,8 +219,7 @@ students_marks=[{"name":"Amirtha",
 #     print(st['name'],total)
 
 for data in students_marks:
-    total=0
-       
+    total=0       
     for marks in data["marks"]:
                                
              if marks["subject"]=="English":
@@ -239,7 +238,11 @@ for data in students_marks:
     elif (percentage<90) and (age<22):
          print( data["name"], "is not Eligible for the job")
       
-
+a=[7,8,10]
+total=0
+for value in a:
+    total=total+value
+print(total)    
                  
                 
                 

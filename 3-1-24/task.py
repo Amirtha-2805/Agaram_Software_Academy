@@ -231,11 +231,15 @@ for data in students_marks:
                 
              elif marks["subject"]=="Science":
                total_3=marks["marks_scored"]  
+
     total=total_1+total_2+total_3
     percentage=(total/600)*100
+    
     age=data["age"]
+
     if ((percentage>80) and (age>22)):
          print( data["name"],  "is Eligible")
+
     elif(percentage>90):
         print(data["name"], "is eligible")
              

@@ -10,7 +10,7 @@ a.remove("mango")
 for fruits in a:
     print(fruits)
 
-a[0]="Apple"
+a[0]="strawberry"
 for fruits in a:
     print(fruits)  
 

@@ -117,7 +117,7 @@ def education():
   print(a)
 
  print(my_resume["education_qualification"])
-education()
+ education()
 
 
 
