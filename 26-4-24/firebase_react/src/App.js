@@ -37,8 +37,7 @@ function App() {
           {
                isLogged? <Route path='/homepage' element={<Home />}/>:null
           
-          }
-    
+          }    
           <Route path='/login' element={<Login />}/>
           <Route path='/' element={<Signup />}/>
         </Routes>

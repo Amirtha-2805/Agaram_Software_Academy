@@ -8,7 +8,8 @@ import ViewUser from './view';
 import EditUser from './edit';
 import Login from './login';
 import { useNavigate } from "react-router-dom";
-import CreateApi from './createApi';
+import MainBox from './MainBox';
+// import CreateApi from './createApi';
 
 
 function App() {  
@@ -36,6 +37,7 @@ function App() {
             <Route  path='/view/:id' element={<ViewUser />}/>
             <Route  path='/edit/:id' element={<EditUser user={user} setUser={setUser}/>}/>
             <Route  path='/login' element={<Login parsed_data={parsed_data} />}/>
+            <Route path='/mainbox' element={<MainBox/>}/>
           </Routes>
       </Router>             
     <header className="App-header"> 

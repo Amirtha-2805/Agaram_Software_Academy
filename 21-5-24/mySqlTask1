@@ -1,0 +1,277 @@
+-- Introduction
+-- create
+CREATE TABLE USER_DETAILS (
+  empId INTEGER AUTO_INCREMENT PRIMARY KEY,
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  gender TEXT NOT NULL,
+  age INTEGER NOT NULL,
+  total_marks INTEGER NOT NULL,
+  maths_marks INTEGER NOT NULL
+  
+);
+
+-- insert
+INSERT INTO  `USER_DETAILS` (`name`,`email`,`gender`,`age`,`total_marks`,`maths_marks`) VALUES  ('Amirtha', 'ammu@gmail.com','F',23,485,98);
+INSERT INTO  `USER_DETAILS` (`name`,`email`,`gender`,`age`,`total_marks`,`maths_marks`) VALUES  ('Aiswarya', 'aishu@gmail.com','F',27,475,80);
+INSERT INTO  `USER_DETAILS` (`name`,`email`,`gender`,`age`,`total_marks`,`maths_marks`) VALUES  ('Jayasree','jaya@gmail.com','F',29,495,98);
+INSERT INTO  `USER_DETAILS` (`name`,`email`,`gender`,`age`,`total_marks`,`maths_marks`) VALUES  ('Natarajan','nata@gmail.com','M',35,480,98);
+INSERT INTO  `USER_DETAILS` (`name`,`email`,`gender`,`age`,`total_marks`,`maths_marks`) VALUES  ('Jyothi','jyothi@gmail.com','F',23,465,78);
+INSERT INTO  `USER_DETAILS` (`name`,`email`,`gender`,`age`,`total_marks`,`maths_marks`) VALUES  ('Archana','archu@gmail.com','F',29,440,60);
+INSERT INTO  `USER_DETAILS` (`name`,`email`,`gender`,`age`,`total_marks`,`maths_marks`) VALUES  ('Raja','raja@gmail.com','M',25,468,90);
+INSERT INTO  `USER_DETAILS` (`name`,`email`,`gender`,`age`,`total_marks`,`maths_marks`) VALUES  ('Vijay','vijay@gmail.com','M',39,425,70);
+
+
+
+
+-- fetch 
+SELECT * FROM `USER_DETAILS` WHERE `age`>30
+SELECT * FROM `USER_DETAILS` WHERE `maths_marks`>90 ORDER BY `total_marks` DESC LIMIT 0,3; 
+
+DELETE FROM `USER_DETAILS` WHERE `name`="Amirtha";
+SELECT * FROM `USER_DETAILS`;
+
+INSERT INTO  `USER_DETAILS` (`name`,`email`,`gender`,`age`,`total_marks`,`maths_marks`) VALUES  ('Amirtha','amirtha@gmail.com','F',23,485,90);
+SELECT * FROM `USER_DETAILS`;
+
+UPDATE `USER_DETAILS` SET `name`="Ammu" WHERE `empId`=9;
+SELECT * FROM `USER_DETAILS`;
+
+-- Problem 1
+CREATE TABLE EMPLOYEE (
+  empId INTEGER AUTO_INCREMENT PRIMARY KEY,
+  name TEXT NOT NULL,
+  gender TEXT NOT NULL
+);
+
+-- insert
+INSERT INTO `EMPLOYEE`(`name`,`gender`) VALUES ('Clark', 'Male');
+INSERT INTO `EMPLOYEE`(`name`,`gender`) VALUES ('Dave', 'Male');
+INSERT INTO `EMPLOYEE`(`name`,`gender`) VALUES ('Ava', 'Female');
+INSERT INTO `EMPLOYEE`(`name`,`gender`) VALUES ('Akshaya', 'Female');
+INSERT INTO `EMPLOYEE`(`name`,`gender`) VALUES ('Ajith', 'Male');
+
+-- fetch 
+
+SELECT `gender`, COUNT(*) AS total_count FROM `EMPLOYEE` GROUP BY `gender` ORDER BY total_count DESC;
+
+-- Problem 2
+-- create
+CREATE TABLE EMPLOYEE (
+  empId INTEGER AUTO_INCREMENT PRIMARY KEY,
+  name TEXT NOT NULL,
+  gender TEXT NOT NULL
+);
+CREATE TABLE SALARIES (
+  empId INTEGER AUTO_INCREMENT PRIMARY KEY,
+  name TEXT NOT NULL,
+  salary INTEGER NOT NULL,
+  role TEXT NOT NULL
+);
+
+
+-- insert
+INSERT INTO `EMPLOYEE`(`name`,`gender`) VALUES ('Clark', 'Male');
+INSERT INTO `EMPLOYEE`(`name`,`gender`) VALUES ('Dave', 'Male');
+INSERT INTO `EMPLOYEE`(`name`,`gender`) VALUES ('Ava', 'Female');
+INSERT INTO `EMPLOYEE`(`name`,`gender`) VALUES ('Akshaya', 'Female');
+INSERT INTO `EMPLOYEE`(`name`,`gender`) VALUES ('Ajith', 'Male');
+
+INSERT INTO `SALARIES`(`name`,`salary`,`role`) VALUES ('Clark',20000,'Tester');
+INSERT INTO `SALARIES`(`name`,`salary`,`role`) VALUES ('Dave',22000,'Developer');
+INSERT INTO `SALARIES`(`name`,`salary`,`role`) VALUES ('Ava',10000,'Software Developer');
+INSERT INTO `SALARIES`(`name`,`salary`,`role`) VALUES ('Akshaya',25000,'Full stack developer');
+INSERT INTO `SALARIES`(`name`,`salary`,`role`) VALUES ('Ajith',23000,'Team lead');
+
+
+-- fetch 
+
+SELECT role, ROUND(AVG(salary),2) as average_salary FROM SALARIES  JOIN EMPLOYEE   ON SALARIES.empId = EMPLOYEE.empId
+GROUP BY role ORDER BY average_salary DESC;
+
+
+-- Problem 3
+
+CREATE TABLE EMPLOYEE (
+  empId INTEGER AUTO_INCREMENT PRIMARY KEY,
+  firstName TEXT NOT NULL,
+  lastName TEXT NOT NULL
+);
+
+CREATE TABLE DEPARTMENT_EMPLOYEE (
+  empId INTEGER,
+  deptId TEXT NOT NULL
+);
+
+INSERT INTO `EMPLOYEE`(`firstname`,`lastname`) VALUES ('Amirtha','N'); 
+INSERT INTO `EMPLOYEE`(`firstname`,`lastname`) VALUES ('Aiswarya','N');
+INSERT INTO `EMPLOYEE`(`firstname`,`lastname`) VALUES ('Jayasree','G');
+INSERT INTO `EMPLOYEE`(`firstname`,`lastname`) VALUES ('Natarajan','S');
+
+INSERT INTO `DEPARTMENT_EMPLOYEE`(`empId`,`deptId`) VALUES (1,'sales');
+INSERT INTO `DEPARTMENT_EMPLOYEE`(`empId`,`deptId`) VALUES (1,'Accountant');
+INSERT INTO `DEPARTMENT_EMPLOYEE`(`empId`,`deptId`) VALUES (3,'Designer');
+INSERT INTO `DEPARTMENT_EMPLOYEE`(`empId`,`deptId`) VALUES (4,'Stock market');
+INSERT INTO `DEPARTMENT_EMPLOYEE`(`empId`,`deptId`) VALUES (4,'Share market');
+INSERT INTO `DEPARTMENT_EMPLOYEE`(`empId`,`deptId`) VALUES (1,'Gold smith');
+
+
+
+SELECT CONCAT(EMPLOYEE.firstname, ' ' , EMPLOYEE.lastname) AS name, COUNT(*) AS number_of_departments FROM EMPLOYEE  JOIN DEPARTMENT_EMPLOYEE  ON EMPLOYEE.empId=DEPARTMENT_EMPLOYEE.empId
+GROUP BY DEPARTMENT_EMPLOYEE.empId
+HAVING COUNT(*)>1 ORDER BY name ASC;
+
+
+-- Problem 4
+-- create
+CREATE TABLE EMPLOYEE (
+  empId INTEGER AUTO_INCREMENT PRIMARY KEY,
+  firstName TEXT NOT NULL,
+  lastName TEXT NOT NULL
+);
+
+CREATE TABLE SALARIES (
+  empId INTEGER AUTO_INCREMENT PRIMARY KEY,
+  salary INTEGER NOT NULL
+);
+
+INSERT INTO `EMPLOYEE`(`firstname`,`lastname`) VALUES ('Amirtha','N'); 
+INSERT INTO `EMPLOYEE`(`firstname`,`lastname`) VALUES ('Aiswarya','N');
+INSERT INTO `EMPLOYEE`(`firstname`,`lastname`) VALUES ('Jayasree','G');
+INSERT INTO `EMPLOYEE`(`firstname`,`lastname`) VALUES ('Natarajan','S');
+
+INSERT INTO `SALARIES`(`salary`) VALUES (10000);
+INSERT INTO  `SALARIES`(`salary`) VALUES (15000);
+INSERT INTO  `SALARIES`(`salary`)  VALUES (40000);
+INSERT INTO `SALARIES`(`salary`)  VALUES (20000);
+
+SELECT CONCAT(EMPLOYEE.firstname, ' ' , EMPLOYEE.lastname) AS employee_name, SALARIES.salary FROM EMPLOYEE JOIN 
+SALARIES ON EMPLOYEE.empId=SALARIES.empId
+WHERE SALARIES.salary=(SELECT MAX(SALARIES.salary) FROM SALARIES);
+
+-- Problem 5
+-- create
+CREATE TABLE EMPLOYEE (
+  empId INTEGER AUTO_INCREMENT PRIMARY KEY,
+  firstName TEXT NOT NULL,
+  lastName TEXT NOT NULL
+);
+
+CREATE TABLE SALARIES (
+  empId INTEGER AUTO_INCREMENT PRIMARY KEY,
+  salary INTEGER NOT NULL
+);
+
+INSERT INTO `EMPLOYEE`(`firstname`,`lastname`) VALUES ('Amirtha','N'); 
+INSERT INTO `EMPLOYEE`(`firstname`,`lastname`) VALUES ('Aiswarya','N');
+INSERT INTO `EMPLOYEE`(`firstname`,`lastname`) VALUES ('Jayasree','G');
+INSERT INTO `EMPLOYEE`(`firstname`,`lastname`) VALUES ('Natarajan','S');
+
+INSERT INTO `SALARIES`(`salary`) VALUES (10000);
+INSERT INTO  `SALARIES`(`salary`) VALUES (15000);
+INSERT INTO  `SALARIES`(`salary`)  VALUES (40000);
+INSERT INTO `SALARIES`(`salary`)  VALUES (20000);
+
+SELECT CONCAT(EMPLOYEE.firstname, ' ' , EMPLOYEE.lastname) AS employee_name, SALARIES.salary FROM EMPLOYEE JOIN 
+SALARIES ON EMPLOYEE.empId=SALARIES.empId
+WHERE SALARIES.salary<(SELECT MAX(SALARIES.salary) FROM SALARIES) ORDER BY SALARIES.salary DESC LIMIT 1
+
+-- Problem 6
+
+-- create
+CREATE TABLE EMPLOYEE (
+  empId INTEGER AUTO_INCREMENT PRIMARY KEY,
+  name TEXT NOT NULL,
+  hire_date TEXT NOT NULL
+  
+);
+
+INSERT INTO `EMPLOYEE`(`name`,`hire_date`) VALUES('Amirtha','2001-05-1');
+INSERT INTO `EMPLOYEE`(`name`,`hire_date`) VALUES('Aiswarya','2020-05-10');
+INSERT INTO `EMPLOYEE`(`name`,`hire_date`) VALUES('Jayasree','2024-10-20');
+INSERT INTO `EMPLOYEE`(`name`,`hire_date`) VALUES('Natarajan','2018-10-23');
+
+SELECT DATE_FORMAT(hire_date,'%M') AS month, COUNT(*) AS total_hires FROM EMPLOYEE GROUP BY month 
+ORDER BY total_hires DESC LIMIT 1
+
+-- Problem 7
+-- create
+CREATE TABLE EMPLOYEE (
+  empId INTEGER AUTO_INCREMENT PRIMARY KEY,
+  name TEXT NOT NULL,
+  birth_date TEXT NOT NULL,
+  hire_date TEXT NOT NULL
+);
+
+CREATE TABLE DEPARTMENT_EMPLOYEE (
+  empNo INTEGER AUTO_INCREMENT PRIMARY KEY,
+  name TEXT NOT NULL,
+  dept_name TEXT NOT NULL
+  
+);
+
+CREATE TABLE DEPARTMENTS (
+  deptNo INTEGER AUTO_INCREMENT PRIMARY KEY,
+  dept_name TEXT NOT NULL
+ 
+);
+
+INSERT INTO `EMPLOYEE`(`name`,`birth_date`,`hire_date`) VALUES('Amirtha','2001-05-1','2020-02-10');
+INSERT INTO `EMPLOYEE`(`name`,`birth_date`,`hire_date`) VALUES('Aiswarya','2002-05-10','2023-03-19');
+INSERT INTO `EMPLOYEE`(`name`,`birth_date`,`hire_date`) VALUES('Jayasree','2001-10-20','2022-12-30');
+INSERT INTO `EMPLOYEE`(`name`,`birth_date`,`hire_date`) VALUES('Natarajan','2000-10-23','2030-05-14');
+
+INSERT INTO `DEPARTMENT_EMPLOYEE`(`name`,`dept_name`) VALUES('Amirtha','Sales');
+INSERT INTO `DEPARTMENT_EMPLOYEE`(`name`,`dept_name`) VALUES('Aiswarya','Accounts');
+INSERT INTO `DEPARTMENT_EMPLOYEE`(`name`,`dept_name`) VALUES('Jayasree','Trading');
+INSERT INTO `DEPARTMENT_EMPLOYEE`(`name`,`dept_name`) VALUES('Natarajan','Stock Market');
+
+
+INSERT INTO `DEPARTMENTS`(`dept_name`) VALUES('Sales');
+INSERT INTO `DEPARTMENTS`(`dept_name`) VALUES('Accounts');
+INSERT INTO `DEPARTMENTS`(`dept_name`) VALUES('Trading');
+INSERT INTO `DEPARTMENTS`(`dept_name`) VALUES('Stock Market');
+
+SELECT dept.dept_name, MIN(TIMESTAMPDIFF(YEAR, e.birth_date,e.hire_date)) AS age_hire_data 
+FROM EMPLOYEE e JOIN DEPARTMENT_EMPLOYEE d_emp ON e.empId=d_emp.empNo
+JOIN DEPARTMENTS dept ON d_emp.empNo=dept.deptNo GROUP BY dept.dept_name
+
+-- Problem 8
+
+CREATE TABLE EMPLOYEE (
+  empId INTEGER AUTO_INCREMENT PRIMARY KEY,
+  first_name TEXT NOT NULL
+);
+CREATE TABLE DEPARTMENTS (
+  deptNo INTEGER AUTO_INCREMENT PRIMARY KEY,
+  dept_name TEXT NOT NULL
+);
+CREATE TABLE DEPARTMENT_EMPLOYEE (
+  empNo INTEGER AUTO_INCREMENT PRIMARY KEY,
+  name TEXT NOT NULL,
+  dept_name TEXT NOT NULL
+);
+
+INSERT INTO `EMPLOYEE`(`first_name`) VALUES('Dvndr');
+INSERT INTO `EMPLOYEE`(`first_name`) VALUES('Prnvt');
+INSERT INTO `EMPLOYEE`(`first_name`) VALUES('Jayasree');
+INSERT INTO `EMPLOYEE`(`first_name`) VALUES('Natarajan');
+
+INSERT INTO `DEPARTMENTS`(`dept_name`) VALUES('Sales');
+INSERT INTO `DEPARTMENTS`(`dept_name`) VALUES('Accounts');
+INSERT INTO `DEPARTMENTS`(`dept_name`) VALUES('Trading');
+INSERT INTO `DEPARTMENTS`(`dept_name`) VALUES('Stock Market');
+
+INSERT INTO `DEPARTMENT_EMPLOYEE`(`name`,`dept_name`) VALUES('Dvndr','Sales');
+INSERT INTO `DEPARTMENT_EMPLOYEE`(`name`,`dept_name`) VALUES('Prnvt','Accounts');
+INSERT INTO `DEPARTMENT_EMPLOYEE`(`name`,`dept_name`) VALUES('Jayasree','Trading');
+INSERT INTO `DEPARTMENT_EMPLOYEE`(`name`,`dept_name`) VALUES('Natarajan','Stock Market');
+
+
+SELECT EMPLOYEE.first_name, DEPARTMENTS.dept_name FROM EMPLOYEE  JOIN DEPARTMENT_EMPLOYEE  ON EMPLOYEE.empId=DEPARTMENT_EMPLOYEE.empNo
+JOIN DEPARTMENTS  ON DEPARTMENT_EMPLOYEE.empNo=DEPARTMENTS.deptNo 
+WHERE EMPLOYEE.first_name NOT LIKE '%a%'
+AND EMPLOYEE.first_name NOT LIKE '%e%'
+AND EMPLOYEE.first_name NOT LIKE '%i%'
+AND EMPLOYEE.first_name NOT LIKE '%o%'
+AND EMPLOYEE.first_name NOT LIKE '%u%'

@@ -1,0 +1,185 @@
+CREATE TABLE EMPLOYEE (
+  empId INTEGER AUTO_INCREMENT PRIMARY KEY,
+  first_name TEXT NOT NULL,
+  gender TEXT NOT NULL,
+  hire_date TEXT NOT NULL
+);
+CREATE TABLE SALARIES(
+  empId INTEGER AUTO_INCREMENT PRIMARY KEY,
+  first_name TEXT NOT NULL,
+  salary INTEGER NOT NULL,
+  from_date TEXT NOT NULL
+);
+
+CREATE TABLE DEPARTMENT(
+  deptno TEXT NOT NULL,
+  dept_name TEXT NOT NULL
+);
+
+CREATE TABLE DEPARTMENT_EMPLOYEE(
+  empNo INTEGER NOT NULL,
+  dept_emp TEXT NOT NULL,
+  from_date TEXT NOT NULL
+);
+CREATE TABLE TITLES(
+  titleId INTEGER AUTO_INCREMENT PRIMARY KEY,
+  title  TEXT NOT NULL,
+  from_date TEXT NOT NULL
+);
+
+
+INSERT INTO `EMPLOYEE`(`first_name`,`gender`,`hire_date`) VALUES('Elvis','M','2020-05-1');
+INSERT INTO `EMPLOYEE`(`first_name`,`gender`,`hire_date`) VALUES('Kellie','F','2022-09-19');
+INSERT INTO `EMPLOYEE`(`first_name`,`gender`,`hire_date`) VALUES('Kellie','M','2025-11-19');
+INSERT INTO `EMPLOYEE`(`first_name`,`gender`,`hire_date`) VALUES('Aruna','F','2019-12-2');
+INSERT INTO `EMPLOYEE`(`first_name`,`gender`,`hire_date`) VALUES('Denis','M','2024-05-14');
+INSERT INTO `EMPLOYEE`(`first_name`,`gender`,`hire_date`) VALUES('John','M','2022-02-16');
+INSERT INTO `EMPLOYEE`(`first_name`,`gender`,`hire_date`) VALUES('Mark Antony','M','2021-08-20');
+INSERT INTO `EMPLOYEE`(`first_name`,`gender`,`hire_date`) VALUES('Jacob','M','2023-10-2');
+INSERT INTO `EMPLOYEE`(`first_name`,`gender`,`hire_date`) VALUES('JacK','M','2021-10-20');
+
+INSERT INTO `SALARIES`(`first_name`,`salary`,`from_date`) VALUES ('Elvis',66000,'2020-05-1');
+INSERT INTO `SALARIES`(`first_name`,`salary`,`from_date`) VALUES ('Kellie',69000,'2022-09-19');
+INSERT INTO `SALARIES`(`first_name`,`salary`,`from_date`) VALUES ('Kellie',50000,'2022-02-2');
+INSERT INTO `SALARIES`(`first_name`,`salary`,`from_date`) VALUES ('Aruna',26000,'1999-03-16');
+INSERT INTO `SALARIES`(`first_name`,`salary`,`from_date`) VALUES ('Denis',75000,'2022-02-2');
+INSERT INTO `SALARIES`(`first_name`,`salary`,`from_date`) VALUES ('John',62000,'2021-02-30');
+INSERT INTO `SALARIES`(`first_name`,`salary`,`from_date`) VALUES ('Mark Antony',67000,'2022-11-19');
+INSERT INTO `SALARIES`(`first_name`,`salary`,`from_date`) VALUES ('Jacob',66000,'2022-02-16');
+INSERT INTO `SALARIES`(`first_name`,`salary`,`from_date`) VALUES ('JacK',46000,'2021-10-20');
+
+INSERT INTO `DEPARTMENT`(`deptno`,`dept_name`) VALUES('d001','Sales');
+INSERT INTO `DEPARTMENT`(`deptno`,`dept_name`) VALUES('d002','Accounts');
+INSERT INTO `DEPARTMENT`(`deptno`,`dept_name`) VALUES('d003','Trading');
+INSERT INTO `DEPARTMENT`(`deptno`,`dept_name`) VALUES('d004','Stock Market');
+INSERT INTO `DEPARTMENT`(`deptno`,`dept_name`) VALUES('d005','Designing');
+INSERT INTO `DEPARTMENT`(`deptno`,`dept_name`) VALUES('d006','Customer service');
+INSERT INTO `DEPARTMENT`(`deptno`,`dept_name`) VALUES('d007','Finance Department');
+INSERT INTO `DEPARTMENT`(`deptno`,`dept_name`) VALUES('d008','Share Market');
+
+INSERT INTO `DEPARTMENT_EMPLOYEE`(`empNo`,`dept_emp`,`from_date`) VALUES (1,'Elvis','2020-05-1');
+INSERT INTO `DEPARTMENT_EMPLOYEE`(`empNo`,`dept_emp`,`from_date`) VALUES (1,'Kellie','2022-09-19');
+INSERT INTO `DEPARTMENT_EMPLOYEE`(`empNo`,`dept_emp`,`from_date`) VALUES (4,'Elvis','2022-11-19');
+INSERT INTO `DEPARTMENT_EMPLOYEE`(`empNo`,`dept_emp`,`from_date`) VALUES (4,'Elvis','2022-02-2');
+INSERT INTO `DEPARTMENT_EMPLOYEE`(`empNo`,`dept_emp`,`from_date`) VALUES (4,'JacK','1999-03-16');
+
+
+INSERT INTO `TITLES`(`title`,`from_date`) VALUES('Junior Engineer','2022-02-2');
+INSERT INTO `TITLES`(`title`,`from_date`) VALUES('Engineer','2001-05-10');
+INSERT INTO `TITLES`(`title`,`from_date`) VALUES('Data Analyst','2024-08-20');
+INSERT INTO `TITLES`(`title`,`from_date`) VALUES('Data scientist','2021-02-30');
+
+-- DUPLICATE METHOD QUERY
+
+CREATE TABLE `DEPARTMENT_DUP`(deptno CHAR(4) NOT NULL,dept_name VARCHAR(40) NOT NULL);
+INSERT INTO `DEPARTMENT_DUP`(deptno,dept_name) SELECT * FROM `DEPARTMENT`;
+SELECT * FROM `DEPARTMENT_DUP` ORDER BY `deptno`;
+
+ALTER TABLE `DEPARTMENT_DUP` CHANGE COLUMN `dept_name` dept_name VARCHAR(40) NULL;
+INSERT INTO DEPARTMENT_DUP(`deptno`) VALUES ('d010'),('d011');
+SELECT * FROM `DEPARTMENT_DUP` ORDER BY `deptno` ASC;
+ALTER TABLE `DEPARTMENT_DUP` ADD COLUMN dept_manager VARCHAR(255) NULL AFTER `dept_name`;
+SELECT * FROM `DEPARTMENT_DUP` ORDER BY `deptno` ASC;
+
+SELECT `deptno`,`dept_name`, COALESCE(`dept_name`,`deptno`) AS dept_info FROM `DEPARTMENT_DUP`
+ORDER BY `deptno` ASC;
+
+SELECT IFNULL(`deptno`,'N/A') AS `deptno`, IFNULL(`dept_name`,'Department Name Not provided') AS
+dept_name, COALESCE(`deptno`,`dept_name`) AS dept_info FROM `DEPARTMENT_DUP` ORDER BY `deptno`ASC;
+
+ALTER TABLE `DEPARTMENT_DUP` DROP COLUMN `dept_manager`;
+ALTER TABLE `DEPARTMENT_DUP` CHANGE COLUMN `deptno` deptno CHAR(4) NULL;
+ALTER TABLE `DEPARTMENT_DUP` CHANGE COLUMN `dept_name` dept_name VARCHAR(40) NULL;
+INSERT INTO DEPARTMENT_DUP(`dept_name`) VALUES('Public Relations');
+DELETE FROM `DEPARTMENT_DUP` WHERE `deptno`='d006';
+INSERT INTO DEPARTMENT_DUP(`deptno`) VALUES('d010'),('d011');
+SELECT * FROM `DEPARTMENT_DUP` ORDER BY `deptno`;
+
+DROP TABLE IF EXISTS DEPT_MANAGER_DUP;
+CREATE TABLE DEPT_MANAGER_DUP(empNo INT(11) NOT NULL, deptno CHAR(4) NULL, from_date date NOT NULL, to_date date NULL);
+INSERT INTO `DEPT_MANAGER_DUP` SELECT * FROM ``
+
+
+
+
+-- QUERY FOR EMPLOYEE TABLE --
+
+-- SELECT * FROM `EMPLOYEE` WHERE `first_name`='Elvis';
+-- SELECT * FROM `EMPLOYEE` WHERE `first_name`='Kellie' AND `gender`='F';
+-- SELECT * FROM `EMPLOYEE` WHERE `first_name`='Kellie' OR `first_name`='Aruna';
+-- SELECT * FROM `EMPLOYEE` WHERE `gender`='F' AND (`first_name`='Kellie' OR `first_name`='Aruna');
+-- SELECT * FROM `EMPLOYEE` WHERE `first_name`IN ('Denis','Elvis');
+-- SELECT * FROM `EMPLOYEE` WHERE `first_name` NOT IN ('John','Mark','Jacob');
+-- SELECT * FROM `EMPLOYEE` WHERE `first_name` LIKE ('Mark%');
+-- SELECT * FROM `EMPLOYEE` WHERE `hire_date` LIKE ('%2022%');
+-- SELECT * FROM `EMPLOYEE` WHERE `empId`LIKE ('2');
+-- SELECT * FROM `EMPLOYEE` WHERE `first_name` LIKE 'JacK';
+-- SELECT * FROM `EMPLOYEE` WHERE `first_name`NOT LIKE 'JacK';
+-- SELECT * FROM `EMPLOYEE` WHERE `gender` ='F' AND `hire_date`>='2000-01-01';
+-- SELECT DISTINCT `hire_date` AS date FROM `EMPLOYEE`;
+-- SELECT * FROM `EMPLOYEE` ORDER BY `hire_date` DESC;
+-- INSERT INTO `EMPLOYEE`(`first_name`,`gender`,`hire_date`) VALUES('Amirtha','F','2024-05-14');
+-- SELECT * FROM `EMPLOYEE`;
+-- SELECT MIN(`empId`) FROM `EMPLOYEE`;
+-- SELECT MAX(`empId`) FROM `EMPLOYEE`;
+
+
+
+
+-- QUERY FOR SALARIES TABLE --
+
+
+-- SELECT * FROM `SALARIES` WHERE `salary` BETWEEN 66000 AND 70000;
+-- SELECT * FROM `SALARIES` WHERE `empId` NOT BETWEEN 1 AND 5;
+-- SELECT * FROM `SALARIES` WHERE `salary`>70000;
+-- SELECT COUNT(salary) FROM `SALARIES` WHERE `salary`>=60000;
+
+-- SELECT `salary`, COUNT(`empId`) AS emps_with_same_salary FROM `SALARIES`WHERE `salary`>50000
+-- GROUP BY `salary`ORDER BY `salary`;
+
+-- SELECT `first_name`, AVG(`salary`) AS average_salary FROM `SALARIES` 
+-- GROUP BY `first_name` HAVING AVG(`salary`)>50000 ORDER BY `first_name`;
+
+-- SELECT SUM(`salary`) FROM `SALARIES` WHERE `from_date`>'1997-01-01';
+-- SELECT AVG(`salary`) FROM `SALARIES` WHERE `from_date`>1997-01-01;
+-- SELECT ROUND(AVG(`salary`),2) FROM `SALARIES` WHERE `from_date`>1997-01-01;
+
+
+-- QUERY FOR DEPARTMENT TABLE --
+
+-- SELECT * FROM `DEPARTMENT` WHERE `deptno` BETWEEN 'd003' AND 'd006';
+-- SELECT * FROM `DEPARTMENT` WHERE `deptno` IS NOT NULL;
+-- SELECT COUNT(*) AS number_of_departments FROM `DEPARTMENT`;
+-- INSERT INTO `DEPARTMENT`(`deptno`,`dept_name`) VALUES('d010','Bussiness Analysis ');
+-- SELECT * FROM `DEPARTMENT`;
+
+-- UPDATE `DEPARTMENT` SET `dept_name`='Data structure' WHERE `deptno`='d003';
+-- SELECT * FROM `DEPARTMENT`;
+
+-- DELETE FROM `DEPARTMENT` WHERE `deptno`='d002';
+-- SELECT * FROM `DEPARTMENT`;
+-- SELECT COUNT(DISTINCT deptno) AS no_of_depts
+-- FROM `DEPARTMENT`;
+
+
+
+
+
+-- QUERY FOR DEPARTMENT_EMPLOYEE TABLE--
+
+-- SELECT `empNo` FROM `DEPARTMENT_EMPLOYEE` WHERE `from_date`>'2000-01-01' GROUP BY `empNo`
+-- HAVING COUNT(`from_date`)>1 ORDER BY `empNo`;
+
+-- SELECT * FROM `DEPARTMENT_EMPLOYEE` LIMIT 4;
+-- INSERT INTO `DEPARTMENT_EMPLOYEE`(`empNo`,`dept_emp`,`from_date`) VALUES (4,'JacKy Chan','9999-01-01');
+-- SELECT * FROM `DEPARTMENT_EMPLOYEE`;
+-- SELECT * FROM `DEPARTMENT_EMPLOYEE` ORDER BY `empNo` DESC LIMIT 3;
+
+
+-- QUERY FOR TITLES TABLE--
+
+-- SELECT * FROM `TITLES` LIMIT 3;
+-- INSERT INTO `TITLES`(`title`,`from_date`) VALUES('Senior Engineer','1997-10-01');
+-- SELECT * FROM `TITLES`;
+-- SELECT * FROM `TITLES` ORDER BY `titleId` DESC LIMIT 3;
+

@@ -150,23 +150,66 @@
 // palindrome("malayalam")
 
 //alphabetical order
-let alphabetical=(string)=>{
-   string.sort()
-   console.log(string);
-}
-alphabetical(["amirtha","aishu","jaya"])
+// let alphabetical=(string)=>{
+//    string.sort()
+//    console.log(string);
+// }
+// alphabetical(["amirtha","aishu","jaya"])
 
 //numbers in order
-let numbers_in_order=[]
-order_num=-1
-let number_order=(numbers)=>{    
-   for(let each in numbers){
-     if(numbers[each]==order_num++ && numbers[each]==order_num){
-         order_num=numbers[each]
-     }
-   numbers_in_order.push(order_num)
-   }
-   console.log(numbers_in_order)
-}
-number_order([12,6,0,5,2,1,13,7,11,3,9,4,8,10])
+// let numbers_in_order=[]
+// order_num=0
+// let number_order=(numbers)=>{    
+//    for(let each in numbers){
+//      if(numbers[each]==order_num++ && numbers[each]==order_num){
+//          order_num=numbers[each]
+//      }
+//    numbers_in_order.push(order_num)
+//    }
+//    console.log("no order =",numbers_in_order)
+// }
+// number_order([12,6,5,2,1,13,7,11,3,9,4,8,0,10])
 
+// let numbers=[]
+// let num1=12
+// let num2=90
+// let num4=2
+// let concat=""+num1+num2
+// let num3=parseInt(concat)
+// numbers.push(num1,num2,num3,num4)
+// let largest_no=0
+// let smallest_no=numbers[0]
+// for(let large of numbers){
+//     if(large>largest_no){
+//         largest_no=large
+//     }       
+// }
+let array=[1,2,3,4,5,10,20,28,14]
+let largest_no=0
+let second_largest=0
+let third_largest=0
+for(let each of array){
+ if(each>largest_no){
+    largest_no=each    
+ }
+}
+for(let each of array){
+  if(each>second_largest && each<largest_no){
+    second_largest=each
+  }
+}
+for(let each of array){
+  if(each>third_largest && each<second_largest){
+    third_largest=each
+  }
+}
+console.log("third",third_largest)
+console.log("second",second_largest)
+
+
+// let sort=[2,4,1,3]
+// for(let i of sort){
+//   for(let j of sort){
+    
+//   }
+// }
