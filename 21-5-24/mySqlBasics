@@ -1,0 +1,77 @@
+-- CREATE TABLE EMPLOYEE (
+--   empId INTEGER AUTO_INCREMENT PRIMARY KEY,
+--   firstName TEXT NOT NULL,
+--   lastName TEXT NOT NULL
+-- );
+
+-- ALTER TABLE `EMPLOYEE` ADD `father_name`  VARCHAR(50) NOT NULL AFTER `lastName`;
+-- ALTER TABLE `EMPLOYEE` MODIFY `father_name` VARCHAR(15) NOT NULL;
+-- -- ALTER TABLE `EMPLOYEE` RENAME TO `USERS`;
+-- -- SHOW TABLES;
+-- DESCRIBE EMPLOYEE;
+
+CREATE TABLE EMPLOYEE (
+  empId INTEGER AUTO_INCREMENT PRIMARY KEY,
+   name TEXT NOT NULL,
+  dept_name TEXT NOT NULL,
+  hire_date TEXT NOT NULL
+  
+);
+CREATE TABLE SALARIES (
+  empId INTEGER AUTO_INCREMENT PRIMARY KEY,
+  ID INTEGER NOT NULL,
+  salary INTEGER NOT NULL,
+  salary_date TEXT NOT NULL
+);
+
+
+INSERT INTO `EMPLOYEE`(`name`,`dept_name`,`hire_date`) VALUES('Amirtha','Sales','2001-01-1');
+INSERT INTO `EMPLOYEE`(`name`,`dept_name`,`hire_date`) VALUES('Aiswarya','Accounts','2020-01-10');
+INSERT INTO `EMPLOYEE`(`name`,`dept_name`,`hire_date`) VALUES('Jayasree','Sales','2024-01-20');
+INSERT INTO `EMPLOYEE`(`name`,`dept_name`,`hire_date`) VALUES('Natarajan','Stock Market','2018-01-23');
+INSERT INTO `EMPLOYEE`(`name`,`dept_name`,`hire_date`) VALUES('Dhiya','Stock Market','2018-02-23');
+
+
+INSERT INTO `SALARIES`(`ID`,`salary`,`salary_date`) VALUES (1,10000,'2020-01-21');
+INSERT INTO  `SALARIES`(`ID`,`salary`,`salary_date`) VALUES (2,15000,'2020-01-21');
+INSERT INTO  `SALARIES`(`ID`,`salary`,`salary_date`)  VALUES (3,40000,'2020-01-21');
+INSERT INTO `SALARIES`(`ID`,`salary`,`salary_date`)  VALUES (4,20000,'2020-01-21');
+INSERT INTO `SALARIES`(`ID`,`salary`,`salary_date`)  VALUES (6,40000,'2020-01-21');
+
+ 
+
+-- SELECT EMPLOYEE.name,EMPLOYEE.dept_name,EMPLOYEE.hire_date,SALARIES.salary,SALARIES.salary_date 
+-- FROM EMPLOYEE INNER JOIN SALARIES ON EMPLOYEE.empId=SALARIES.ID;
+
+
+-- SELECT EMPLOYEE.name,EMPLOYEE.dept_name,EMPLOYEE.hire_date,SALARIES.salary,SALARIES.salary_date 
+-- FROM EMPLOYEE LEFT JOIN SALARIES ON EMPLOYEE.empId=SALARIES.ID;
+
+-- SELECT EMPLOYEE.name,EMPLOYEE.dept_name,EMPLOYEE.hire_date,SALARIES.salary,SALARIES.salary_date 
+-- FROM EMPLOYEE RIGHT JOIN SALARIES ON EMPLOYEE.empId=SALARIES.ID;
+
+SELECT COUNT(*) AS No_of_employees FROM EMPLOYEE WHERE dept_name='Sales';
+SELECT COUNT(*),dept_name AS No_of_employees FROM EMPLOYEE GROUP BY dept_name;
+SELECT AVG(salary),ID FROM `SALARIES` GROUP BY ID; 
+SELECT MIN(salary) FROM `SALARIES` LIMIT 1;
+SELECT MAX(salary)FROM `SALARIES` LIMIT 1;
+
+
+
+CREATE TABLE EMPLOYEE (
+  empId INTEGER AUTO_INCREMENT PRIMARY KEY,
+   name TEXT NOT NULL,
+  dept_name TEXT NOT NULL,
+  hire_date TEXT NOT NULL,
+  salary INTEGER NOT NULL
+  
+);
+
+INSERT INTO `EMPLOYEE`(`name`,`dept_name`,`hire_date`,`salary`) VALUES('Amirtha','Sales','2001-01-1',10000);
+INSERT INTO `EMPLOYEE`(`name`,`dept_name`,`hire_date`,`salary`) VALUES('Aiswarya','Accounts','2020-01-10',60000);
+INSERT INTO `EMPLOYEE`(`name`,`dept_name`,`hire_date`,`salary`) VALUES('Jayasree','Sales','2024-01-20',20000);
+INSERT INTO `EMPLOYEE`(`name`,`dept_name`,`hire_date`,`salary`) VALUES('Natarajan','Stock Market','2018-01-23',50000);
+INSERT INTO `EMPLOYEE`(`name`,`dept_name`,`hire_date`,`salary`) VALUES('Dhiya','Stock Market','2018-02-23',30000);
+
+SELECT AVG(salary),name FROM EMPLOYEE GROUP BY name HAVING AVG(salary)<30000;
+SELECT AVG(salary),name FROM EMPLOYEE GROUP BY name HAVING AVG(salary)>30000;
